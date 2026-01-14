@@ -16,9 +16,9 @@ SamiHermes AI - Mobile-first website built with Astro.
 ## Build & Test
 
 ```bash
-npm install      # Install dependencies
-npm run dev      # Start development server
-npm run build    # Build for production
+bun install      # Install dependencies
+bun run dev      # Start development server
+bun run build    # Build for production
 ```
 
 ## File Structure
