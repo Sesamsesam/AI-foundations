@@ -16,20 +16,33 @@ interface TabBarProps {
 export default function TabBar({ tabs, activeTabId, onTabChange }: TabBarProps) {
     return (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-            <nav className="bg-white/80 backdrop-blur-2xl border border-gray-200/50 p-1.5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.1)] flex items-center gap-1 overflow-x-auto max-w-[95vw] no-scrollbar">
+            <nav
+                className="backdrop-blur-2xl p-1.5 rounded-full flex items-center gap-1 overflow-x-auto max-w-[95vw] no-scrollbar"
+                style={{
+                    backgroundColor: 'var(--color-bg-card)',
+                    border: '1px solid var(--color-border)',
+                    boxShadow: '0 16px 40px rgba(0, 0, 0, 0.12)'
+                }}
+            >
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => onTabChange(tab.id)}
-                        className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all relative whitespace-nowrap outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${activeTabId === tab.id ? 'text-white' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100/80'
-                            }`}
+                        className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all relative whitespace-nowrap outline-none focus-visible:ring-2"
+                        style={{
+                            color: activeTabId === tab.id ? 'white' : 'var(--color-text-secondary)',
+                        }}
                     >
                         <span className="relative z-10">{tab.label}</span>
                         {activeTabId === tab.id && (
                             <motion.div
                                 layoutId="activeTabPill"
-                                className="absolute inset-0 bg-blue-600 shadow-[0_4px_12px_rgba(37,99,235,0.3)]"
-                                style={{ borderRadius: 9999 }}
+                                className="absolute inset-0"
+                                style={{
+                                    backgroundColor: 'var(--color-accent)',
+                                    borderRadius: 9999,
+                                    boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
+                                }}
                                 transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                             />
                         )}

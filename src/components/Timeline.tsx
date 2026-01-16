@@ -1,6 +1,5 @@
 
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 
 interface TimelineNode {
     id: string;
@@ -13,19 +12,17 @@ interface TimelineProps {
 
 export default function Timeline({ nodes }: TimelineProps) {
     const [activeId, setActiveId] = useState<string | null>(nodes[0]?.id || null);
-    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                // Find the entry that's most prominent in the viewport
                 const visibleEntry = entries.find(entry => entry.isIntersecting);
                 if (visibleEntry) {
                     setActiveId(visibleEntry.target.id);
                 }
             },
             {
-                rootMargin: '-20% 0px -70% 0px', // Trigger when section hits middle-top
+                rootMargin: '-20% 0px -70% 0px',
                 threshold: 0
             }
         );
@@ -47,30 +44,36 @@ export default function Timeline({ nodes }: TimelineProps) {
     };
 
     return (
-        <div className="hidden lg:block sticky top-32 h-fit ml-4">
+        <div className="sticky top-28 h-fit">
             {/* The Rail */}
-            <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-gray-200">
-                {/* Fill animation could be added here based on scroll progress */}
-            </div>
+            <div
+                className="absolute left-[5px] top-1 bottom-1 w-[2px]"
+                style={{ backgroundColor: 'var(--color-border)' }}
+            />
 
-            <div className="relative space-y-12">
+            <div className="relative space-y-4">
                 {nodes.map((node) => {
                     const isActive = activeId === node.id;
                     return (
                         <button
                             key={node.id}
                             onClick={() => scrollToSection(node.id)}
-                            className="flex items-center gap-6 group text-left outline-none"
+                            className="flex items-start gap-3 group text-left outline-none w-full"
                         >
                             <div
-                                className={`w-4 h-4 rounded-full border-2 transition-all duration-300 relative z-10 ${isActive
-                                        ? 'bg-blue-600 border-blue-600 scale-125 shadow-[0_0_15px_rgba(37,99,235,0.5)]'
-                                        : 'bg-white border-gray-300 group-hover:border-gray-400'
-                                    }`}
+                                className="w-3 h-3 rounded-full border-2 transition-all duration-300 relative z-10 flex-shrink-0 mt-0.5"
+                                style={{
+                                    backgroundColor: isActive ? 'var(--color-accent)' : 'var(--color-bg-card)',
+                                    borderColor: isActive ? 'var(--color-accent)' : 'var(--color-border)',
+                                    transform: isActive ? 'scale(1.3)' : 'scale(1)',
+                                    boxShadow: isActive ? '0 0 8px var(--color-accent)' : 'none'
+                                }}
                             />
                             <span
-                                className={`text-sm font-bold transition-all duration-300 ${isActive ? 'text-gray-900 translate-x-1' : 'text-gray-400 group-hover:text-gray-600'
-                                    }`}
+                                className="text-xs leading-tight font-medium transition-all duration-300"
+                                style={{
+                                    color: isActive ? 'var(--color-text-primary)' : 'var(--color-text-muted)',
+                                }}
                             >
                                 {node.title}
                             </span>

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
 import { content } from '../content';
 import Hero from './Hero';
 import TabBar from './TabBar';
@@ -9,6 +10,7 @@ import Timeline from './Timeline';
 
 export default function SamiApp() {
     const [activeTabId, setActiveTabId] = useState(content[0].id);
+    const [darkMode, setDarkMode] = useState(false);
     const activeTab = content.find(t => t.id === activeTabId) || content[0];
 
     useEffect(() => {
@@ -16,7 +18,22 @@ export default function SamiApp() {
         if (savedTab && content.some(t => t.id === savedTab)) {
             setActiveTabId(savedTab);
         }
+
+        // Check for saved dark mode preference (default to light)
+        const savedDarkMode = localStorage.getItem('sami_dark_mode');
+        if (savedDarkMode === 'true') {
+            setDarkMode(true);
+        }
     }, []);
+
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('sami_dark_mode', String(darkMode));
+    }, [darkMode]);
 
     const handleTabChange = (id: string) => {
         setActiveTabId(id);
@@ -24,14 +41,41 @@ export default function SamiApp() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
+
+    const hasSections = activeTab.sections.length > 0;
+
     return (
-        <div className="min-h-screen flex flex-col relative pb-32">
+        <div className="min-h-screen flex flex-col relative pb-32" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
             {/* Sticky Header */}
-            <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100/50 py-4 px-6 flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/20">S</div>
-                    <h1 className="text-xl font-bold text-gray-900 tracking-tight">SamiHermes <span className="text-blue-600">AI</span></h1>
+            <header
+                className="sticky top-0 z-50 backdrop-blur-md py-3 px-6 flex justify-between items-center"
+                style={{
+                    backgroundColor: darkMode ? 'rgba(10, 10, 10, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+                    borderBottom: `1px solid var(--color-border)`
+                }}
+            >
+                <div className="flex items-center gap-3">
+                    <img
+                        src="/sami_hermes_ai.png"
+                        alt="SamiHermes AI"
+                        className="h-16 w-auto"
+                    />
                 </div>
+
+                <button
+                    onClick={toggleDarkMode}
+                    className="p-2 rounded-lg transition-colors"
+                    style={{
+                        backgroundColor: 'var(--color-bg-secondary)',
+                        color: 'var(--color-text-secondary)'
+                    }}
+                    aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                    {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
             </header>
 
             <AnimatePresence mode="wait">
@@ -43,32 +87,39 @@ export default function SamiApp() {
                     transition={{ duration: 0.3 }}
                     className="flex-1"
                 >
-                    {/* Hero Section */}
+                    {/* Hero Section - Full width */}
                     <Hero
                         title={activeTab.hero.title}
                         subtitle={activeTab.hero.subtitle}
                         videoUrl={activeTab.hero.videoUrl}
                     />
 
-                    {/* Main Content Area with Sidebar Timeline */}
-                    <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 md:py-24">
-                        <div className="flex flex-col lg:flex-row gap-16">
-                            {/* Vertical Timeline Rail - Only show if there are sections */}
-                            {activeTab.sections.length > 0 && (
-                                <div className="lg:w-64 flex-shrink-0">
+                    {/* Grid Layout Container - max-width centered */}
+                    <div className="max-w-6xl mx-auto w-full px-4 py-12 md:py-20">
+                        <div className={`grid gap-8 ${hasSections ? 'lg:grid-cols-[160px_1fr]' : ''}`}>
+                            {/* Timeline Sidebar - Part of grid, sticky */}
+                            {hasSections && (
+                                <div className="hidden lg:block">
                                     <Timeline nodes={activeTab.sections.map(s => ({ id: s.id, title: s.title }))} />
                                 </div>
                             )}
 
-                            {/* Component Sections */}
-                            <div className="flex-1">
-                                {activeTab.sections.length > 0 ? (
+                            {/* Main Content */}
+                            <div className="min-w-0">
+                                {hasSections ? (
                                     activeTab.sections.map((section) => (
                                         <ContentSection key={section.id} section={section} />
                                     ))
                                 ) : (
-                                    <div className="py-20 text-center bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
-                                        <p className="text-gray-400 font-medium">Coming soon: Resources for {activeTab.label}</p>
+                                    <div
+                                        className="py-20 text-center rounded-3xl border-2 border-dashed"
+                                        style={{
+                                            backgroundColor: 'var(--color-bg-secondary)',
+                                            borderColor: 'var(--color-border)',
+                                            color: 'var(--color-text-muted)'
+                                        }}
+                                    >
+                                        <p className="font-medium">Coming soon: Resources for {activeTab.label}</p>
                                     </div>
                                 )}
                             </div>
