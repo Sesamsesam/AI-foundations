@@ -21,7 +21,7 @@ export default function AlertCard({ type, title, content }: AlertCardProps) {
 
     return (
         <div
-            className="p-6 rounded-xl"
+            className="p-6 rounded-xl h-full"
             style={{
                 backgroundColor: 'var(--color-bg-card)',
                 border: '1px solid var(--color-border)',

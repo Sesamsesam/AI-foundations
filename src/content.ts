@@ -37,7 +37,7 @@ export const content: Tab[] = [
                         type: 'actionCarousel',
                         actionItems: [
                             {
-                                title: 'Sign Up for Google Developer - Get $300 Free!',
+                                title: 'Sign Up for Google - Get $300 Free',
                                 description: 'Your gateway to free AI learning and cloud credits.',
                                 details: [
                                     '35 free learning points every month for Google Skills courses',

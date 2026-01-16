@@ -96,10 +96,10 @@ export default function SamiApp() {
 
                     {/* Grid Layout Container - max-width centered */}
                     <div className="max-w-6xl mx-auto w-full px-4 py-12 md:py-20">
-                        <div className={`grid gap-8 ${hasSections ? 'lg:grid-cols-[160px_1fr]' : ''}`}>
-                            {/* Timeline Sidebar - Part of grid, sticky */}
+                        <div className={`grid gap-8 ${hasSections ? 'lg:grid-cols-[120px_1fr_120px]' : ''}`}>
+                            {/* Timeline Sidebar - Left */}
                             {hasSections && (
-                                <div className="hidden lg:block">
+                                <div className="hidden lg:block w-[120px]">
                                     <Timeline nodes={activeTab.sections.map(s => ({ id: s.id, title: s.title }))} />
                                 </div>
                             )}
@@ -123,6 +123,11 @@ export default function SamiApp() {
                                     </div>
                                 )}
                             </div>
+
+                            {/* Balancing Spacer - Right (Only visible on desktop to ensure centering) */}
+                            {hasSections && (
+                                <div className="hidden lg:block w-[120px]" aria-hidden="true" />
+                            )}
                         </div>
                     </div>
                 </motion.div>

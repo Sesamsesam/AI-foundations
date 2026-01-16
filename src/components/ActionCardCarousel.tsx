@@ -96,7 +96,7 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
                     className="overflow-hidden"
                 >
                     <div
-                        className="flex transition-transform duration-300 ease-out"
+                        className="flex items-stretch transition-transform duration-300 ease-out"
                         style={{
                             transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
                             gap: '1rem'

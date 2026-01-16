@@ -70,7 +70,7 @@ export default function Timeline({ nodes }: TimelineProps) {
                                 }}
                             />
                             <span
-                                className="text-xs leading-tight font-medium transition-all duration-300"
+                                className="text-[10px] uppercase tracking-wider leading-tight font-semibold transition-all duration-300"
                                 style={{
                                     color: isActive ? 'var(--color-text-primary)' : 'var(--color-text-muted)',
                                 }}
