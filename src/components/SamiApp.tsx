@@ -61,7 +61,7 @@ export default function SamiApp() {
                     <img
                         src="/sami_hermes_ai.png"
                         alt="SamiHermes AI"
-                        className="h-16 w-auto"
+                        className="h-32 w-auto"
                     />
                 </div>
 
