@@ -64,6 +64,7 @@ export interface Card {
   iconPath?: string;
   faviconPath?: string;
   quickStart?: string;
+  usesCredits?: boolean;
   detailedContent?: string;  // Expandable detailed description with personal voice
   // Video embed
   videoId?: string;

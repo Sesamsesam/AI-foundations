@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import GDollarBadge from './GDollarBadge';
 
 interface ToolCardProps {
     title: string;
@@ -10,9 +11,10 @@ interface ToolCardProps {
     url?: string;
     statImage?: string;
     detailedContent?: string;
+    usesCredits?: boolean;
 }
 
-export default function ToolCard({ title, content, iconPath, faviconPath, quickStart, url, statImage, detailedContent }: ToolCardProps) {
+export default function ToolCard({ title, content, iconPath, faviconPath, quickStart, url, statImage, detailedContent, usesCredits }: ToolCardProps) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Check if expandable content is available
@@ -33,10 +35,11 @@ export default function ToolCard({ title, content, iconPath, faviconPath, quickS
                     )}
                     <div className="flex-1 min-w-0">
                         <h4
-                            className="font-semibold text-lg"
+                            className="font-semibold text-lg flex items-center gap-2"
                             style={{ color: 'var(--color-text-primary)' }}
                         >
                             {title}
+                            {usesCredits && <GDollarBadge />}
                         </h4>
                     </div>
                 </div>

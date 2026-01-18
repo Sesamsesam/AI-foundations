@@ -16,6 +16,10 @@
   --color-accent-subtle: #eff6ff;
   --color-accent-text: #1d4ed8;
 
+  /* Shadows - subtle lift in light mode */
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.16), 0 3px 8px rgba(0, 0, 0, 0.10);
+
   /* Semantic colors */
   --color-success: #10b981;
   --color-warning: #f59e0b;
@@ -42,6 +46,10 @@
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-error: #f87171;
+
+  /* Shadows - subtle white glow in dark mode */
+  --shadow-card: 0 0 14px rgba(255, 255, 255, 0.06), 0 0 5px rgba(255, 255, 255, 0.03);
+  --shadow-card-hover: 0 0 24px rgba(255, 255, 255, 0.10), 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
 /* Base styles */
@@ -79,6 +87,13 @@ body {
   z-index: 1;
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.05s ease-out !important, transform 0.05s ease-out !important;
+}
+
+.surface-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
 }
 
 /* Secondary surface - headers, footers, nested elements */

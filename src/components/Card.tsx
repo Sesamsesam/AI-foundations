@@ -54,6 +54,7 @@ const Card = ({ card, darkMode = false }: CardProps) => {
                     url={card.url}
                     statImage={card.statImage}
                     detailedContent={card.detailedContent}
+                    usesCredits={card.usesCredits}
                 />
             );
 

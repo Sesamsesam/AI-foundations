@@ -55,12 +55,13 @@ export default function SamiApp() {
 
             {/* Sticky Header */}
             <header
-                className="sticky top-0 z-50 py-3 px-6 flex justify-between items-center"
+                className="sticky top-0 z-50 py-3 px-6 grid grid-cols-3 items-center"
                 style={{
                     backgroundColor: 'var(--color-bg-primary)',
                     borderBottom: `1px solid var(--color-border)`
                 }}
             >
+                {/* Logo - Left */}
                 <div className="flex items-center gap-3">
                     <img
                         src={darkMode ? "/Logos/Logo_text_light.svg" : "/Logos/Logo_text_dark.svg"}
@@ -69,17 +70,23 @@ export default function SamiApp() {
                     />
                 </div>
 
-                <button
-                    onClick={toggleDarkMode}
-                    className="p-2 rounded-lg transition-colors"
-                    style={{
-                        backgroundColor: 'var(--color-bg-secondary)',
-                        color: 'var(--color-text-secondary)'
-                    }}
-                    aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                >
-                    {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                </button>
+                {/* Dark Mode Toggle - Center */}
+                <div className="flex justify-center">
+                    <button
+                        onClick={toggleDarkMode}
+                        className="p-2 rounded-lg transition-colors"
+                        style={{
+                            backgroundColor: 'var(--color-bg-secondary)',
+                            color: 'var(--color-text-secondary)'
+                        }}
+                        aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                    >
+                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                    </button>
+                </div>
+
+                {/* Spacer - Right (for balance) */}
+                <div aria-hidden="true" />
             </header>
 
             <AnimatePresence mode="wait">

@@ -836,10 +836,11 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                     {
                         id: 'veo3',
                         type: 'toolCard',
-                        title: 'Veo 3 ($300)',
+                        title: 'Veo 3',
                         content: 'Google\'s text-to-video AI. I\'ve created some cinematic clips with it, describe a scene in words, get footage with matching audio.',
                         url: 'https://cloud.google.com/vertex-ai/generative-ai/docs/video/overview',
                         faviconPath: '/favicons/google-cloud.png',
+                        usesCredits: true,
                         iconPath: '/icons/video.svg',
                         detailedContent: `Veo 3 is Google's flagship text-to-video model. It's not just about generating random video, it creates genuinely cinematic footage with synchronized audio.
 
@@ -904,6 +905,7 @@ The AI video space is evolving so fast that no single tool is "best" for everyth
                         content: 'I use this constantly for quick video and image customizations. Spectacular for pinpointing and changing specific elements.',
                         url: 'https://gemini.google/overview/image-generation/',
                         faviconPath: '/favicons/gemini.png',
+                        usesCredits: true,
                         iconPath: '/icons/startup.svg',
                         detailedContent: `Nano Banana is fantastic for quick customizations. When I need to make precise changes to images or add specific camera movements, this is my go-to.
 
@@ -960,7 +962,7 @@ If you're on Mac and not using voice-to-text, you're working harder than you nee
                         type: 'toolCard',
                         title: 'NotebookLM',
                         content: 'I use it to create slides, generate audio for my HeyGen avatars, and research complex topics. Google\'s audio quality is spectacular.',
-                        url: 'https://notebooklm.google.com',
+                        url: 'https://notebooklm.google/',
                         faviconPath: '/favicons/notebooklm.png',
                         iconPath: '/icons/book.svg',
                         detailedContent: `NotebookLM has become central to my content workflow. It's not just a research tool, it's a production tool.
@@ -1087,10 +1089,11 @@ Grok is an LLM like ChatGPT, it can do most of the same things. But the 24/7 acc
                     {
                         id: 'ai-studio',
                         type: 'toolCard',
-                        title: 'Google AI Studio ($300)',
+                        title: 'Google AI Studio',
                         content: 'I don\'t use it that much since I spend most time in IDEs, but it\'s great for prototyping. Fast way to test prompts and take designs to functionality.',
                         url: 'https://aistudio.google.com',
                         faviconPath: '/favicons/aistudio.png',
+                        usesCredits: true,
                         iconPath: '/icons/lightning.svg',
                         detailedContent: `I don't use AI Studio that much since I mainly work in coding IDEs. But when I do use it, it's valuable.
 
@@ -1113,10 +1116,11 @@ It uses your $300 Google Cloud credits, so it's essentially free to experiment.`
                     {
                         id: 'stitch',
                         type: 'toolCard',
-                        title: 'Google Stitch ($300)',
+                        title: 'Google Stitch',
                         content: 'Great for getting quick design concepts. I haven\'t used it for final designs yet, but it\'s very good for rapid mockups and exploring ideas.',
                         url: 'https://stitch.withgoogle.com/',
                         faviconPath: '/favicons/stitch.png',
+                        usesCredits: true,
                         iconPath: '/icons/diamond.svg',
                         detailedContent: `Google Stitch is great for getting quick concepts for design. If you're sitting with an idea, you can quickly go in and create mockups.
 
@@ -1348,10 +1352,11 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
                     {
                         id: 'vertex',
                         type: 'toolCard',
-                        title: 'Vertex AI ($300)',
+                        title: 'Vertex AI',
                         content: 'I\'m upskilling myself here. Learning to work with enterprise data, RAG, and ML operations. Critical for large-scale work.',
                         url: 'https://cloud.google.com/vertex-ai',
                         faviconPath: '/favicons/google-cloud.png',
+                        usesCredits: true,
                         iconPath: '/icons/cloud-network.svg',
                         detailedContent: `I'm using Vertex AI for upskilling myself to work with enterprise data at scale.
 
@@ -1395,10 +1400,11 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
                     {
                         id: 'google-cloud-run',
                         type: 'toolCard',
-                        title: 'Google Cloud Run ($300)',
+                        title: 'Google Cloud Run',
                         content: 'I\'m focusing here now, learning the Google Cloud ecosystem. You can connect MCP with Antigravity to configure it for you.',
                         url: 'https://cloud.google.com/run',
                         faviconPath: '/favicons/google-cloud.png',
+                        usesCredits: true,
                         iconPath: '/icons/cloud-network.svg',
                         detailedContent: `I'm starting to focus on learning Google Cloud Run. It's serverless containers done right.
 
