@@ -55,44 +55,46 @@ export const content: Tab[] = [
                         fullWidth: true,
                     },
                     {
+                        id: 'g300-explainer',
+                        type: 'toolCard',
+                        title: 'How to Get G$300 Free from Google',
+                        content: 'The $300 credit is for anyone who creates a new billing account on Google Cloud. You do not need to be a "professional developer" or pay for a membership. Click to learn exactly how to activate it.',
+                        faviconPath: '/favicons/google-cloud.png',
+                        url: 'https://cloud.google.com/?hl=en',
+                        fullWidth: true,
+                        detailedContent: `**The "Google Cloud" Rule (Where the money is)**
+
+The Offer: Google gives $300 in free credit to any new customer who sets up a Cloud Billing Account.
+
+The Requirement: You must provide a credit card to verify you are a human (identity verification), even though they won't charge you until the $300 runs out.
+
+Is it "Developer Only"? No. Anyone can sign up. You could be a student, a hobbyist, or a baker. To Google, you are a "new cloud customer."
+
+**The "AI Studio" Rule (Where the interface is)**
+
+The Default: When you sign up for Google AI Studio, you get the Free Tier. You don't need a credit card, and you don't get $300. You just get free (limited) access.
+
+**How to get the $300 applied to AI Studio:**
+
+1. Sign up for Google Cloud Free Trial first to get your $300 wallet
+2. Go to AI Studio
+3. Click Settings → Billing and link your project to that Cloud account
+4. Now your API usage will drain from that $300 credit instead of being capped by the free tier limits`,
+                    },
+                    {
                         id: 'quick-wins-carousel',
                         type: 'actionCarousel',
                         actionItems: [
                             {
-                                title: 'Sign Up for Google - Get $300 Free',
-                                description: 'Your gateway to free AI learning and cloud credits.',
+                                title: 'Get 35 Free Credits',
+                                description: 'Join Google Innovators to get 35 free learning credits every month for Google Cloud Skills. (Google Cloud Skills explained in Free Courses tab)',
                                 details: [
-                                    '35 free learning points every month for Google Skills courses',
-                                    '$300 in Google Cloud credits valid for 90 days',
+                                    '35 free learning credits every month for Google Cloud Skills Boost',
                                     'Access to Google Labs for experimental AI features',
                                     'Free skill badges to add to your LinkedIn profile',
                                 ],
                                 url: 'https://developers.google.com/',
-                                buttonText: 'Sign Up Free',
-                            },
-                            {
-                                title: 'Try Google AI Studio',
-                                description: 'The fastest path from prompt to production with Gemini.',
-                                details: [
-                                    'Experiment with Gemini models instantly - no setup required',
-                                    'Generate and test API keys for your projects',
-                                    'Save and share your best prompts',
-                                    'Export code directly to your applications',
-                                ],
-                                url: 'https://aistudio.google.com/',
-                                buttonText: 'Launch AI Studio',
-                            },
-                            {
-                                title: 'Explore NotebookLM',
-                                description: 'Upload any document and have AI explain it to you.',
-                                details: [
-                                    'Upload PDFs, docs, or paste text for AI analysis',
-                                    'Ask questions and get cited answers from your sources',
-                                    'Generate summaries, outlines, and study guides',
-                                    'Create AI-generated podcast discussions of your content',
-                                ],
-                                url: 'https://notebooklm.google.com/',
-                                buttonText: 'Try NotebookLM',
+                                buttonText: 'Join Free',
                             },
                             {
                                 title: 'Download Superwhisper',
@@ -107,7 +109,19 @@ export const content: Tab[] = [
                                 buttonText: 'Download for Mac',
                             },
                             {
-                                title: 'Take a 45-Minute Free Course',
+                                title: 'Explore NotebookLM',
+                                description: 'Upload any document and have AI explain it to you.',
+                                details: [
+                                    'Upload PDFs, docs, or paste text for AI analysis',
+                                    'Ask questions and get cited answers from your sources',
+                                    'Generate summaries, outlines, and study guides',
+                                    'Create AI-generated podcast discussions of your content',
+                                ],
+                                url: 'https://notebooklm.google/',
+                                buttonText: 'Try NotebookLM',
+                            },
+                            {
+                                title: 'Take a 30-Minute Free Course',
                                 description: 'Complete your first AI certification in under an hour.',
                                 details: [
                                     'Introduction to Generative AI - official Google course',
@@ -117,6 +131,18 @@ export const content: Tab[] = [
                                 ],
                                 url: 'https://www.cloudskillsboost.google/course_templates/536',
                                 buttonText: 'Start Learning',
+                            },
+                            {
+                                title: 'Try Google AI Studio',
+                                description: 'The fastest path from prompt to production with Gemini.',
+                                details: [
+                                    'Experiment with Gemini models instantly - no setup required',
+                                    'Generate and test API keys for your projects',
+                                    'Save and share your best prompts',
+                                    'Export code directly to your applications',
+                                ],
+                                url: 'https://aistudio.google.com/',
+                                buttonText: 'Launch AI Studio',
                             },
                         ],
                     },
@@ -245,7 +271,7 @@ export const content: Tab[] = [
                         type: 'checklist',
                         title: 'What You Can Do With Credits',
                         checklistLinks: [
-                            { label: 'Get a Gemini API key to use anywhere', url: 'https://aistudio.google.com/apikey' },
+                            { label: 'Get a Gemini API key to use anywhere', url: 'https://aistudio.google.com/welcome' },
                             { label: 'Experiment with Vertex AI for ML projects', url: 'https://cloud.google.com/vertex-ai' },
                             { label: 'Generate videos with Veo 3', url: 'https://cloud.google.com/vertex-ai/generative-ai/docs/video/overview' },
                             { label: 'Design UIs with Google Stitch', url: 'https://stitch.withgoogle.com/' },
@@ -257,7 +283,7 @@ export const content: Tab[] = [
                         type: 'linksGrid',
                         title: 'Get Started',
                         links: [
-                            { label: 'Google Cloud Console', url: 'https://console.cloud.google.com/', description: 'Sign up and claim your G$300 credits' },
+                            { label: 'Google Cloud Console', url: 'https://cloud.google.com/?hl=en', description: 'Sign up and claim your G$300 credits' },
                         ],
                     },
                 ],
@@ -392,7 +418,7 @@ The result: What used to require a production team, actors, equipment, and weeks
                                     'Export structured action items to Sheets',
                                 ],
                                 result: '⚡️ 4 hours to 10 minutes',
-                                primaryUrl: 'https://notebooklm.google.com/',
+                                primaryUrl: 'https://notebooklm.google/',
                                 businessContext: `You've just wrapped up a major product sprint, customer research initiative, or team retrospective. The result: 50 pages of feedback spread across Google Docs, Slack threads, survey responses, and meeting notes. Your job is to make sense of it all and turn it into actionable next steps.
 
 Traditionally, this is a painful, error-prone process. You'd spend 4+ hours reading through everything, copying and pasting key points into a summary document, trying to spot patterns, and probably missing important insights because you're mentally exhausted by page 30. Then you'd need to write up the findings, distribute them, and hope people actually read your 5-page summary.
@@ -691,31 +717,10 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                 ],
             },
             {
-                id: 'financial-aid',
-                title: 'Need Financial Aid?',
-                sidebarTitle: 'Financial Aid',
-                intro: 'Coursera offers financial aid for most courses if you cannot afford the subscription.',
-                cards: [
-                    {
-                        id: 'aid-video',
-                        type: 'videoEmbed',
-                        title: 'How to Apply for Financial Aid',
-                        videoId: 'https://www.youtube.com/watch?v=11MwVZcyG6c',
-                    },
-                    {
-                        id: 'aid-tip',
-                        type: 'alert',
-                        alertType: 'tip',
-                        title: 'Application Tips',
-                        content: 'Financial aid applications take up to 14 days for approval. Be honest about your financial situation. Most applications are approved! You apply for each specific course, not the entire platform.',
-                    },
-                ],
-            },
-            {
                 id: 'recommended-courses',
                 title: 'Recommended Learning Path',
                 sidebarTitle: 'Learning Path',
-                intro: 'All courses below are included with Coursera Plus (50% off until Jan 26 - just $100/year). If you are dedicated, you could complete all 6 courses in 1-2 months and have certificates to add to your resume.',
+                intro: 'All courses below are included with Coursera Plus (50% off until February 2nd - just $100/year). If you are dedicated, you could complete all 6 courses in 1-2 months and have certificates to add to your resume.',
                 cards: [
                     {
                         id: 'coursera-link',
@@ -778,7 +783,28 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         price: 'Included',
                         level: 'intermediate',
                         content: 'Understand the future of AI integration with MCP - how AI connects to tools.',
-                        url: 'https://www.coursera.org/learn/introduction-to-model-context-protocol-mcp',
+                        url: 'https://www.coursera.org/learn/introduction-to-model-context-protocol',
+                    },
+                ],
+            },
+            {
+                id: 'financial-aid',
+                title: 'Need Financial Aid?',
+                sidebarTitle: 'Financial Aid',
+                intro: 'Coursera offers financial aid for most courses if you cannot afford the subscription.',
+                cards: [
+                    {
+                        id: 'aid-video',
+                        type: 'videoEmbed',
+                        title: 'How to Apply for Financial Aid',
+                        videoId: 'https://www.youtube.com/watch?v=11MwVZcyG6c',
+                    },
+                    {
+                        id: 'aid-tip',
+                        type: 'alert',
+                        alertType: 'tip',
+                        title: 'Application Tips',
+                        content: 'Financial aid applications take up to 14 days for approval. Be honest about your financial situation. Most applications are approved! You apply for each specific course, not the entire platform.',
                     },
                 ],
             },
@@ -823,7 +849,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         type: 'alert',
                         alertType: 'tip',
                         title: 'Use Your $300 Google Cloud Credits!',
-                        content: 'Tools marked with a $ badge below can be accessed using your free $300 Google Cloud credits. Sign up at console.cloud.google.com to claim yours.',
+                        content: 'Tools marked with a G$ badge below can be accessed using your free $300 Google Cloud credits. Sign up at cloud.google.com to claim yours.',
                         fullWidth: true,
                     },
                 ],

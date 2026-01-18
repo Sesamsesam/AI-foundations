@@ -1,13 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
 import { content } from '../content';
 import Hero from './Hero';
 import TabBar from './TabBar';
 import ContentSection from './ContentSection';
 import Timeline from './Timeline';
 import AnimatedGrid from './AnimatedGrid';
+import ThemeToggle from './ThemeToggle';
 
 export default function SamiApp() {
     const [activeTabId, setActiveTabId] = useState(content[0].id);
@@ -53,12 +53,14 @@ export default function SamiApp() {
             {/* Animated Grid Background */}
             <AnimatedGrid darkMode={darkMode} />
 
-            {/* Sticky Header */}
+            {/* Sticky Header - Glassmorphic */}
             <header
                 className="sticky top-0 z-50 py-3 px-6 grid grid-cols-3 items-center"
                 style={{
-                    backgroundColor: 'var(--color-bg-primary)',
-                    borderBottom: `1px solid var(--color-border)`
+                    backgroundColor: darkMode ? 'rgba(10, 10, 10, 0.1)' : 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    borderBottom: `1px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`
                 }}
             >
                 {/* Logo - Left */}
@@ -72,17 +74,7 @@ export default function SamiApp() {
 
                 {/* Dark Mode Toggle - Center */}
                 <div className="flex justify-center">
-                    <button
-                        onClick={toggleDarkMode}
-                        className="p-2 rounded-lg transition-colors"
-                        style={{
-                            backgroundColor: 'var(--color-bg-secondary)',
-                            color: 'var(--color-text-secondary)'
-                        }}
-                        aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                    >
-                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                    </button>
+                    <ThemeToggle darkMode={darkMode} onToggle={toggleDarkMode} />
                 </div>
 
                 {/* Spacer - Right (for balance) */}

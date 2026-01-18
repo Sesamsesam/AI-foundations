@@ -16,7 +16,11 @@ export default function ActionCard({ number, title, description, details, url, b
     return (
         <div
             className="surface-card rounded-xl overflow-hidden transition-all h-full flex flex-col"
-            style={{ minHeight: '160px' }}
+            style={{
+                minHeight: '160px',
+                zIndex: isExpanded ? 10 : 1,
+                position: 'relative'
+            }}
         >
             {/* Header - Always visible */}
             <button
@@ -59,11 +63,11 @@ export default function ActionCard({ number, title, description, details, url, b
             {/* Expanded content */}
             {isExpanded && (
                 <div
-                    className="px-5 pb-5 pt-2"
+                    className="px-5 pb-5 pt-2 flex-1 flex flex-col"
                     style={{ borderTop: '1px solid var(--color-border-subtle)' }}
                 >
                     {/* Details list */}
-                    <ul className="space-y-2 mb-4">
+                    <ul className="space-y-2 mb-4 flex-1">
                         {details.map((detail, i) => (
                             <li
                                 key={i}
@@ -81,7 +85,7 @@ export default function ActionCard({ number, title, description, details, url, b
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors mt-auto"
                         style={{
                             backgroundColor: 'var(--color-accent)',
                             color: 'white'

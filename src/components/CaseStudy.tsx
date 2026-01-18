@@ -10,7 +10,7 @@ const TOOL_URLS: Record<string, string> = {
     'Google Stitch': 'https://stitch.withgoogle.com/',
     'HeyGen': 'https://www.heygen.com/',
     'Veo 3': 'https://cloud.google.com/vertex-ai/generative-ai/docs/video/overview',
-    'NotebookLM': 'https://notebooklm.google.com/',
+    'NotebookLM': 'https://notebooklm.google/',
     'BigQuery': 'https://cloud.google.com/bigquery',
     'Sheets': 'https://docs.google.com/spreadsheets/',
     'Vertex AI': 'https://cloud.google.com/vertex-ai',

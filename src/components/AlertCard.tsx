@@ -39,8 +39,14 @@ export default function AlertCard({ type, title, content }: AlertCardProps) {
                         className="leading-relaxed"
                         style={{ color: 'var(--color-text-secondary)' }}
                     >
-                        {/* Replace em-dashes with regular dashes */}
-                        {content.replace(/—/g, ' - ')}
+                        {/* Replace em-dashes with regular dashes and render G$ in blue */}
+                        {content.replace(/—/g, ' - ').split(/(G\$)/g).map((part, i) =>
+                            part === 'G$' ? (
+                                <span key={i} style={{ color: 'var(--color-accent)', fontWeight: 600 }}>G$</span>
+                            ) : (
+                                part
+                            )
+                        )}
                     </p>
                 </div>
             </div>

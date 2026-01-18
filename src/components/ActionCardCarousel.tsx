@@ -39,11 +39,11 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
     const maxIndex = Math.max(0, items.length - cardsPerView);
 
     const goToPrev = () => {
-        setCurrentIndex((prev) => Math.max(0, prev - 1));
+        setCurrentIndex((prev) => Math.max(0, prev - cardsPerView));
     };
 
     const goToNext = () => {
-        setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+        setCurrentIndex((prev) => Math.min(maxIndex, prev + cardsPerView));
     };
 
     return (
@@ -59,39 +59,20 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
 
             {/* Carousel container */}
             <div className="relative">
-                {/* Navigation arrows */}
-                {currentIndex > 0 && (
-                    <button
-                        onClick={goToPrev}
-                        className="surface-button absolute -left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-colors"
-                        style={{ color: 'var(--color-text-secondary)' }}
-                        aria-label="Previous"
-                    >
-                        <ChevronLeft size={20} />
-                    </button>
-                )}
-
-                {currentIndex < maxIndex && (
-                    <button
-                        onClick={goToNext}
-                        className="surface-button absolute -right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-colors"
-                        style={{ color: 'var(--color-text-secondary)' }}
-                        aria-label="Next"
-                    >
-                        <ChevronRight size={20} />
-                    </button>
-                )}
-
-                {/* Cards container */}
+                {/* Cards container - padding prevents shadow/corner clipping */}
                 <div
                     ref={containerRef}
-                    className="overflow-hidden"
+                    className="overflow-hidden py-2 px-1 -mx-1"
                 >
                     <div
-                        className="flex items-stretch transition-transform duration-300 ease-out"
+                        className="flex items-stretch"
                         style={{
-                            transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
-                            gap: '1rem'
+                            // Calculate translateX accounting for card width + gap
+                            // Each card is (100/cardsPerView)% wide, gap is 1rem
+                            // For page transitions, multiply by the page number (index/cardsPerView)
+                            transform: `translateX(calc(-${currentIndex} * (${100 / cardsPerView}% + ${1 / cardsPerView}rem)))`,
+                            gap: '1rem',
+                            transition: 'transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)'
                         }}
                     >
                         {items.map((item, index) => (
@@ -116,7 +97,7 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
 
             {/* Dot indicators */}
             {items.length > cardsPerView && (
-                <div className="flex justify-center gap-2 pt-2">
+                <div className="flex justify-center gap-2 pt-4">
                     {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                         <button
                             key={index}
@@ -130,6 +111,30 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
                             aria-label={`Go to slide ${index + 1}`}
                         />
                     ))}
+                </div>
+            )}
+
+            {/* Navigation arrows - below dots */}
+            {items.length > cardsPerView && (
+                <div className="flex justify-center gap-4 pt-2">
+                    <button
+                        onClick={goToPrev}
+                        disabled={currentIndex === 0}
+                        className="surface-button p-2 rounded-full shadow-lg transition-colors disabled:opacity-30"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                        aria-label="Previous"
+                    >
+                        <ChevronLeft size={20} />
+                    </button>
+                    <button
+                        onClick={goToNext}
+                        disabled={currentIndex >= maxIndex}
+                        className="surface-button p-2 rounded-full shadow-lg transition-colors disabled:opacity-30"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                        aria-label="Next"
+                    >
+                        <ChevronRight size={20} />
+                    </button>
                 </div>
             )}
         </div>
