@@ -31,13 +31,7 @@ export default function CourseCard({
     };
 
     return (
-        <div
-            className="rounded-xl overflow-hidden flex flex-col h-full"
-            style={{
-                backgroundColor: 'var(--color-bg-card)',
-                border: '1px solid var(--color-border)',
-            }}
-        >
+        <div className="surface-card rounded-xl overflow-hidden flex flex-col h-full">
             {/* Thumbnail */}
             {thumbnailUrl && (
                 <div

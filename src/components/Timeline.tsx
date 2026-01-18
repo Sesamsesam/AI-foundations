@@ -44,7 +44,7 @@ export default function Timeline({ nodes }: TimelineProps) {
     };
 
     return (
-        <div className="sticky top-28 h-fit">
+        <div className="sticky h-fit" style={{ top: '50%', transform: 'translateY(-50%)' }}>
             {/* The Rail */}
             <div
                 className="absolute left-[5px] top-1 bottom-1 w-[2px]"

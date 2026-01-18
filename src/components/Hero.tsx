@@ -10,10 +10,7 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, videoUrl }: HeroProps) {
     return (
-        <section
-            className="py-12 md:py-20 flex flex-col items-center text-center"
-            style={{ backgroundColor: 'var(--color-bg-primary)' }}
-        >
+        <section className="py-12 md:py-20 flex flex-col items-center text-center relative">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -49,12 +46,14 @@ export default function Hero({ title, subtitle, videoUrl }: HeroProps) {
                     }}
                 >
                     {videoUrl ? (
-                        <iframe
-                            src={videoUrl}
-                            className="absolute inset-0 w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
+                        <div className="absolute inset-0 video-container bg-black">
+                            <iframe
+                                src={videoUrl}
+                                className="absolute inset-0 w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
                     ) : (
                         <div
                             className="absolute inset-0 flex items-center justify-center"

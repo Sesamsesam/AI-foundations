@@ -21,13 +21,13 @@ export default function VideoEmbed({ videoId, title }: VideoEmbedProps) {
     const id = extractVideoId(videoId);
 
     return (
-        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+        <div className="surface-card rounded-2xl overflow-hidden shadow-sm">
             {title && (
-                <div className="px-6 py-4 border-b border-gray-100">
-                    <h4 className="font-bold text-gray-900">{title}</h4>
+                <div className="px-6 py-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
+                    <h4 className="font-bold" style={{ color: 'var(--color-text-primary)' }}>{title}</h4>
                 </div>
             )}
-            <div className="aspect-video">
+            <div className="aspect-video video-container bg-black">
                 <iframe
                     src={`https://www.youtube.com/embed/${id}`}
                     className="w-full h-full"

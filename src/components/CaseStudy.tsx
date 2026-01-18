@@ -1,6 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, CheckCircle2, ArrowRight, DollarSign } from 'lucide-react';
+import { Clock, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
+import GDollarBadge from './GDollarBadge';
+
+// Tool URL mapping for clickable tags
+const TOOL_URLS: Record<string, string> = {
+    'Gemini': 'https://gemini.google.com/',
+    'Gemini API': 'https://aistudio.google.com/',
+    'Google Stitch': 'https://stitch.withgoogle.com/',
+    'HeyGen': 'https://www.heygen.com/',
+    'Veo 3': 'https://cloud.google.com/vertex-ai/generative-ai/docs/video/overview',
+    'NotebookLM': 'https://notebooklm.google.com/',
+    'BigQuery': 'https://cloud.google.com/bigquery',
+    'Sheets': 'https://docs.google.com/spreadsheets/',
+    'Vertex AI': 'https://cloud.google.com/vertex-ai',
+    'Vertex AI Agent Builder': 'https://cloud.google.com/products/agent-builder',
+    'Gamma.app': 'https://gamma.app/',
+};
 
 interface CaseStudyStep {
     time: string;
@@ -18,33 +34,56 @@ interface CaseStudyProps {
         traditional: string;
         withAI: string;
     };
+    darkMode?: boolean;
 }
 
-export default function CaseStudy({ title, context, steps, outcome }: CaseStudyProps) {
+export default function CaseStudy({ title, context, steps, outcome, darkMode = false }: CaseStudyProps) {
     return (
         <div
-            className="rounded-2xl overflow-hidden"
-            style={{
-                backgroundColor: 'var(--color-bg-card)',
-                border: '1px solid var(--color-border)',
-            }}
+            className="surface-elevated rounded-2xl overflow-hidden"
+            style={{ boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08)' }}
         >
-            {/* Header */}
+            {/* Header - Light gray in light mode, matches card bg in dark mode */}
             <div
                 className="p-6"
                 style={{
-                    background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-hover))',
+                    backgroundColor: darkMode ? 'var(--color-bg-card)' : '#f8fafc',
+                    borderBottom: '1px solid var(--color-border)',
                 }}
             >
-                <span className="text-white/80 text-sm font-medium uppercase tracking-wide">
+                <span
+                    className="text-sm font-medium uppercase tracking-wide"
+                    style={{ color: darkMode ? 'rgba(255,255,255,0.8)' : 'var(--color-text-muted)' }}
+                >
                     Case Study
                 </span>
-                <h3 className="text-2xl font-bold text-white mt-2">
+                <h3
+                    className="text-2xl font-bold mt-2"
+                    style={{ color: darkMode ? 'white' : 'var(--color-text-primary)' }}
+                >
                     {title}
                 </h3>
-                <p className="text-white/90 mt-2">
+                <p
+                    className="mt-2"
+                    style={{ color: darkMode ? 'rgba(255,255,255,0.9)' : 'var(--color-text-secondary)' }}
+                >
                     {context}
                 </p>
+            </div>
+
+            {/* Banner Image - Light or dark version based on mode */}
+            <div
+                className="w-full"
+                style={{
+                    borderBottom: '1px solid var(--color-border)',
+                }}
+            >
+                <img
+                    src={darkMode ? '/images/case_study_banner_dark.png' : '/images/case_study_banner_light.png'}
+                    alt="AI-powered journey from 8:00 AM to 2:00 PM"
+                    className="w-full h-auto object-cover"
+                    style={{ maxHeight: '240px', objectFit: 'cover' }}
+                />
             </div>
 
             {/* Timeline */}
@@ -71,8 +110,8 @@ export default function CaseStudy({ title, context, steps, outcome }: CaseStudyP
                                 <div
                                     className="absolute left-0 w-6 h-6 rounded-full flex items-center justify-center"
                                     style={{
-                                        backgroundColor: 'var(--color-accent)',
-                                        color: 'white',
+                                        backgroundColor: 'var(--color-bg-secondary)',
+                                        color: darkMode ? 'white' : '#3B82F6',
                                     }}
                                 >
                                     <Clock size={12} />
@@ -80,10 +119,11 @@ export default function CaseStudy({ title, context, steps, outcome }: CaseStudyP
 
                                 {/* Content */}
                                 <div
-                                    className="p-4 rounded-xl"
+                                    className="p-4 rounded-xl transition-shadow duration-300 hover:shadow-md"
                                     style={{
                                         backgroundColor: 'var(--color-bg-secondary)',
                                         border: '1px solid var(--color-border-subtle)',
+                                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
                                     }}
                                 >
                                     <div className="flex items-center gap-2 mb-2">
@@ -108,22 +148,35 @@ export default function CaseStudy({ title, context, steps, outcome }: CaseStudyP
                                         {step.description}
                                     </p>
                                     <div className="flex flex-wrap gap-2">
-                                        {step.tools.map((tool, j) => (
-                                            <span
-                                                key={j}
-                                                className="text-xs px-2 py-1 rounded flex items-center gap-1"
-                                                style={{
-                                                    backgroundColor: 'var(--color-bg-card)',
-                                                    border: '1px solid var(--color-border)',
-                                                    color: 'var(--color-text-secondary)',
-                                                }}
-                                            >
-                                                {tool.name}
-                                                {tool.usesCredits && (
-                                                    <DollarSign size={10} style={{ color: 'var(--color-success)' }} />
-                                                )}
-                                            </span>
-                                        ))}
+                                        {step.tools.map((tool, j) => {
+                                            const toolUrl = TOOL_URLS[tool.name];
+                                            const TagComponent = toolUrl ? 'a' : 'span';
+                                            const linkProps = toolUrl ? {
+                                                href: toolUrl,
+                                                target: '_blank',
+                                                rel: 'noopener noreferrer',
+                                            } : {};
+
+                                            return (
+                                                <TagComponent
+                                                    key={j}
+                                                    {...linkProps}
+                                                    className={`text-xs px-2 py-1 rounded flex items-center gap-1 ${toolUrl ? 'hover:opacity-80 cursor-pointer' : ''}`}
+                                                    style={{
+                                                        backgroundColor: 'var(--color-bg-card)',
+                                                        border: '1px solid var(--color-border)',
+                                                        color: 'var(--color-text-secondary)',
+                                                        textDecoration: 'none',
+                                                    }}
+                                                >
+                                                    {tool.name}
+                                                    {tool.usesCredits && <GDollarBadge />}
+                                                    {toolUrl && (
+                                                        <ExternalLink size={10} style={{ opacity: 0.6 }} />
+                                                    )}
+                                                </TagComponent>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </motion.div>
@@ -134,15 +187,15 @@ export default function CaseStudy({ title, context, steps, outcome }: CaseStudyP
                             <div
                                 className="absolute left-0 w-6 h-6 rounded-full flex items-center justify-center"
                                 style={{
-                                    backgroundColor: 'var(--color-success)',
-                                    color: 'white',
+                                    backgroundColor: 'var(--color-bg-secondary)',
+                                    color: darkMode ? 'white' : '#3B82F6',
                                 }}
                             >
                                 <CheckCircle2 size={14} />
                             </div>
                             <span
                                 className="font-semibold"
-                                style={{ color: 'var(--color-success)' }}
+                                style={{ color: 'var(--color-text-primary)' }}
                             >
                                 Complete!
                             </span>
@@ -172,31 +225,35 @@ export default function CaseStudy({ title, context, steps, outcome }: CaseStudyP
                     {outcome.summary}
                 </p>
                 <div className="grid grid-cols-2 gap-4">
+                    {/* Traditional Box - Static styling */}
                     <div
                         className="p-4 rounded-xl text-center"
                         style={{
-                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                            border: '1px solid rgba(239, 68, 68, 0.3)',
+                            backgroundColor: 'var(--color-bg-card)',
+                            border: '2px solid #ef4444',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
                         }}
                     >
                         <span className="text-xs font-medium uppercase tracking-wide text-red-500">
                             Traditional
                         </span>
-                        <p className="text-lg font-bold text-red-600 mt-1">
+                        <p className="text-lg font-bold mt-1" style={{ color: 'var(--color-text-primary)' }}>
                             {outcome.traditional}
                         </p>
                     </div>
+                    {/* With AI Box - Static styling */}
                     <div
                         className="p-4 rounded-xl text-center"
                         style={{
-                            backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                            border: '1px solid var(--color-success)',
+                            backgroundColor: 'var(--color-bg-card)',
+                            border: '2px solid #22c55e',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
                         }}
                     >
-                        <span className="text-xs font-medium uppercase tracking-wide" style={{ color: 'var(--color-success)' }}>
+                        <span className="text-xs font-medium uppercase tracking-wide" style={{ color: '#22c55e' }}>
                             With AI
                         </span>
-                        <p className="text-lg font-bold mt-1" style={{ color: 'var(--color-success)' }}>
+                        <p className="text-lg font-bold mt-1" style={{ color: 'var(--color-text-primary)' }}>
                             {outcome.withAI}
                         </p>
                     </div>

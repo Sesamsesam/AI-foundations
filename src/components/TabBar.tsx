@@ -17,12 +17,8 @@ export default function TabBar({ tabs, activeTabId, onTabChange }: TabBarProps) 
     return (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
             <nav
-                className="backdrop-blur-2xl p-1.5 rounded-full flex items-center gap-1 overflow-x-auto max-w-[95vw] no-scrollbar"
-                style={{
-                    backgroundColor: 'var(--color-bg-card)',
-                    border: '1px solid var(--color-border)',
-                    boxShadow: '0 16px 40px rgba(0, 0, 0, 0.12)'
-                }}
+                className="surface-elevated backdrop-blur-2xl p-1.5 rounded-full flex items-center gap-1 overflow-x-auto max-w-[95vw] no-scrollbar"
+                style={{ boxShadow: '0 16px 40px rgba(0, 0, 0, 0.12)' }}
             >
                 {tabs.map((tab) => (
                     <button

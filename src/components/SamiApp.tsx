@@ -7,10 +7,11 @@ import Hero from './Hero';
 import TabBar from './TabBar';
 import ContentSection from './ContentSection';
 import Timeline from './Timeline';
+import AnimatedGrid from './AnimatedGrid';
 
 export default function SamiApp() {
     const [activeTabId, setActiveTabId] = useState(content[0].id);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);  // Default to dark mode
     const activeTab = content.find(t => t.id === activeTabId) || content[0];
 
     useEffect(() => {
@@ -19,10 +20,10 @@ export default function SamiApp() {
             setActiveTabId(savedTab);
         }
 
-        // Check for saved dark mode preference (default to light)
+        // Check for saved dark mode preference (default to dark)
         const savedDarkMode = localStorage.getItem('sami_dark_mode');
-        if (savedDarkMode === 'true') {
-            setDarkMode(true);
+        if (savedDarkMode === 'false') {
+            setDarkMode(false);
         }
     }, []);
 
@@ -48,20 +49,23 @@ export default function SamiApp() {
     const hasSections = activeTab.sections.length > 0;
 
     return (
-        <div className="min-h-screen flex flex-col relative pb-32" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
+        <div className="min-h-screen flex flex-col relative pb-32">
+            {/* Animated Grid Background */}
+            <AnimatedGrid darkMode={darkMode} />
+
             {/* Sticky Header */}
             <header
-                className="sticky top-0 z-50 backdrop-blur-md py-3 px-6 flex justify-between items-center"
+                className="sticky top-0 z-50 py-3 px-6 flex justify-between items-center"
                 style={{
-                    backgroundColor: darkMode ? 'rgba(10, 10, 10, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+                    backgroundColor: 'var(--color-bg-primary)',
                     borderBottom: `1px solid var(--color-border)`
                 }}
             >
                 <div className="flex items-center gap-3">
                     <img
-                        src="/sami_hermes_ai.png"
+                        src={darkMode ? "/Logos/Logo_text_light.svg" : "/Logos/Logo_text_dark.svg"}
                         alt="SamiHermes AI"
-                        className="h-32 w-auto"
+                        className="h-24 w-auto"
                     />
                 </div>
 
@@ -100,7 +104,7 @@ export default function SamiApp() {
                             {/* Timeline Sidebar - Left */}
                             {hasSections && (
                                 <div className="hidden lg:block w-[120px]">
-                                    <Timeline nodes={activeTab.sections.map(s => ({ id: s.id, title: s.title }))} />
+                                    <Timeline nodes={activeTab.sections.map(s => ({ id: s.id, title: s.sidebarTitle || s.title }))} />
                                 </div>
                             )}
 
@@ -108,7 +112,7 @@ export default function SamiApp() {
                             <div className="min-w-0">
                                 {hasSections ? (
                                     activeTab.sections.map((section) => (
-                                        <ContentSection key={section.id} section={section} />
+                                        <ContentSection key={section.id} section={section} darkMode={darkMode} />
                                     ))
                                 ) : (
                                     <div

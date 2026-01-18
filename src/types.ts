@@ -14,6 +14,7 @@ export interface RoleUseCase {
   workflow: string[];
   result: string;
   primaryUrl?: string;
+  businessContext?: string;
 }
 
 export interface CaseStudyStep {
@@ -38,7 +39,7 @@ export interface Card {
   id: string;
   type: 'text' | 'callout' | 'checklist' | 'linksGrid' | 'embed' | 'toolsList'
   | 'alert' | 'pdfCarousel' | 'toolCard' | 'courseCard' | 'videoEmbed' | 'statCard'
-  | 'slideViewer' | 'actionCarousel' | 'roleUseCases' | 'caseStudy';
+  | 'slideViewer' | 'actionCarousel' | 'roleUseCases' | 'caseStudy' | 'videoGrid';
   title?: string;
   content?: string;
   items?: string[];
@@ -61,7 +62,9 @@ export interface Card {
   pdfPath?: string;
   // Tool card
   iconPath?: string;
+  faviconPath?: string;
   quickStart?: string;
+  detailedContent?: string;  // Expandable detailed description with personal voice
   // Video embed
   videoId?: string;
   // Stat card
@@ -72,6 +75,8 @@ export interface Card {
   roleUseCases?: RoleUseCase[];
   // Case study
   caseStudy?: CaseStudyData;
+  // Video grid (Instagram-style 1:1 thumbnails)
+  videos?: { id: string; title: string }[];
   // Full width flag
   fullWidth?: boolean;
 }
@@ -79,6 +84,7 @@ export interface Card {
 export interface Section {
   id: string;
   title: string;
+  sidebarTitle?: string;  // Short version for sidebar timeline (2-3 words max)
   intro?: string;
   centered?: boolean;
   cards: Card[];

@@ -11,12 +11,14 @@ import SlideViewer from './SlideViewer';
 import ActionCardCarousel from './ActionCardCarousel';
 import RoleUseCaseCard from './RoleUseCaseCard';
 import CaseStudy from './CaseStudy';
+import VideoGrid from './VideoGrid';
 
 interface CardProps {
     card: CardType;
+    darkMode?: boolean;
 }
 
-const Card = ({ card }: CardProps) => {
+const Card = ({ card, darkMode = false }: CardProps) => {
     switch (card.type) {
         case 'alert':
             return (
@@ -47,9 +49,11 @@ const Card = ({ card }: CardProps) => {
                     title={card.title || ''}
                     content={card.content || ''}
                     iconPath={card.iconPath}
+                    faviconPath={card.faviconPath}
                     quickStart={card.quickStart}
                     url={card.url}
                     statImage={card.statImage}
+                    detailedContent={card.detailedContent}
                 />
             );
 
@@ -77,6 +81,13 @@ const Card = ({ card }: CardProps) => {
                 />
             );
 
+        case 'videoGrid':
+            return (
+                <VideoGrid
+                    videos={card.videos || []}
+                />
+            );
+
         case 'actionCarousel':
             return (
                 <ActionCardCarousel
@@ -89,7 +100,7 @@ const Card = ({ card }: CardProps) => {
             return (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {card.roleUseCases?.map((useCase, i) => (
-                        <RoleUseCaseCard key={i} useCase={useCase} />
+                        <RoleUseCaseCard key={i} useCase={useCase} darkMode={darkMode} />
                     ))}
                 </div>
             );
@@ -101,16 +112,15 @@ const Card = ({ card }: CardProps) => {
                     context={card.caseStudy.context}
                     steps={card.caseStudy.steps}
                     outcome={card.caseStudy.outcome}
+                    darkMode={darkMode}
                 />
             ) : null;
 
         case 'callout':
             return (
                 <div
-                    className="p-6 rounded-xl relative overflow-hidden h-full flex flex-col"
+                    className="surface-accent p-6 rounded-xl relative overflow-hidden h-full flex flex-col"
                     style={{
-                        backgroundColor: 'var(--color-bg-card)',
-                        border: '1px solid var(--color-border)',
                         borderLeft: '4px solid var(--color-accent)',
                         minHeight: '120px',
                     }}
@@ -135,12 +145,8 @@ const Card = ({ card }: CardProps) => {
             const checklistItems: { label: string; url?: string }[] = card.checklistLinks || card.items?.map(item => ({ label: item })) || [];
             return (
                 <div
-                    className="p-6 rounded-xl h-full flex flex-col"
-                    style={{
-                        backgroundColor: 'var(--color-bg-card)',
-                        border: '1px solid var(--color-border)',
-                        minHeight: '140px',
-                    }}
+                    className="surface-card p-6 rounded-xl h-full flex flex-col"
+                    style={{ minHeight: '140px' }}
                 >
                     <h4
                         className="text-lg font-semibold mb-5"
@@ -181,12 +187,8 @@ const Card = ({ card }: CardProps) => {
         case 'linksGrid':
             return (
                 <div
-                    className="p-6 rounded-xl h-full flex flex-col"
-                    style={{
-                        backgroundColor: 'var(--color-bg-card)',
-                        border: '1px solid var(--color-border)',
-                        minHeight: '140px',
-                    }}
+                    className="surface-card p-6 rounded-xl h-full flex flex-col"
+                    style={{ minHeight: '140px' }}
                 >
                     <h4
                         className="text-lg font-semibold mb-5"
@@ -235,13 +237,7 @@ const Card = ({ card }: CardProps) => {
 
         default:
             return (
-                <div
-                    className="p-6 rounded-xl"
-                    style={{
-                        backgroundColor: 'var(--color-bg-card)',
-                        border: '1px solid var(--color-border)',
-                    }}
-                >
+                <div className="surface-card p-6 rounded-xl">
                     <h4
                         className="text-lg font-semibold mb-3"
                         style={{ color: 'var(--color-text-primary)' }}

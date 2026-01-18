@@ -15,7 +15,7 @@
   --color-accent: #3b82f6;
   --color-accent-subtle: #eff6ff;
   --color-accent-text: #1d4ed8;
-  
+
   /* Semantic colors */
   --color-success: #10b981;
   --color-warning: #f59e0b;
@@ -23,20 +23,22 @@
 }
 
 .dark {
-  /* Dark mode */
+  /* Dark mode - solid backgrounds */
   --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #141414;
   --color-bg-card: #1a1a1a;
   --color-bg-hover: #262626;
   --color-text-primary: #f9fafb;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #6b7280;
+  --color-text-secondary: #d1d5db;
+  /* Lighter gray for better readability */
+  --color-text-muted: #9ca3af;
+  /* Was #6b7280, now lighter */
   --color-border: #2d2d2d;
   --color-border-subtle: #1f1f1f;
   --color-accent: #60a5fa;
   --color-accent-subtle: #1e3a5f;
   --color-accent-text: #93c5fd;
-  
+
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-error: #f87171;
@@ -64,6 +66,60 @@ body {
 
 .dark .card-base:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   SURFACE SYSTEM - Solid backgrounds with proper stacking
+   All surfaces sit above the animated canvas background
+   ======================================== */
+
+/* Base card surface - standard cards */
+.surface-card {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+}
+
+/* Secondary surface - headers, footers, nested elements */
+.surface-secondary {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-bg-secondary);
+}
+
+/* Elevated surface - modals, dropdowns, floating elements */
+.surface-elevated {
+  position: relative;
+  z-index: 10;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dark .surface-elevated {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Overlay surface - modals, fullscreen viewers (no position:relative to avoid conflicting with fixed) */
+.surface-overlay {
+  z-index: 50;
+  background-color: var(--color-bg-card);
+}
+
+/* Accent-bordered surface - alerts with left accent */
+.surface-accent {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+}
+
+/* Button surface - for icon buttons inside cards */
+.surface-button {
+  position: relative;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
 }
 
 /* Accent border card (replaces colored alerts) */
@@ -103,7 +159,10 @@ body {
 }
 
 /* Reset transition for interactive elements (buttons, links) to avoid sluggishness */
-button, a, input, textarea {
+button,
+a,
+input,
+textarea {
   transition-duration: 0.1s;
 }
 
@@ -130,4 +189,21 @@ button, a, input, textarea {
   .card-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Video containers - solid background to sit above animated grid */
+.video-container {
+  position: relative;
+  z-index: 10;
+  background-color: #000;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
 }

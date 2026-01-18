@@ -5,41 +5,35 @@ interface ToolCardProps {
     title: string;
     content: string;
     iconPath?: string;
+    faviconPath?: string;
     quickStart?: string;
     url?: string;
     statImage?: string;
+    detailedContent?: string;
 }
 
-export default function ToolCard({ title, content, iconPath, quickStart, url, statImage }: ToolCardProps) {
+export default function ToolCard({ title, content, iconPath, faviconPath, quickStart, url, statImage, detailedContent }: ToolCardProps) {
     const [isExpanded, setIsExpanded] = useState(false);
 
+    // Check if expandable content is available
+    const hasExpandableContent = detailedContent && detailedContent.trim().length > 0;
+
     return (
-        <div
-            className="rounded-xl overflow-hidden flex flex-col h-full"
-            style={{
-                backgroundColor: 'var(--color-bg-card)',
-                border: '1px solid var(--color-border)',
-            }}
-        >
+        <div className="surface-card rounded-xl overflow-hidden flex flex-col h-full">
             <div className="p-5 flex-1 flex flex-col">
-                {/* Header */}
-                <div className="flex items-start gap-4 mb-4">
-                    {iconPath && (
-                        <div
-                            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                            style={{ backgroundColor: 'var(--color-bg-secondary)' }}
-                        >
-                            <img
-                                src={iconPath}
-                                alt=""
-                                className="w-6 h-6"
-                                style={{ filter: 'var(--icon-filter, none)' }}
-                            />
-                        </div>
+                {/* Header with Favicon */}
+                <div className="flex items-start gap-3 mb-4">
+                    {faviconPath && (
+                        <img
+                            src={faviconPath}
+                            alt=""
+                            className="w-8 h-8 rounded flex-shrink-0"
+                            style={{ objectFit: 'contain' }}
+                        />
                     )}
                     <div className="flex-1 min-w-0">
                         <h4
-                            className="font-semibold text-lg mb-1"
+                            className="font-semibold text-lg"
                             style={{ color: 'var(--color-text-primary)' }}
                         >
                             {title}
@@ -47,23 +41,57 @@ export default function ToolCard({ title, content, iconPath, quickStart, url, st
                     </div>
                 </div>
 
-                {/* Description */}
+                {/* Short Description (always visible) */}
                 <p
-                    className={`text-sm leading-relaxed flex-1 ${!isExpanded && content.length > 150 ? 'line-clamp-3' : ''}`}
+                    className="text-sm leading-relaxed"
                     style={{ color: 'var(--color-text-secondary)' }}
                 >
                     {content.replace(/—/g, ' - ')}
                 </p>
 
-                {content.length > 150 && (
-                    <button
-                        onClick={() => setIsExpanded(!isExpanded)}
-                        className="flex items-center gap-1 text-xs font-medium mt-2 transition-colors"
-                        style={{ color: 'var(--color-accent)' }}
-                    >
-                        {isExpanded ? 'Show less' : 'Read more'}
-                        {isExpanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-                    </button>
+                {/* Expandable Detailed Content */}
+                {hasExpandableContent && (
+                    <>
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="flex items-center gap-1 text-xs font-medium mt-3 transition-colors hover:opacity-80"
+                            style={{ color: 'var(--color-accent)' }}
+                        >
+                            {isExpanded ? 'Show less' : 'Learn more about how I use it'}
+                            {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                        </button>
+
+                        {isExpanded && (
+                            <div
+                                className="mt-4 pt-4 text-sm leading-relaxed space-y-3"
+                                style={{
+                                    borderTop: '1px solid var(--color-border)',
+                                    color: 'var(--color-text-secondary)',
+                                }}
+                            >
+                                {/* Custom icon at top of expanded content */}
+                                {iconPath && (
+                                    <div
+                                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                                        style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+                                    >
+                                        <img
+                                            src={iconPath}
+                                            alt=""
+                                            className="w-6 h-6"
+                                            style={{ filter: 'var(--icon-filter, none)' }}
+                                        />
+                                    </div>
+                                )}
+                                {/* Split by double newlines for paragraph breaks */}
+                                {detailedContent.split('\n\n').map((paragraph, i) => (
+                                    <p key={i} className="whitespace-pre-wrap">
+                                        {paragraph.trim()}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
+                    </>
                 )}
 
                 {/* Stat image */}

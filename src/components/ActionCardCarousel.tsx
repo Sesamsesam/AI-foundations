@@ -63,12 +63,8 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
                 {currentIndex > 0 && (
                     <button
                         onClick={goToPrev}
-                        className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-colors"
-                        style={{
-                            backgroundColor: 'var(--color-bg-card)',
-                            border: '1px solid var(--color-border)',
-                            color: 'var(--color-text-secondary)'
-                        }}
+                        className="surface-button absolute -left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-colors"
+                        style={{ color: 'var(--color-text-secondary)' }}
                         aria-label="Previous"
                     >
                         <ChevronLeft size={20} />
@@ -78,12 +74,8 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
                 {currentIndex < maxIndex && (
                     <button
                         onClick={goToNext}
-                        className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-colors"
-                        style={{
-                            backgroundColor: 'var(--color-bg-card)',
-                            border: '1px solid var(--color-border)',
-                            color: 'var(--color-text-secondary)'
-                        }}
+                        className="surface-button absolute -right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-colors"
+                        style={{ color: 'var(--color-text-secondary)' }}
                         aria-label="Next"
                     >
                         <ChevronRight size={20} />

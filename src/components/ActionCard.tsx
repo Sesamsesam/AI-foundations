@@ -15,12 +15,8 @@ export default function ActionCard({ number, title, description, details, url, b
 
     return (
         <div
-            className="rounded-xl overflow-hidden transition-all h-full flex flex-col"
-            style={{
-                backgroundColor: 'var(--color-bg-card)',
-                border: '1px solid var(--color-border)',
-                minHeight: '160px',
-            }}
+            className="surface-card rounded-xl overflow-hidden transition-all h-full flex flex-col"
+            style={{ minHeight: '160px' }}
         >
             {/* Header - Always visible */}
             <button

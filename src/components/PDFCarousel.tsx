@@ -21,37 +21,57 @@ export default function PDFCarousel({ pdfPaths, title }: PDFCarouselProps) {
     const pdfName = currentPdf.split('/').pop()?.replace('.pdf', '').replace(/_/g, ' ') || 'Slide';
 
     return (
-        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+        <div className="surface-card rounded-2xl overflow-hidden shadow-sm">
             {title && (
-                <div className="px-6 py-4 border-b border-gray-100">
-                    <h4 className="font-bold text-gray-900">{title}</h4>
+                <div
+                    className="px-6 py-4"
+                    style={{ borderBottom: '1px solid var(--color-border)' }}
+                >
+                    <h4 className="font-bold" style={{ color: 'var(--color-text-primary)' }}>{title}</h4>
                 </div>
             )}
 
-            {/* PDF Viewer */}
-            <div className="relative bg-gray-100 aspect-[16/10]">
-                <iframe
-                    src={`${currentPdf}#view=FitH`}
-                    className="w-full h-full"
-                    title={pdfName}
-                />
+            {/* PDF Viewer - pre-load all iframes to eliminate flash */}
+            <div
+                className="relative aspect-[16/10]"
+                style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+            >
+                {pdfPaths.map((pdf, index) => (
+                    <iframe
+                        key={pdf}
+                        src={`${pdf}#view=FitH`}
+                        className="absolute inset-0 w-full h-full"
+                        style={{
+                            visibility: index === currentIndex ? 'visible' : 'hidden',
+                            zIndex: index === currentIndex ? 1 : 0,
+                        }}
+                        title={pdf.split('/').pop()?.replace('.pdf', '').replace(/_/g, ' ') || 'Slide'}
+                    />
+                ))}
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center justify-between px-6 py-4 bg-gray-50">
+            <div
+                className="flex items-center justify-between px-6 py-4"
+                style={{ backgroundColor: 'var(--color-bg-secondary)' }}
+            >
                 <button
                     onClick={goToPrev}
-                    className="p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-colors"
+                    className="surface-button p-2 rounded-full transition-colors hover:opacity-70"
+                    style={{ color: 'var(--color-text-secondary)' }}
                     aria-label="Previous slide"
                 >
-                    <ChevronLeft className="w-5 h-5 text-gray-600" />
+                    <ChevronLeft className="w-5 h-5" />
                 </button>
 
                 <div className="flex flex-col items-center gap-1">
-                    <span className="text-sm font-medium text-gray-900 text-center max-w-xs truncate">
+                    <span
+                        className="text-sm font-medium text-center max-w-xs truncate"
+                        style={{ color: 'var(--color-text-primary)' }}
+                    >
                         {pdfName}
                     </span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
                         {currentIndex + 1} of {pdfPaths.length}
                     </span>
                 </div>
@@ -60,17 +80,19 @@ export default function PDFCarousel({ pdfPaths, title }: PDFCarouselProps) {
                     <a
                         href={currentPdf}
                         download
-                        className="p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-colors"
+                        className="surface-button p-2 rounded-full transition-colors hover:opacity-70"
+                        style={{ color: 'var(--color-text-secondary)' }}
                         aria-label="Download PDF"
                     >
-                        <Download className="w-5 h-5 text-gray-600" />
+                        <Download className="w-5 h-5" />
                     </a>
                     <button
                         onClick={goToNext}
-                        className="p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-100 hover:border-gray-300 transition-colors"
+                        className="surface-button p-2 rounded-full transition-colors hover:opacity-70"
+                        style={{ color: 'var(--color-text-secondary)' }}
                         aria-label="Next slide"
                     >
-                        <ChevronRight className="w-5 h-5 text-gray-600" />
+                        <ChevronRight className="w-5 h-5" />
                     </button>
                 </div>
             </div>
@@ -81,8 +103,10 @@ export default function PDFCarousel({ pdfPaths, title }: PDFCarouselProps) {
                     <button
                         key={index}
                         onClick={() => setCurrentIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
-                            }`}
+                        className="w-2 h-2 rounded-full transition-colors"
+                        style={{
+                            backgroundColor: index === currentIndex ? 'var(--color-accent)' : 'var(--color-border)',
+                        }}
                         aria-label={`Go to slide ${index + 1}`}
                     />
                 ))}

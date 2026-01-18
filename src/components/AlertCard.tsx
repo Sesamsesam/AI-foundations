@@ -21,12 +21,8 @@ export default function AlertCard({ type, title, content }: AlertCardProps) {
 
     return (
         <div
-            className="p-6 rounded-xl h-full"
-            style={{
-                backgroundColor: 'var(--color-bg-card)',
-                border: '1px solid var(--color-border)',
-                borderLeft: `4px solid ${borderColors[type]}`,
-            }}
+            className="surface-accent p-6 rounded-xl h-full"
+            style={{ borderLeft: `4px solid ${borderColors[type]}` }}
         >
             <div className="flex items-start gap-3">
                 <span className="text-xl flex-shrink-0">{icons[type]}</span>
