@@ -219,20 +219,23 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
                     const saturation = 70 + finalIntensity * 30;
                     const lightness = 45 + finalIntensity * 25;
 
-                    ctx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-
+                    // Optimization: Removed ctx.shadowBlur (expensive)
+                    // Instead, draw a larger, faint circle behind for "glow" if intensity is high
                     if (finalIntensity > 0.5) {
-                        ctx.shadowBlur = 12 * finalIntensity;
-                        ctx.shadowColor = `hsla(${hue}, 100%, 60%, 0.7)`;
-                    } else {
-                        ctx.shadowBlur = 0;
+                        ctx.fillStyle = `hsla(${hue}, 100%, 60%, 0.15)`;
+                        ctx.beginPath();
+                        ctx.arc(x, y, radius * 2.5, 0, Math.PI * 2);
+                        ctx.fill();
                     }
 
+                    ctx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
                     ctx.beginPath();
                     ctx.arc(x, y, radius, 0, Math.PI * 2);
                     ctx.fill();
                 });
-                ctx.shadowBlur = 0;
+
+                // No shadowBlur to reset
+                // ctx.shadowBlur = 0;
 
                 // ========== Draw 4-pointed stars ==========
                 const stars = starsRef.current;

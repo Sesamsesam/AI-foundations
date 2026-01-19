@@ -7,7 +7,7 @@ export const content: Tab[] = [
         label: 'Overview',
         hero: {
             title: 'Welcome to AI Foundations',
-            subtitle: 'Your guided path to mastering AI. From complete beginner to confident practitioner.',
+            subtitle: 'Your guided path to mastering AI.\nFrom complete beginner to confident practitioner.',
             videoUrl: null, // O-V1: Placeholder for new welcome video - user to provide URL
         },
         sections: [
@@ -18,10 +18,10 @@ export const content: Tab[] = [
                 intro: 'A short introduction to help you understand what you are about to learn.',
                 cards: [
                     {
-                        id: 'modern-ai-video',
+                        id: 'modern-ai-exactly-video',
                         type: 'videoEmbed',
-                        title: 'Understanding Modern AI',
-                        videoId: 'https://www.youtube.com/embed/2ePf9rue1Ao', // O-S1: Moved from old hero
+                        title: 'What is Modern AI Exactly?',
+                        videoId: 'https://www.youtube.com/embed/iWFVkDkuAB8',
                     },
                 ],
             },
@@ -67,6 +67,10 @@ export const content: Tab[] = [
 The Offer: Google gives $300 in free credit to any new customer who sets up a Cloud Billing Account.
 
 The Requirement: You must provide a credit card to verify you are a human (identity verification), even though they won't charge you until the $300 runs out.
+
+NOTE: Your have 90 days to spend it from time of sign up. 
+It can be used for any Google Cloud service, including AI Studio and Vertex AI. 
+(veo 3 video generation etc.)
 
 Is it "Developer Only"? No. Anyone can sign up. You could be a student, a hobbyist, or a baker. To Google, you are a "new cloud customer."
 
@@ -225,14 +229,14 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
                         id: 'developer-video',
                         type: 'videoEmbed',
                         title: 'How to Sign Up',
-                        videoId: undefined, // G-V2: Placeholder for Developer Account sign-up video
+                        videoId: 'h489hYQCt0s',
                         fullWidth: true,
                     },
                     {
                         id: 'why-developer',
                         type: 'callout',
                         title: 'Why Developer Account?',
-                        content: 'Even if you are not a developer, this gives you 35 points per month for learning on Google Skills. Earn badges for your resume and access exclusive features in Google Labs - all for free!',
+                        content: 'Even if you are not a developer, this gives you 35 Free credits for learning on Google Skills. Earn badges for your resume and access exclusive features in Google Labs - all for free!',
                     },
                     {
                         id: 'developer-links',
@@ -240,7 +244,7 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
                         title: 'Essential Links',
                         links: [
                             { label: 'Google Developer', url: 'https://developers.google.com/', description: 'Sign up for your developer account' },
-                            { label: 'Google Skills', url: 'https://www.cloudskillsboost.google/', description: 'Earn badges with your 35 monthly points' },
+                            { label: 'Google Skills', url: 'https://www.cloudskillsboost.google/', description: 'Earn badges with your 35 Free credits' },
                             { label: 'Google Labs', url: 'https://labs.google/', description: 'Experiment with cutting-edge AI' },
                         ],
                     },
@@ -591,7 +595,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                 id: 'google-free',
                 title: 'Google Cloud Skills Boost',
                 sidebarTitle: 'Google Skills',
-                intro: 'Earn badges for your resume while learning AI fundamentals. Uses your free monthly points.',
+                intro: 'Earn badges for your resume while learning AI fundamentals. Uses your 35 Free credits.',
                 cards: [
                     {
                         id: 'intro-gen-ai',
@@ -848,8 +852,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         id: 'credits-callout',
                         type: 'alert',
                         alertType: 'tip',
-                        title: 'Use Your $300 Google Cloud Credits!',
-                        content: 'Tools marked with a G$ badge below can be accessed using your free $300 Google Cloud credits. Sign up at cloud.google.com to claim yours.',
+                        content: 'Tools marked with a G$ badge below can be accessed using your free $300 Google Cloud credits.',
                         fullWidth: true,
                     },
                 ],

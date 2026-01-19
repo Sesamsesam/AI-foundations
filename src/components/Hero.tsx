@@ -24,7 +24,7 @@ export default function Hero({ title, subtitle, videoUrl }: HeroProps) {
                     {title}
                 </h2>
                 <p
-                    className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+                    className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed whitespace-pre-line"
                     style={{ color: 'var(--color-text-secondary)' }}
                 >
                     {subtitle.replace(/—/g, ' - ')}

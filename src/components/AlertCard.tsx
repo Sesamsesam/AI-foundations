@@ -39,14 +39,27 @@ export default function AlertCard({ type, title, content }: AlertCardProps) {
                         className="leading-relaxed"
                         style={{ color: 'var(--color-text-secondary)' }}
                     >
-                        {/* Replace em-dashes with regular dashes and render G$ in blue */}
-                        {content.replace(/—/g, ' - ').split(/(G\$)/g).map((part, i) =>
-                            part === 'G$' ? (
-                                <span key={i} style={{ color: 'var(--color-accent)', fontWeight: 600 }}>G$</span>
-                            ) : (
-                                part
-                            )
-                        )}
+                        {/* Parse content for em-dashes, G$ text, and simple markdown links [label](url) */}
+                        {content.replace(/—/g, ' - ').split(/(\[.*?\]\(.*?\)|G\$)/g).map((part, i) => {
+                            if (part === 'G$') {
+                                return <span key={i} style={{ color: 'var(--color-accent)', fontWeight: 600 }}>G$</span>;
+                            }
+                            // Check for markdown link [label](url)
+                            const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+                            if (linkMatch) {
+                                return (
+                                    <a
+                                        key={i}
+                                        href={linkMatch[2]}
+                                        className="font-medium underline hover:opacity-80 transition-opacity"
+                                        style={{ color: 'var(--color-accent)' }}
+                                    >
+                                        {linkMatch[1]}
+                                    </a>
+                                );
+                            }
+                            return part;
+                        })}
                     </p>
                 </div>
             </div>

@@ -36,9 +36,49 @@ export default function SamiApp() {
         localStorage.setItem('sami_dark_mode', String(darkMode));
     }, [darkMode]);
 
+    useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash.slice(1); // Remove #
+            if (!hash) return;
+
+            // Find which tab contains a section with this ID
+            const targetTab = content.find(tab =>
+                tab.sections.some(section => section.id === hash)
+            );
+
+            if (targetTab && targetTab.id !== activeTabId) {
+                setActiveTabId(targetTab.id);
+                // Wait for tab switch animation then scroll
+                setTimeout(() => {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            } else if (targetTab && targetTab.id === activeTabId) {
+                // Already on correct tab, just scroll
+                const element = document.getElementById(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        };
+
+        // Handle initial hash on load
+        handleHashChange();
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+    }, [activeTabId]); // Re-run if activeTabId changes to ensure scroll works
+
     const handleTabChange = (id: string) => {
         setActiveTabId(id);
         localStorage.setItem('sami_active_tab', id);
+        // Clear hash to prevent conflict with hash-based navigation
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname);
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 

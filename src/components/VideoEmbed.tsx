@@ -15,6 +15,9 @@ export default function VideoEmbed({ videoId, title }: VideoEmbedProps) {
         if (input.includes('youtu.be/')) {
             return input.split('youtu.be/')[1]?.split('?')[0] || input;
         }
+        if (input.includes('youtube.com/embed/')) {
+            return input.split('youtube.com/embed/')[1]?.split('?')[0] || input;
+        }
         return input;
     };
 
@@ -34,6 +37,7 @@ export default function VideoEmbed({ videoId, title }: VideoEmbedProps) {
                     title={title || 'Video'}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                 />
             </div>
         </div>

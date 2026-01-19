@@ -31,6 +31,7 @@ export default function ToolCard({ title, content, iconPath, faviconPath, quickS
                             alt=""
                             className="w-8 h-8 rounded flex-shrink-0"
                             style={{ objectFit: 'contain' }}
+                            loading="lazy"
                         />
                     )}
                     <div className="flex-1 min-w-0">
