@@ -14,16 +14,13 @@ export default function Timeline({ nodes }: TimelineProps) {
     const [activeId, setActiveId] = useState<string | null>(nodes[0]?.id || null);
 
     useEffect(() => {
-        let isAtBottom = false;
+        let hasScrolled = false;
 
         const observer = new IntersectionObserver(
             (entries) => {
-                // Only update from intersection if not at bottom of page
-                if (!isAtBottom) {
-                    const visibleEntry = entries.find(entry => entry.isIntersecting);
-                    if (visibleEntry) {
-                        setActiveId(visibleEntry.target.id);
-                    }
+                const visibleEntry = entries.find(entry => entry.isIntersecting);
+                if (visibleEntry) {
+                    setActiveId(visibleEntry.target.id);
                 }
             },
             {
@@ -37,17 +34,16 @@ export default function Timeline({ nodes }: TimelineProps) {
             if (el) observer.observe(el);
         });
 
-        // Handle scrolled-to-bottom case: activate last node
+        // Handle scrolled-to-bottom case: activate last node (only after user has scrolled)
         const handleScroll = () => {
+            hasScrolled = true;
             const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
-            isAtBottom = scrolledToBottom;
             if (scrolledToBottom && nodes.length > 0) {
                 setActiveId(nodes[nodes.length - 1].id);
             }
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Check initial state
 
         return () => {
             observer.disconnect();
