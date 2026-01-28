@@ -32,7 +32,21 @@ export default function Timeline({ nodes }: TimelineProps) {
             if (el) observer.observe(el);
         });
 
-        return () => observer.disconnect();
+        // Handle scrolled-to-bottom case: activate last node
+        const handleScroll = () => {
+            const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+            if (scrolledToBottom && nodes.length > 0) {
+                setActiveId(nodes[nodes.length - 1].id);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check initial state
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [nodes]);
 
     const scrollToSection = (id: string) => {
