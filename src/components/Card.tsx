@@ -12,6 +12,7 @@ import ActionCardCarousel from './ActionCardCarousel';
 import RoleUseCaseCard from './RoleUseCaseCard';
 import CaseStudy from './CaseStudy';
 import VideoGrid from './VideoGrid';
+import InfoCardCarousel from './InfoCardCarousel';
 
 interface CardProps {
     card: CardType;
@@ -55,6 +56,14 @@ const Card = ({ card, darkMode = false }: CardProps) => {
                     statImage={card.statImage}
                     detailedContent={card.detailedContent}
                     usesCredits={card.usesCredits}
+                />
+            );
+
+        case 'infoCarousel':
+            return (
+                <InfoCardCarousel
+                    items={card.infoItems || []}
+                    title={card.title}
                 />
             );
 

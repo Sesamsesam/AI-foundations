@@ -17,6 +17,14 @@ export interface RoleUseCase {
   businessContext?: string;
 }
 
+export interface InfoItem {
+  title: string;
+  content: string;
+  stat?: string;
+  statLabel?: string;
+  iconPath?: string;
+}
+
 export interface CaseStudyStep {
   time: string;
   title: string;
@@ -39,7 +47,7 @@ export interface Card {
   id: string;
   type: 'text' | 'callout' | 'checklist' | 'linksGrid' | 'embed' | 'toolsList'
   | 'alert' | 'pdfCarousel' | 'toolCard' | 'courseCard' | 'videoEmbed' | 'statCard'
-  | 'slideViewer' | 'actionCarousel' | 'roleUseCases' | 'caseStudy' | 'videoGrid';
+  | 'slideViewer' | 'actionCarousel' | 'roleUseCases' | 'caseStudy' | 'videoGrid' | 'infoCarousel';
   title?: string;
   content?: string;
   items?: string[];
@@ -80,6 +88,8 @@ export interface Card {
   videos?: { id: string; title: string }[];
   // Full width flag
   fullWidth?: boolean;
+  // Info carousel items
+  infoItems?: InfoItem[];
 }
 
 export interface Section {

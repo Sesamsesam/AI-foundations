@@ -32,12 +32,99 @@ export const content: Tab[] = [
                 intro: 'AI is transforming every industry.\nUnderstanding it is no longer optional - it is essential for career growth.',
                 cards: [
                     {
-                        id: 'ai-imperative',
-                        type: 'alert',
-                        alertType: 'important',
-                        title: 'The AI Imperative',
-                        content: 'By 2025, 97 million new roles will emerge adapted to human-machine collaboration. Those who understand AI will lead. Those who do not will follow.',
+                        id: 'why-learn-carousel',
+                        type: 'infoCarousel',
                         fullWidth: true,
+                        infoItems: [
+                            {
+                                title: 'A New Baseline',
+                                content: 'In 2026, learning AI is no longer about staying ahead;\n it is about keeping up with a new "baseline" for professional competence.',
+                                iconPath: '/icons/Color/level-up.svg'
+                            },
+                            {
+                                title: 'The Reality',
+                                content: 'Experts now compare AI literacy to the rise of the internet or basic office software - \n it is becoming a mandatory workplace skill regardless of your industry.',
+                                iconPath: '/icons/Color/world.svg'
+                            },
+                            {
+                                title: 'The AI Imperative',
+                                content: 'By 2030, AI is projected to contribute $15.7 trillion to the global economy.\n The greatest value will flow to those who master these tools.',
+                                stat: '$15.7T',
+                                statLabel: 'Global GDP Impact',
+                                iconPath: '/icons/Color/artificial-intelligence_gold.svg'
+                            },
+                            {
+                                title: 'Substantial Salary Premium',
+                                content: 'Job postings that require AI skills currently offer\n a significant salary-premium compared to roles without them.',
+                                stat: '25-56%',
+                                statLabel: 'Salary Premium',
+                                iconPath: '/icons/Color/salary.svg'
+                            },
+                            {
+                                title: 'Market Advantage',
+                                content: 'In the US, the median salary for AI-capable professionals is roughly $160,000.',
+                                iconPath: '/icons/Color/bar-graph.svg'
+                            },
+                            {
+                                title: 'Specialized Roles',
+                                content: 'Technical roles command even higher premiums of up to $200,000.',
+                                iconPath: '/icons/Color/scientist.svg'
+                            },
+                            {
+                                title: 'The Hiring Signal',
+                                content: 'Candidates who list AI skills on their CVs are significantly more likely \nto receive interview callbacks.',
+                                stat: '+15%',
+                                statLabel: 'Callback Rate',
+                                iconPath: '/icons/Color/wink-emoji.svg'
+                            },
+                            {
+                                title: 'From Support to Teammate',
+                                content: 'Organizations are moving beyond simple chatbots to AI Agents \nthat coordinate entire workflows.',
+                                iconPath: '/icons/Color/virtual-assistant.svg'
+                            },
+                            {
+                                title: 'Agent Orchestration',
+                                content: 'By 2026, an estimated 40% of enterprise apps \nwill include task-specific AI agents.',
+                                iconPath: '/icons/Color/ai_purple.svg'
+                            },
+                            {
+                                title: 'Management Skills',
+                                content: 'The most valuable workers are becoming "Managers of Agents" - \n delegating tasks and ensuring ethical standards.',
+                                iconPath: '/icons/Color/teaching.svg'
+                            },
+                            {
+                                title: 'Protection Against Erosion',
+                                content: 'Without AI literacy, careers do not end abruptly;\n they plateau and narrow.',
+                                iconPath: '/icons/Color/valentin-day.svg'
+                            },
+                            {
+                                title: 'Automation Resilience',
+                                content: 'Roles that require human judgment, empathy, \nand strategy are growing faster and are significantly less vulnerable.',
+                                iconPath: '/icons/Color/brain%20(1).svg'
+                            },
+                            {
+                                title: 'Decision Quality',
+                                content: 'AI-literate professionals are trusted with high-impact projects\n because they know how to validate AI outputs.',
+                                iconPath: '/icons/Color/mind%20(1).svg'
+                            },
+                            {
+                                title: 'Exponential Productivity',
+                                content: 'Early adopters are seeing drastically more output \nby blending human creativity with automated systems.',
+                                stat: '10x',
+                                statLabel: 'Productivity',
+                                iconPath: '/icons/Color/rocket%20(2).svg'
+                            },
+                            {
+                                title: 'High-Value Work',
+                                content: 'AI handles the mundane (summarizing, data entry), \nfreeing humans to focus on strategy and innovation.',
+                                iconPath: '/icons/Color/creativity.svg'
+                            },
+                            {
+                                title: 'AI-Native',
+                                content: 'Companies are increasingly looking for professionals \nwho think in terms of systems and workflows.',
+                                iconPath: '/icons/Color/neural-network.svg'
+                            }
+                        ]
                     },
                 ],
             },
