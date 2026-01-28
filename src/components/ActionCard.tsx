@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 
 interface ActionCardProps {
@@ -56,39 +57,50 @@ export default function ActionCard({ number, title, description, details, url, b
                 </div>
             </button>
 
-            {/* Expanded content */}
-            {isExpanded && (
-                <div
-                    className="px-5 pb-5 pt-2 flex-1 flex flex-col"
-                    style={{ borderTop: '1px solid var(--color-border-subtle)' }}
-                >
-                    {/* Details list */}
-                    <ul className="space-y-2 mb-4 flex-1">
-                        {details.map((detail, i) => (
-                            <li
-                                key={i}
-                                className="flex items-start gap-2 text-sm"
-                                style={{ color: 'var(--color-text-secondary)' }}
-                            >
-                                <span style={{ color: 'var(--color-success)' }}>•</span>
-                                {detail}
-                            </li>
-                        ))}
-                    </ul>
-
-                    {/* Action button */}
-                    <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors mt-auto gradient-bg"
-                        style={{ color: 'white' }}
+            {/* Expanded content - with animation */}
+            <AnimatePresence>
+                {isExpanded && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden"
                     >
-                        {buttonText}
-                        <ExternalLink size={14} />
-                    </a>
-                </div>
-            )}
+                        <div
+                            className="px-5 pb-5 pt-2 flex-1 flex flex-col"
+                            style={{ borderTop: '1px solid var(--color-border-subtle)' }}
+                        >
+                            {/* Details list */}
+                            <ul className="space-y-2 mb-4 flex-1">
+                                {details.map((detail, i) => (
+                                    <li
+                                        key={i}
+                                        className="flex items-start gap-2 text-sm"
+                                        style={{ color: 'var(--color-text-secondary)' }}
+                                    >
+                                        <span style={{ color: 'var(--color-success)' }}>•</span>
+                                        {detail}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            {/* Action button */}
+                            <a
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors mt-auto gradient-bg"
+                                style={{ color: 'white' }}
+                            >
+                                {buttonText}
+                                <ExternalLink size={14} />
+                            </a>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
+

@@ -135,6 +135,7 @@ export default function SamiApp() {
                         title={activeTab.hero.title}
                         subtitle={activeTab.hero.subtitle}
                         videoUrl={activeTab.hero.videoUrl}
+                        showSocials={true}
                     />
 
                     {/* Grid Layout Container - max-width centered */}

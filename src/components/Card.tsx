@@ -13,6 +13,7 @@ import RoleUseCaseCard from './RoleUseCaseCard';
 import CaseStudy from './CaseStudy';
 import VideoGrid from './VideoGrid';
 import InfoCardCarousel from './InfoCardCarousel';
+import DualExpandableCard from './DualExpandableCard';
 
 interface CardProps {
     card: CardType;
@@ -88,6 +89,7 @@ const Card = ({ card, darkMode = false }: CardProps) => {
                 <VideoEmbed
                     videoId={card.videoId || ''}
                     title={card.title}
+                    isVertical={card.isVertical}
                 />
             );
 
@@ -260,6 +262,15 @@ const Card = ({ card, darkMode = false }: CardProps) => {
                         {card.content?.replace(/—/g, ' - ')}
                     </p>
                 </div>
+            );
+
+        case 'dualExpandable':
+            if (!card.dualExpandable) return null;
+            return (
+                <DualExpandableCard
+                    leftCard={card.dualExpandable.leftCard}
+                    rightCard={card.dualExpandable.rightCard}
+                />
             );
     }
 };

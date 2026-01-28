@@ -30,9 +30,17 @@ export default function MobileToolCard({
     onToggleExpand
 }: MobileToolCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
+    const hasMounted = useRef(false);
 
     // Auto-scroll to card when expanded or collapsed - MOBILE ONLY
+    // Skip on initial mount to prevent scroll on tab change
     useEffect(() => {
+        // Skip initial mount - only scroll after user interaction
+        if (!hasMounted.current) {
+            hasMounted.current = true;
+            return;
+        }
+
         // Only run scroll on mobile (< 768px)
         if (window.innerWidth >= 768) return;
 

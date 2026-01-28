@@ -315,3 +315,139 @@ textarea {
   align-items: center;
   justify-content: center;
 }
+
+/* ========================================
+   VIDEO MODAL
+   Full-screen overlay for video playback
+   ======================================== */
+
+.video-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.video-modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.video-modal-title {
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding-right: 3rem;
+}
+
+.video-modal-player {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
+  background-color: #000;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.video-modal-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .video-modal-backdrop {
+    padding: 0.5rem;
+  }
+
+  .video-modal-close {
+    top: -36px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .video-modal-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ========================================
+   VERTICAL VIDEO (YouTube Shorts)
+   9:16 aspect ratio for mobile-first videos
+   ======================================== */
+
+.vertical-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  background-color: black;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.vertical-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

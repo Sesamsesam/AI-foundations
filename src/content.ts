@@ -8,7 +8,7 @@ export const content: Tab[] = [
         hero: {
             title: 'Welcome to AI Foundations',
             subtitle: 'Your guided path to mastering AI.\nFor anyone to become aconfident practitioner',
-            videoUrl: null, // O-V1: Placeholder for new welcome video - user to provide URL
+            videoUrl: 'https://www.youtube.com/embed/kbOrgrPQHG4',
         },
         sections: [
             {
@@ -154,7 +154,7 @@ export const content: Tab[] = [
                         id: 'quick-wins-intro-video',
                         type: 'videoEmbed',
                         title: 'Your Next Steps',
-                        videoId: undefined, // O-V2: Placeholder for instructional video - user to provide URL
+                        videoId: 'https://www.youtube.com/embed/4870PlMbuH0',
                         fullWidth: true,
                     },
 
@@ -235,7 +235,7 @@ export const content: Tab[] = [
                         id: 'physical-reality-video',
                         type: 'videoEmbed',
                         title: 'AI\'s Physical Reality Explained',
-                        videoId: undefined, // O-V3: Placeholder for Zoom recording lecture video - user to provide URL
+                        videoId: 'https://www.youtube.com/embed/2YWvtXeKHUQ',
                         fullWidth: true,
                     },
                     {
@@ -275,7 +275,7 @@ export const content: Tab[] = [
         hero: {
             title: 'Set Up Your AI Workspace',
             subtitle: 'Google has SO much to offer. \nLet us unlock it all.',
-            videoUrl: 'https://www.youtube.com/embed/sVj8_kHiguY', // G-V1: Existing - should explain Workspace + Gemini Plus alternative
+            videoUrl: 'https://www.youtube.com/embed/pd2Xu-a8x_c',
         },
         sections: [
             {
@@ -333,7 +333,8 @@ export const content: Tab[] = [
                         id: 'credits-video',
                         type: 'videoEmbed',
                         title: 'Understanding Your Credits',
-                        videoId: undefined, // G-V3: Placeholder for Cloud Credits video - advise not to sign up until ready
+                        videoId: '9ux2EiI30uU',
+                        isVertical: true, // YouTube Short - vertical 9:16 aspect ratio
                         fullWidth: true,
                     },
                     {
@@ -368,23 +369,26 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
 4. Now your API usage will drain from that $300 credit instead of being capped by the free tier limits`,
                     },
                     {
-                        id: 'credits-alert',
-                        type: 'alert',
-                        alertType: 'tip',
-                        title: '90 Days to Spend Your Credits',
-                        content: 'Your G$300 credits expire in 90 days. Great for experimenting with Gemini API, Vertex AI, and building real projects. Start small and scale up.',
-                    },
-                    {
-                        id: 'credits-uses',
-                        type: 'checklist',
-                        title: 'What You Can Do With Credits',
-                        checklistLinks: [
-                            { label: 'Get a Gemini API key to use anywhere', url: 'https://aistudio.google.com/welcome' },
-                            { label: 'Experiment with Vertex AI for ML projects', url: 'https://cloud.google.com/vertex-ai' },
-                            { label: 'Generate videos with Veo 3', url: 'https://cloud.google.com/vertex-ai/generative-ai/docs/video/overview' },
-                            { label: 'Design UIs with Google Stitch', url: 'https://stitch.withgoogle.com/' },
-                            { label: 'Run BigQuery for data analysis', url: 'https://cloud.google.com/bigquery' },
-                        ],
+                        id: 'credits-dual-info',
+                        type: 'dualExpandable',
+                        fullWidth: true,
+                        dualExpandable: {
+                            leftCard: {
+                                title: '90 Days to Spend Your Credits',
+                                content: 'Your G$300 credits expire in 90 days. Great for experimenting with Gemini API, Vertex AI, and building real projects. Start small and scale up.',
+                                type: 'tip',
+                            },
+                            rightCard: {
+                                title: 'What You Can Do With Credits',
+                                items: [
+                                    { label: 'Get a Gemini API key to use anywhere', url: 'https://aistudio.google.com/welcome' },
+                                    { label: 'Experiment with Vertex AI for ML projects', url: 'https://cloud.google.com/vertex-ai' },
+                                    { label: 'Generate videos with Veo 3', url: 'https://cloud.google.com/vertex-ai/generative-ai/docs/video/overview' },
+                                    { label: 'Design UIs with Google Stitch', url: 'https://stitch.withgoogle.com/' },
+                                    { label: 'Run BigQuery for data analysis', url: 'https://cloud.google.com/bigquery' },
+                                ],
+                            },
+                        },
                     },
                     {
                         id: 'cloud-link',
@@ -405,8 +409,8 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
                         id: 'why-google-video',
                         type: 'videoEmbed',
                         title: 'The Google Ecosystem',
-                        videoId: undefined, // G-V4: Placeholder for Why Google explanation video
-                        fullWidth: true,
+                        videoId: 'https://www.youtube.com/embed/JWjeURdXC3s',
+                        isVertical: true,
                     },
                     {
                         id: 'slide-gemini',
@@ -422,23 +426,17 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
                 intro: 'A powerful new tool for Workspace accounts to automate workflows.',
                 cards: [
                     {
-                        id: 'workspace-studio-video',
+                        id: 'workspace-studio-reel',
                         type: 'videoEmbed',
-                        title: 'Introducing Workspace Studio',
-                        videoId: undefined, // G-V5: Placeholder for Workspace Studio video
+                        title: 'Workspace Studio in Action',
+                        videoId: 'https://www.youtube.com/embed/Xy0r5fKwlVo?start=13',
                         fullWidth: true,
                     },
                     {
                         id: 'n8n-obsolete',
                         type: 'callout',
-                        title: 'N8N Will Be Obsolete', // G-T1
+                        title: 'N8N Will Be Obsolete',
                         content: 'Google Workspace Studio brings powerful automation directly into your workspace. For Workspace account holders, this could replace external tools like N8N for many common workflows.',
-                    },
-                    {
-                        id: 'workspace-studio-reel',
-                        type: 'videoEmbed',
-                        title: 'Workspace Studio in Action',
-                        videoId: 'https://www.youtube.com/embed/Xy0r5fKwlVo?start=13', // G-V6: Google reel with timestamp
                     },
                     {
                         id: 'workspace-studio-link',
@@ -676,7 +674,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                             outcome: {
                                 summary: 'Professional product demo video that would traditionally cost $5,000-10,000 and take 2-4 weeks.',
                                 traditional: '$5,000+ and 2-4 weeks',
-                                withAI: '$0 and 1 day',
+                                withAI: '$20 and 1 day',
                             },
                         },
                     },
@@ -692,7 +690,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
         hero: {
             title: 'Free AI Education',
             subtitle: 'High-quality courses you can start right now, at no cost.',
-            videoUrl: 'https://www.youtube.com/embed/G2fqAlgmoPo',
+            videoUrl: 'https://www.youtube.com/embed/0iGcOx7l4HU',
         },
         sections: [
             {
@@ -754,17 +752,6 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                 intro: 'High-quality free courses from other industry leaders.',
                 cards: [
                     {
-                        id: 'ai-for-everyone',
-                        type: 'courseCard',
-                        title: 'AI For Everyone',
-                        provider: 'DeepLearning.AI',
-                        duration: '4 weeks',
-                        level: 'beginner',
-                        iconPath: '/icons/Color/Learn/check.svg',
-                        content: 'Andrew Ng\'s famous course. No coding required. Understand what AI can and cannot do.',
-                        url: 'https://www.coursera.org/learn/ai-for-everyone',
-                    },
-                    {
                         id: 'fast-ai',
                         type: 'courseCard',
                         title: 'Deep Learning',
@@ -809,29 +796,9 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
         hero: {
             title: 'Courses & Credentials',
             subtitle: 'Investment-based learning with certificates for your resume.',
-            videoUrl: 'https://www.youtube.com/embed/5NgNicANyqM',
+            videoUrl: 'https://www.youtube.com/embed/0cRWf2_g52I',
         },
         sections: [
-            {
-                id: 'career-slide',
-                title: 'Why Invest in AI Education?',
-                sidebarTitle: 'Why Invest?',
-                cards: [
-                    {
-                        id: 'cert-intro-video',
-                        type: 'videoEmbed',
-                        title: 'Understanding AI Certifications',
-                        videoId: undefined, // C-V1: Placeholder for intro video about certifications
-                        fullWidth: true,
-                    },
-                    {
-                        id: 'slide-career',
-                        type: 'slideViewer',
-                        title: 'Future-Proofing Your Career',
-                        pdfPath: '/slides/2. AI_Imperative_Future_Proofing_Your_Career.pdf',
-                    },
-                ],
-            },
             {
                 id: 'recommended-courses',
                 title: 'Recommended Learning Path',
@@ -901,10 +868,70 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         provider: 'Anthropic',
                         duration: '3 hours',
                         price: 'Included',
-                        level: 'intermediate',
+                        level: 'beginner',
                         iconPath: '/icons/Color/certs/server (2).svg',
                         content: 'Understand the future of AI integration with MCP - how AI connects to tools.',
                         url: 'https://www.coursera.org/learn/introduction-to-model-context-protocol',
+                    },
+                    {
+                        id: 'ai-for-leaders',
+                        type: 'courseCard',
+                        title: 'Generative AI for Leaders',
+                        provider: 'Coursera',
+                        duration: '8 hours',
+                        price: 'Included',
+                        level: 'beginner',
+                        iconPath: '/icons/Color/Learn/leadership.svg',
+                        content: 'A comprehensive professional certificate designed for executives and managers. Learn to strategically implement AI across your organization, from assessing opportunities to managing AI-driven teams and measuring ROI.',
+                        url: 'https://www.coursera.org/professional-certificates/generative-ai-for-leaders',
+                    },
+                    {
+                        id: 'ai-for-everyone',
+                        type: 'courseCard',
+                        title: 'AI For Everyone',
+                        provider: 'DeepLearning.AI',
+                        duration: '4 weeks',
+                        price: 'Included',
+                        level: 'beginner',
+                        iconPath: '/icons/Color/certs/neural.svg',
+                        content: 'Andrew Ng\'s famous course. No coding required. Understand what AI can and cannot do, and how it will impact your work and life.',
+                        url: 'https://www.coursera.org/learn/ai-for-everyone',
+                    },
+                    {
+                        id: 'smart-analytics-ml',
+                        type: 'courseCard',
+                        title: 'Smart Analytics & ML on GCP',
+                        provider: 'Google Cloud',
+                        duration: '7 hours',
+                        price: 'Included',
+                        level: 'intermediate',
+                        iconPath: '/icons/Color/certs/scatter-graph.svg',
+                        content: 'Dive deeper into analytics and ML workflows on Google Cloud. Learn to build data pipelines, run ML models at scale, and leverage AI APIs for smart solutions.',
+                        url: 'https://www.coursera.org/learn/smart-analytics-machine-learning-ai-gcp',
+                    },
+                    {
+                        id: 'gcp-data-ml',
+                        type: 'courseCard',
+                        title: 'Data & Machine Learning on GCP',
+                        provider: 'Google Cloud',
+                        duration: '4 weeks',
+                        price: 'Included',
+                        level: 'intermediate',
+                        iconPath: '/icons/Color/certs/database.svg',
+                        content: 'Build practical ML skills with Google Cloud. Learn to prepare data, build models, and deploy ML solutions using BigQuery, Vertex AI, and other GCP services. Ideal for data professionals ready to level up.',
+                        url: 'https://www.coursera.org/specializations/gcp-data-machine-learning',
+                    },
+                    {
+                        id: 'advanced-ml-tensorflow',
+                        type: 'courseCard',
+                        title: 'Advanced ML with TensorFlow',
+                        provider: 'Google Cloud',
+                        duration: '4 weeks',
+                        price: 'Included',
+                        level: 'advanced',
+                        iconPath: '/icons/Color/certs/deep-learning.svg',
+                        content: 'Master advanced ML techniques with TensorFlow on GCP. Build production-ready models, implement custom architectures, and optimize for performance at scale.',
+                        url: 'https://www.coursera.org/specializations/advanced-machine-learning-tensorflow-gcp',
                     },
                 ],
             },
@@ -931,9 +958,9 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
             },
             {
                 id: 'official-certs',
-                title: 'Advanced: Official Google Certification',
+                title: '',
                 sidebarTitle: 'Official Cert',
-                intro: 'Proctored exams for those who want industry-recognized credentials. Best for non-technical professionals wanting to demonstrate cloud understanding.',
+                intro: 'Proctored exam from Google, not Coursera. Valid for 3 years. Entry level (Study first).',
                 cards: [
                     {
                         id: 'cdl-cert',
@@ -959,7 +986,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
         hero: {
             title: 'Essential AI Tools',
             subtitle: 'The best tools to supercharge your workflow.',
-            videoUrl: 'https://www.youtube.com/embed/zy8n-gGgonk',
+            videoUrl: 'https://www.youtube.com/embed/Lo7zzeqI1SQ',
         },
         sections: [
             {
@@ -1109,7 +1136,7 @@ Speed. When you need multiple variations quickly, xAI delivers. 🏃`,
                         videos: [
                             { id: 'c_cK-6baVvM', title: 'ICP Product Concept' },
                             { id: 'QCGdDaq50hI', title: 'CaffeineAI Promo' },
-                            { id: '5ZmKOMcWriA', title: 'Tech Demo' },
+                            { id: '30Qnxm0D9IQ', title: 'Tech Demo' },
                         ],
                         fullWidth: true,
                     },
@@ -1195,14 +1222,14 @@ Whether you end up using Claude, ChatGPT, or other tools for specific tasks, und
                         url: 'https://otter.ai',
                         faviconPath: '/favicons/otter.png',
                         iconPath: '/icons/headphones.svg',
-                        detailedContent: `I don't use Otter.ai personally, but for anyone who does a lot of recordings and needs comprehensive notes, this is the tool. 🎧
+                        detailedContent: `This is one of the two tools on the list I don't use (or have used myself) Otter.ai but I know it's valuable for individuals who do a lot of recordings and need comprehensive notes. 🎧
 
 **The key advantage:** 
-Unlike the native AI transcribers built into Zoom, Google Meet, or other calling platforms, Otter.ai integrates with all of them. One tool, universal access.
+Why is it so good? Unlike the native AI transcribers built into Zoom, Google Meet, or other calling platforms from what I understand Otter.ai integrates with all of them. One tool, universal access - that's a plus!
 
-This means you get consistent transcription quality across all your meeting platforms, and all your meeting notes live in one place rather than scattered across different apps.
+This means you get consistent transcription quality across all your meeting platforms and as far as I can tell from a bit of research and anecdotes, it's very accurate and people seem to love it because they can have all their meeting notes in one place rather than scattered across different apps.
 
-If you're in a role with lots of meetings, sales, consulting, project management, having a single source of truth for all meeting transcripts is genuinely valuable. 📝`,
+I can see how it would be genuinely valuable if you're in a role with lots of meetings, sales, consulting, project management, HOWEVER, I can't vouch for it myself but I thought it might be something you could look into if this type of thing is useful to you. 📝`,
                     },
                 ],
             },
@@ -1586,16 +1613,19 @@ Highly recommend looking into it if you work with AI coding agents regularly. �
                         iconPath: '/icons/coding.svg',
                         detailedContent: `Cursor is an AI-first code editor. 🤌 \n\nLike VS Code, but AI is built into its DNA, not bolted on, they push updates sometimes multiple times a day.
 
-Cursor has written over 250k lines of code for me over 6 different projects and some smaller websites. 
+I have 300k lines of code writtern in over 5 different projects and some smaller websites through cursor alone. 
 
-It's GREAT! if you want to build apps, then I suggest cursor, get antigravity also and opencode and work between them.
+It's GREAT! 
 
-Just describe what you want, and it writes the code, you need to learn about devops but if you want to code - I think it's supreme - better than claude code and still above Antigravity for now. 
+If you want to build apps, then I suggest cursor as a strong contender.
+I'd also recommend no matter what that you get antigravity also and opencode and work between them.
 
-Unlike claude code you can switch different models - they also just launched a new cursor CLI with it and cursor is just SO reliable - it burns through token quick however! 💸
+I think it's supreme - better than claude code and still above Antigravity in certain ways for pure coding, for now. 
+
+Unlike claude code you can switch different models - they also just launched a new cursor CLI with it and cursor is just SO reliable - it burns through token quick however, even on their max tier you can burn through half in two days if you sit non-stop (with premium models ofcause)! 💸
 
 **Why cursor matters:** 
-Cursor is highly VC-backed, and I think they're pushing for something great in the future. 
+Cursor is highly VC-backed, and the people behind it are skilled and it shows in the product - and I think they're pushing for something great in the future that will take the market by storm - again. 
 
 The experience of coding with AI on cursor feels more native than other solutions i've tried - and i've used everything worth talking about.
 

@@ -94,8 +94,8 @@ export default function ContentSection({ section, darkMode = false }: SectionPro
                                         thumbnailUrl={card.thumbnailUrl}
                                         level={card.level}
                                         iconPath={card.iconPath}
-                                        isExpanded={isExpanded || isLastOddCard}
-                                        onToggleExpand={isLastOddCard ? () => { } : () => toggleCardExpansion(card.id)}
+                                        isExpanded={isExpanded}
+                                        onToggleExpand={() => toggleCardExpansion(card.id)}
                                     />
                                 </motion.div>
                             );

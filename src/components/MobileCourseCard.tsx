@@ -32,6 +32,7 @@ export default function MobileCourseCard({
     onToggleExpand
 }: MobileCourseCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
+    const hasMounted = useRef(false);
 
     const levelColors = {
         beginner: 'var(--color-success)',
@@ -40,7 +41,14 @@ export default function MobileCourseCard({
     };
 
     // Auto-scroll to card when expanded or collapsed
+    // Skip on initial mount to prevent scroll on tab change
     useEffect(() => {
+        // Skip initial mount - only scroll after user interaction
+        if (!hasMounted.current) {
+            hasMounted.current = true;
+            return;
+        }
+
         if (cardRef.current) {
             // Longer delay for collapse to let grid reflow animation complete
             const delay = isExpanded ? 150 : 200;

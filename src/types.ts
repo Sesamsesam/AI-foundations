@@ -48,7 +48,7 @@ export interface Card {
   id: string;
   type: 'text' | 'callout' | 'checklist' | 'linksGrid' | 'embed' | 'toolsList'
   | 'alert' | 'pdfCarousel' | 'toolCard' | 'courseCard' | 'videoEmbed' | 'statCard'
-  | 'slideViewer' | 'actionCarousel' | 'roleUseCases' | 'caseStudy' | 'videoGrid' | 'infoCarousel';
+  | 'slideViewer' | 'actionCarousel' | 'roleUseCases' | 'caseStudy' | 'videoGrid' | 'infoCarousel' | 'dualExpandable';
   title?: string;
   content?: string;
   items?: string[];
@@ -77,6 +77,7 @@ export interface Card {
   detailedContent?: string;  // Expandable detailed description with personal voice
   // Video embed
   videoId?: string;
+  isVertical?: boolean; // For YouTube Shorts (9:16 aspect ratio)
   // Stat card
   statImage?: string;
   // Action carousel
@@ -91,6 +92,18 @@ export interface Card {
   fullWidth?: boolean;
   // Info carousel items
   infoItems?: InfoItem[];
+  // Dual expandable card
+  dualExpandable?: {
+    leftCard: {
+      title: string;
+      content: string;
+      type: 'tip' | 'warning' | 'important';
+    };
+    rightCard: {
+      title: string;
+      items: { label: string; url?: string }[];
+    };
+  };
 }
 
 export interface Section {

@@ -26,7 +26,7 @@ export default function Tooltip({ content }: TooltipProps) {
                     ?
                 </span>
                 <span
-                    className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-150 absolute z-50 left-1/2 -translate-x-1/2 top-full mt-2 w-72 p-3 rounded-lg shadow-xl text-sm font-medium leading-relaxed border border-white/10"
+                    className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-150 absolute z-50 right-0 top-full mt-2 w-72 max-w-[calc(100vw-2rem)] p-3 rounded-lg shadow-xl text-sm font-medium leading-relaxed border border-white/10"
                     style={{
                         backgroundColor: 'var(--color-bg-card)',
                         color: 'var(--color-text-primary)',

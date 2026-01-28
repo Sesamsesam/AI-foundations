@@ -33,13 +33,21 @@ export default function ToolCard({
 }: ToolCardProps) {
     const [internalExpanded, setInternalExpanded] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
+    const hasMounted = useRef(false);
 
     // Use controlled or internal state
     const isExpanded = controlledExpanded !== undefined ? controlledExpanded : internalExpanded;
     const handleToggle = onToggleExpand || (() => setInternalExpanded(!internalExpanded));
 
     // Auto-scroll to center card in viewport - DESKTOP ONLY (runs on expand AND collapse)
+    // Skip on initial mount to prevent scroll on tab change
     useEffect(() => {
+        // Skip initial mount - only scroll after user interaction
+        if (!hasMounted.current) {
+            hasMounted.current = true;
+            return;
+        }
+
         // Only run scroll on desktop (>= 768px)
         if (window.innerWidth < 768) return;
 
