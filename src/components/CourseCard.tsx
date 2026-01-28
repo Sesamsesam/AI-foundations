@@ -10,6 +10,7 @@ interface CourseCardProps {
     description?: string;
     thumbnailUrl?: string;
     level?: 'beginner' | 'intermediate' | 'advanced';
+    iconPath?: string;
 }
 
 /**
@@ -24,7 +25,8 @@ export default function CourseCard({
     url,
     description,
     thumbnailUrl,
-    level
+    level,
+    iconPath
 }: CourseCardProps) {
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -49,60 +51,52 @@ export default function CourseCard({
 
             {/* Content */}
             <div className="p-5 flex-1 flex flex-col">
-                {/* Header with badges */}
-                <div className="flex items-start justify-between gap-3 mb-3">
+                {/* Header with icon and metadata */}
+                <div className="flex items-start gap-2.5 mb-3">
+                    {/* Course icon */}
+                    {iconPath && (
+                        <img
+                            src={iconPath}
+                            alt=""
+                            className="w-7 h-7 flex-shrink-0 mt-0.5"
+                        />
+                    )}
                     <div className="flex-1 min-w-0">
-                        <p
-                            className="text-xs font-medium uppercase tracking-wide mb-1"
-                            style={{ color: 'var(--color-accent)' }}
-                        >
-                            {provider}
-                        </p>
                         <h4
-                            className="font-semibold leading-tight"
+                            className="font-semibold leading-tight mb-1"
                             style={{ color: 'var(--color-text-primary)' }}
                         >
                             {title}
                         </h4>
-                    </div>
-
-                    {/* Badges */}
-                    <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                        {price && (
-                            <span
-                                className="text-xs font-medium px-2 py-1 rounded"
-                                style={{
-                                    backgroundColor: 'var(--color-accent-subtle)',
-                                    color: 'var(--color-accent-text)'
-                                }}
-                            >
-                                {price}
-                            </span>
-                        )}
-                        {level && (
-                            <span
-                                className="text-xs font-medium px-2 py-1 rounded"
-                                style={{
-                                    backgroundColor: 'var(--color-bg-secondary)',
-                                    color: levelColors[level]
-                                }}
-                            >
-                                {level.charAt(0).toUpperCase() + level.slice(1)}
-                            </span>
-                        )}
+                        {/* Consolidated metadata line with dot dividers */}
+                        <p
+                            className="text-xs font-medium"
+                            style={{ color: 'var(--color-text-muted)' }}
+                        >
+                            <span style={{ color: 'var(--color-accent)' }}>{provider}</span>
+                            {duration && (
+                                <>
+                                    <span className="mx-1.5 opacity-50">•</span>
+                                    <span>{duration}</span>
+                                </>
+                            )}
+                            {level && (
+                                <>
+                                    <span className="mx-1.5 opacity-50">•</span>
+                                    <span style={{ color: levelColors[level] }}>
+                                        {level.charAt(0).toUpperCase() + level.slice(1)}
+                                    </span>
+                                </>
+                            )}
+                            {price && (
+                                <>
+                                    <span className="mx-1.5 opacity-50">•</span>
+                                    <span style={{ color: 'var(--color-accent-text)' }}>{price}</span>
+                                </>
+                            )}
+                        </p>
                     </div>
                 </div>
-
-                {/* Duration */}
-                {duration && (
-                    <div
-                        className="flex items-center gap-1 text-sm mb-3"
-                        style={{ color: 'var(--color-text-muted)' }}
-                    >
-                        <Clock size={14} />
-                        <span>{duration}</span>
-                    </div>
-                )}
 
                 {/* Description - truncated with expand */}
                 {description && (

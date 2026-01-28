@@ -92,7 +92,7 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
                                     <img
                                         src={currentItem.iconPath}
                                         alt=""
-                                        className="w-20 h-20 object-contain"
+                                        className={currentItem.largeIcon ? "w-40 h-40 object-contain" : "w-20 h-20 object-contain"}
                                     />
                                 </div>
                             ) : (
@@ -175,8 +175,8 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
                                     setCurrentIndex(index);
                                 }}
                                 className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                        ? 'w-8 gradient-dot'
-                                        : 'w-2 hover:w-3'
+                                    ? 'w-8 gradient-dot'
+                                    : 'w-2 hover:w-3'
                                     }`}
                                 style={{
                                     backgroundColor: index !== currentIndex

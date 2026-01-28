@@ -23,6 +23,7 @@ export interface InfoItem {
   stat?: string;
   statLabel?: string;
   iconPath?: string;
+  largeIcon?: boolean;
 }
 
 export interface CaseStudyStep {

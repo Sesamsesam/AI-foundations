@@ -11,6 +11,7 @@ interface MobileCourseCardProps {
     description?: string;
     thumbnailUrl?: string;
     level?: 'beginner' | 'intermediate' | 'advanced';
+    iconPath?: string;
     isExpanded: boolean;
     onToggleExpand: () => void;
 }
@@ -26,6 +27,7 @@ export default function MobileCourseCard({
     url,
     description,
     level,
+    iconPath,
     isExpanded,
     onToggleExpand
 }: MobileCourseCardProps) {
@@ -82,36 +84,43 @@ export default function MobileCourseCard({
             <motion.div layout="position" className="p-3 flex-1 flex flex-col">
                 {/* Header with inline badge */}
                 <div className="flex items-start justify-between gap-2 mb-2">
-                    <div className="flex-1 min-w-0">
-                        {/* Provider + Level badge inline */}
-                        <div className="flex items-center gap-2 mb-0.5">
-                            <p
-                                className="text-[10px] font-medium uppercase tracking-wide truncate max-w-[80px]"
-                                style={{ color: 'var(--color-accent)' }}
+                    <div className="flex items-start gap-2 flex-1 min-w-0">
+                        {/* Course icon */}
+                        {iconPath && (
+                            <img
+                                src={iconPath}
+                                alt=""
+                                className="w-5 h-5 flex-shrink-0 mt-0.5"
+                            />
+                        )}
+                        <div className="flex-1 min-w-0">
+                            {/* Title first */}
+                            <h4
+                                className={`text-sm font-semibold leading-tight mb-0.5 ${!isExpanded ? 'line-clamp-1' : ''}`}
+                                style={{ color: 'var(--color-text-primary)' }}
                             >
-                                {provider}
-                            </p>
-                            {level && (
-                                <span
-                                    className="text-[9px] font-medium px-1.5 py-0.5 rounded"
-                                    style={{
-                                        backgroundColor: 'var(--color-bg-secondary)',
-                                        color: levelColors[level]
-                                    }}
+                                {title}
+                            </h4>
+                            {/* Provider + Level badge inline */}
+                            <div className="flex items-center gap-2">
+                                <p
+                                    className="text-[10px] font-medium uppercase tracking-wide truncate max-w-[80px]"
+                                    style={{ color: 'var(--color-accent)' }}
                                 >
-                                    {level.charAt(0).toUpperCase() + level.slice(1)}
-                                </span>
-                            )}
+                                    {provider}
+                                </p>
+                                {level && (
+                                    <span
+                                        className="text-[8px] font-medium opacity-70"
+                                        style={{ color: levelColors[level] }}
+                                    >
+                                        {level.charAt(0).toUpperCase() + level.slice(1)}
+                                    </span>
+                                )}
+                            </div>
                         </div>
-                        <h4
-                            className={`text-sm font-semibold leading-tight ${!isExpanded ? 'line-clamp-1' : ''}`}
-                            style={{ color: 'var(--color-text-primary)' }}
-                        >
-                            {title}
-                        </h4>
                     </div>
                 </div>
-
                 {/* Duration */}
                 {duration && (
                     <div

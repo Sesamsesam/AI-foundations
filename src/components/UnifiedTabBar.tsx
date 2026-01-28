@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 export const TAB_CONFIG: Record<string, { icon: string; shortLabel: string }> = {
     'overview': { icon: '/icons/Color/1rocket.svg', shortLabel: 'Home' },
     'google-setup': { icon: '/icons/Color/google-maps.svg', shortLabel: 'Setup' },
-    'free-courses': { icon: '/icons/Color/brain (4).svg', shortLabel: 'Learn' },
+    'free-courses': { icon: '/icons/Color/brain (1).svg', shortLabel: 'Learn' },
     'certificates': { icon: '/icons/Color/qua1lity.svg', shortLabel: 'Certs' },
-    'ai-tools': { icon: '/icons/Color/bot.svg', shortLabel: 'Tools' },
+    'ai-tools': { icon: '/icons/Color/ai1.svg', shortLabel: 'Tools' },
 };
 
 interface Tab {

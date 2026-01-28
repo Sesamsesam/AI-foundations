@@ -15,7 +15,7 @@ export const content: Tab[] = [
                 id: 'what-is-modern-ai',
                 title: 'What is Modern AI Exactly?',
                 sidebarTitle: 'What is AI?',
-                intro: 'A short introduction to help you understand what you are about to learn.',
+                intro: 'A short intro to help you understand what you are about to learn.',
                 cards: [
                     {
                         id: 'modern-ai-exactly-video',
@@ -100,7 +100,7 @@ export const content: Tab[] = [
                             {
                                 title: 'Protection',
                                 content: 'Without AI literacy, careers do not end abruptly; they plateau and narrow.',
-                                iconPath: '/icons/Color/valentin-day.svg'
+                                iconPath: '/icons/Color/brain (4).svg'
                             },
                             {
                                 title: 'Automation Resilience',
@@ -128,6 +128,17 @@ export const content: Tab[] = [
                                 title: 'AI-Native',
                                 content: 'Companies are increasingly looking for professionals who think in terms of systems and workflows.',
                                 iconPath: '/icons/Color/neural-network.svg'
+                            },
+                            {
+                                title: 'If you upskill with AI!',
+                                content: '',
+                                iconPath: '/icons/Color/brain (5).svg'
+                            },
+                            {
+                                title: '',
+                                content: '',
+                                iconPath: '/icons/Color/you-win.svg',
+                                largeIcon: true
                             }
                         ]
                     },
@@ -190,7 +201,7 @@ export const content: Tab[] = [
                                 title: 'Take a 30-Minute Free Course',
                                 description: 'Complete your first AI certification in under an hour.',
                                 details: [
-                                    'Introduction to Generative AI - official Google course',
+                                    'Intro to Generative AI - official Google course',
                                     'Earn a skill badge for your LinkedIn profile',
                                     'Uses your free Google Developer learning points',
                                     'No coding required - perfect for beginners',
@@ -693,20 +704,22 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                     {
                         id: 'intro-gen-ai',
                         type: 'courseCard',
-                        title: 'Introduction to Generative AI',
+                        title: 'Intro to Generative AI',
                         provider: 'Google',
                         duration: '45 mins',
                         level: 'beginner',
+                        iconPath: '/icons/Color/Learn/1ai-technology.svg',
                         content: 'Learn what Generative AI is, how it works, and how it differs from traditional ML. Perfect first course for beginners.',
                         url: 'https://www.cloudskillsboost.google/course_templates/536',
                     },
                     {
                         id: 'gemini-workspace',
                         type: 'courseCard',
-                        title: 'Google Workspace with Gemini',
+                        title: 'Workspace with Gemini',
                         provider: 'Google',
                         duration: '2 hours',
                         level: 'beginner',
+                        iconPath: '/icons/Color/Learn/email.svg',
                         content: 'Master using Gemini in Gmail, Docs, Sheets, and Slides for 10x productivity in your daily work.',
                         url: 'https://www.cloudskillsboost.google/paths/249',
                     },
@@ -717,16 +730,18 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         provider: 'Google',
                         duration: '3 hours',
                         level: 'beginner',
+                        iconPath: '/icons/Color/Learn/leadership.svg',
                         content: 'For managers: understand how to lead AI initiatives in your organization.',
                         url: 'https://www.cloudskillsboost.google/paths/118',
                     },
                     {
                         id: 'intro-llm',
                         type: 'courseCard',
-                        title: 'Introduction to Large Language Models',
+                        title: 'Intro to LLM\'s',
                         provider: 'Google',
                         duration: '30 mins',
                         level: 'beginner',
+                        iconPath: '/icons/Color/Learn/bot.svg',
                         content: 'Understand how LLMs work and their use cases across industries.',
                         url: 'https://www.cloudskillsboost.google/course_templates/539',
                     },
@@ -745,6 +760,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         provider: 'DeepLearning.AI',
                         duration: '4 weeks',
                         level: 'beginner',
+                        iconPath: '/icons/Color/Learn/check.svg',
                         content: 'Andrew Ng\'s famous course. No coding required. Understand what AI can and cannot do.',
                         url: 'https://www.coursera.org/learn/ai-for-everyone',
                     },
@@ -755,6 +771,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         provider: 'fast.ai',
                         duration: 'Self-paced',
                         level: 'intermediate',
+                        iconPath: '/icons/Color/certs/classification.svg',
                         content: 'For those who want hands-on coding. Build real AI models from day one.',
                         url: 'https://course.fast.ai/',
                     },
@@ -765,6 +782,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         provider: 'Kaggle',
                         duration: 'Self-paced',
                         level: 'beginner',
+                        iconPath: '/icons/Color/Learn/letter-k.svg',
                         content: 'Free micro-courses on Python, ML, and data science. Great for hands-on practice.',
                         url: 'https://www.kaggle.com/learn',
                     },
@@ -775,6 +793,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         provider: 'Microsoft',
                         duration: '5 hours',
                         level: 'beginner',
+                        iconPath: '/icons/Color/Learn/mind (2).svg',
                         content: 'Prepare for the Azure AI Fundamentals certification. Free learning path.',
                         url: 'https://learn.microsoft.com/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/',
                     },
@@ -830,34 +849,37 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                     {
                         id: 'prompting-essentials',
                         type: 'courseCard',
-                        title: 'Google Prompting Essentials',
+                        title: 'Prompting Essentials',
                         provider: 'Google',
                         duration: '4 hours',
                         price: 'Included',
                         level: 'beginner',
+                        iconPath: '/icons/Color/certs/chat-bubble.svg',
                         content: 'Master the art of prompting. Learn to get exactly what you need from AI assistants.',
                         url: 'https://www.coursera.org/learn/google-prompting-essentials',
                     },
                     {
                         id: 'ai-essentials',
                         type: 'courseCard',
-                        title: 'Google AI Essentials',
+                        title: 'AI Essentials',
                         provider: 'Google',
                         duration: '4 weeks',
                         price: 'Included',
                         level: 'beginner',
+                        iconPath: '/icons/Color/certs/graduation-cap.svg',
                         content: 'Comprehensive AI fundamentals: productivity tools, responsible AI, staying current.',
                         url: 'https://www.coursera.org/learn/google-ai-essentials',
                     },
                     {
                         id: 'intro-ml',
                         type: 'courseCard',
-                        title: 'Introduction to AI and Machine Learning',
+                        title: 'AI & Machine Learning',
                         provider: 'Google Cloud',
                         duration: '8 hours',
                         price: 'Included',
                         level: 'beginner',
-                        content: 'Technical introduction to how AI and ML actually work under the hood.',
+                        iconPath: '/icons/Color/certs/mesh.svg',
+                        content: 'Technical intro to how AI and ML actually work under the hood.',
                         url: 'https://www.coursera.org/learn/introduction-to-ai-and-machine-learning-on-google-cloud',
                     },
                     {
@@ -868,17 +890,19 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         duration: '2 hours',
                         price: 'Included',
                         level: 'beginner',
+                        iconPath: '/icons/Color/certs/lightning.svg',
                         content: 'Learn to use Claude for coding assistance and complex reasoning tasks.',
                         url: 'https://www.coursera.org/learn/claude-code-in-action',
                     },
                     {
                         id: 'mcp-intro',
                         type: 'courseCard',
-                        title: 'Introduction to Model Context Protocol',
+                        title: 'Model Context Protocol',
                         provider: 'Anthropic',
                         duration: '3 hours',
                         price: 'Included',
                         level: 'intermediate',
+                        iconPath: '/icons/Color/certs/server (2).svg',
                         content: 'Understand the future of AI integration with MCP - how AI connects to tools.',
                         url: 'https://www.coursera.org/learn/introduction-to-model-context-protocol',
                     },
@@ -919,6 +943,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         duration: '10-20 hours study',
                         price: '$99 exam',
                         level: 'beginner',
+                        iconPath: '/icons/Color/certs/google-cloud-search.svg',
                         content: 'Entry-level certification. Perfect for sales, PM, consulting, or business roles. Shows you understand cloud concepts without requiring technical depth. Easy to obtain but still respected.',
                         url: 'https://cloud.google.com/learn/certification/cloud-digital-leader',
                     },
@@ -964,13 +989,16 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         faviconPath: '/favicons/google-cloud.png',
                         usesCredits: true,
                         iconPath: '/icons/video.svg',
-                        detailedContent: `Veo 3 is Google's flagship text-to-video model. It's not just about generating random video, it creates genuinely cinematic footage with synchronized audio.
+                        detailedContent: `Veo 3 is Google's flagship text-to-video model. 🎬 \n\nIt's not just about generating random video, it creates genuinely cinematic footage with synchronized audio.
 
-I use it for creating short cinematic clips when I need high-quality B-roll or concept videos. The quality is impressive, especially for abstract or stylized content.
+I use it for creating short cinematic clips when I need high-quality B-roll or concept videos. 
 
-**Pro tip:** It uses your $300 Google Cloud credits, so you can experiment quite a bit before spending any real money. Access it through Vertex AI.
+The quality is impressive, especially for abstract or stylized content.
 
-The technology has evolved rapidly. Videos I created in early 2025 look dated compared to what's possible now. If you're just starting, expect even better results than the examples you'll see online from a few months ago.`,
+**Tip:** 
+It uses your $300 Google Cloud credits, so you can experiment quite a bit before spending any real money. Access it through Vertex AI.
+
+The technology has evolved rapidly. Videos I created in early 2025 look dated compared to what's possible now. If you're just starting, expect way better results than my examples 💯`,
                     },
                     {
                         id: 'heygen',
@@ -980,13 +1008,18 @@ The technology has evolved rapidly. Videos I created in early 2025 look dated co
                         url: 'https://heygen.com',
                         faviconPath: '/favicons/heygen.png',
                         iconPath: '/icons/ai.svg',
-                        detailedContent: `HeyGen is arguably the future of content creation. I genuinely believe everyone should have an AI avatar of themselves.
+                        detailedContent: `HeyGen is arguably the future of content creation. 🎥 \n\nI genuinely believe everyone should have an AI avatar of themselves.
 
-I use it for creating long-form speaking content. Instead of recording myself for hours, I write a script, and my avatar delivers it naturally. The lip-sync is remarkably good, and it supports 175+ languages.
+I use it for creating long-form speaking content. Instead of recording myself for hours, I write a script, and my avatar delivers it naturally. 
 
-**My workflow:** I create the audio using NotebookLM (Google's audio quality is spectacular), then use that audio with my HeyGen avatar. The combination is powerful.
+The lip-sync is remarkably good, and it supports 175+ languages.
 
-Whether you clone your own face or use one of their pre-made avatars, this is a game-changer for anyone creating educational or marketing content. Recording a 30-minute video now takes me 15 minutes of script writing instead of hours of filming, editing, and re-takes.`,
+**My workflow:** 
+I create the audio using NotebookLM (Google's audio quality is spectacular), then use that audio with my HeyGen avatar. The combination is powerful.
+
+Whether you clone your own face or use one of their pre-made avatars, this is a game-changer for anyone creating educational or marketing content. 
+
+Recording a 30-minute video now takes me 15 minutes of script writing instead of hours of filming, editing, and re-takes. ⏱️`,
                     },
                     {
                         id: 'higgsfield',
@@ -996,13 +1029,16 @@ Whether you clone your own face or use one of their pre-made avatars, this is a 
                         url: 'https://higgsfield.ai',
                         faviconPath: '/favicons/higgsfield.png',
                         iconPath: '/icons/lightning.svg',
-                        detailedContent: `Higgsfield is spectacular for creating UGC (user-generated content) style videos and ads. The level of control you get over motion is amazing.
+                        detailedContent: `Higgsfield is spectacular for creating UGC (user-generated content) style videos and ads. 🚀 \n\nThe level of control you get over motion is amazing.
 
 I use it for product placement concepts and short ad materials. You upload a photo and can precisely control how it animates, walking, turning, gesturing.
 
-**The limitation:** Clips are typically 5-8 seconds max. For longer content, you need to generate multiple clips and edit them together. But for punchy social media ads or product showcases, that's often exactly what you need.
+(it's important to understand that many of these video models are actually powered by Veo3 and other large Generative models - these companies build on top of them)
 
-It's also genuinely fun to use. There's something satisfying about bringing a still image to life with realistic human motion.`,
+**The limitation:** 
+Clips are typically 5-8 seconds max. For longer content, you need to generate multiple clips and edit them together. But for punchy social media ads or product showcases, that's often exactly what you need.
+
+It's also genuinely fun to use. There's something satisfying about bringing a still image to life with realistic human motion. 🎉`,
                     },
                     {
                         id: 'klingai',
@@ -1012,13 +1048,16 @@ It's also genuinely fun to use. There's something satisfying about bringing a st
                         url: 'https://klingai.com/global/',
                         faviconPath: '/favicons/klingai.png',
                         iconPath: '/icons/video.svg',
-                        detailedContent: `Kling AI is one of the most powerful video generation models available. Built by Kuaishou (a major Chinese tech company), it produces impressive motion quality.
+                        detailedContent: `Kling AI is one of the most powerful video generation models available. 🎯 \n\nBuilt by Kuaishou (a major Chinese tech company), it produces impressive motion quality.
 
-What sets it apart is the ability to generate longer clips compared to many competitors. The motion is smooth and realistic, especially for human movements.
+What sets it apart is the ability to generate longer clips compared to many competitors. 
 
-**Worth knowing:** While it originated in China, the global version is accessible. It's worth trying alongside Veo and other options to see which produces the best results for your specific use case.
+The motion is smooth and realistic, especially for human movements.
 
-The AI video space is evolving so fast that no single tool is "best" for everything. I recommend experimenting with multiple options.`,
+**Worth knowing:** 
+While it originated in China, the global version is accessible. It's worth trying alongside Veo and other options to see which produces the best results for your specific use case.
+
+The AI video space is evolving so fast that no single tool is "best" for everything. I recommend experimenting with multiple options. 🧪`,
                     },
                     {
                         id: 'nanabanana',
@@ -1029,13 +1068,33 @@ The AI video space is evolving so fast that no single tool is "best" for everyth
                         faviconPath: '/favicons/gemini.png',
                         usesCredits: true,
                         iconPath: '/icons/startup.svg',
-                        detailedContent: `Nano Banana is fantastic for quick customizations. When I need to make precise changes to images or add specific camera movements, this is my go-to.
+                        detailedContent: `Nano Banana is fantastic for quick customizations. 🔧 \n\nWhen I need to make precise changes to images or add specific camera movements, this is my go-to.
 
-The tool excels at letting you pinpoint exactly what you want to change. Instead of regenerating entire images, you can modify specific elements directly.
+The tool excels at letting you pinpoint exactly what you want to change. 
 
-**What I love:** The precision. When other tools give you broad strokes, Nano Banana lets you be surgical. Pan, zoom, rotation, you describe the camera move, and it brings the photo to life intelligently.
+Instead of regenerating entire images, you can modify specific elements directly.
 
-I haven't created sample videos to share yet, but I've used the tool extensively. It's become an essential part of my editing workflow.`,
+**What I love:** 
+The precision. When other tools give you broad strokes, Nano Banana lets you be surgical. Pan, zoom, rotation, you describe the camera move, and it brings the photo to life intelligently.
+
+I haven't created sample videos to share yet, but I've used the tool extensively. It's become an essential part of my editing workflow. ✂️`,
+                    },
+                    {
+                        id: 'xai',
+                        type: 'toolCard',
+                        title: 'xAI',
+                        content: 'Lightning fast and many generations of image variations at once.',
+                        url: 'https://x.ai/',
+                        faviconPath: '/favicons/xai.png',
+                        iconPath: '/icons/ai.svg',
+                        detailedContent: `I've used their video/image gen specifically for some logo design and small b-rolls. ⚡ 
+
+What's amazing about it is that it is lightning fast. You can create images super fast like you can with Kling AI, but video generation is lightning fast too.
+
+I believe all models essentially will become much longer and also so fast that it's on instant demand, but xAI is definitely someone to look out for, especially because they're scaling up their compute over the next couple of years.
+
+**Key strength:** 
+Speed. When you need multiple variations quickly, xAI delivers. 🏃`,
                     },
                     {
                         id: 'video-showcase',
@@ -1065,19 +1124,25 @@ I haven't created sample videos to share yet, but I've used the tool extensively
                         id: 'superwhisper',
                         type: 'toolCard',
                         title: 'Superwhisper',
-                        content: 'I use this every day. I rarely type anymore, even emails, iMessages, chat. Last week I saved 16 hours compared to typing.',
+                        content: 'I use this every day. I rarely type anymore, even emails, iMessages, chat. Last week I saved 16 hours compared to typing. 🤯',
                         url: 'https://superwhisper.com',
                         faviconPath: '/favicons/superwhisper.png',
                         statImage: '/dication.png',
-                        detailedContent: `Superwhisper has fundamentally changed how I work. I use it every single day, for everything, emails, personal messages, chat interfaces, even writing code comments.
+                        detailedContent: `Superwhisper has fundamentally changed how I work. 🎙️ \n\nI use it every single day, for everything, emails, personal messages, chat interfaces, even writing code comments.
 
-The math is simple: I speak at around 150 words per minute. Typing is 60-80 WPM at best. That's a 2-3x speed increase on every piece of text I create.
+Superwhisper tells me I save 16hrs, that's two full work days lol. That might give you an idea of HOW much I use all these tools daily - and I use Superwhisper in all my Ai tooling & Agents. Instead of typing... I speak.
 
-**The real benefit:** It runs 100% locally on your Mac. Your voice data never leaves your machine. This is crucial for anyone working with sensitive information.
+It's a bit akward in the start (if you come from being a person who thinks through writing like myself and like it) but once you practice delivering messages over and over again, verbally, with no delay you get better at communicating your tasks.
 
-As you can see in my screenshot, I saved 16 hours last week compared to if I had typed everything out. That's almost two full workdays. Every week.
+It's a NON-negotiable for me now. I mainly use speech - I used to frown at it - literally now I can't live without it. 👍
 
-If you're on Mac and not using voice-to-text, you're working harder than you need to.`,
+I'm currently - right now - actually speaking this out here in antigravity, and it's fast. I used to use Whisper Flow, but Whisper Flow has a $15 a month subscription. It's arguably much better than Super Whisper, but Super Whisper is free, and you can download a local fast model for it, The downside is that the model is not as smart and you also need to add an a vocabolary over time.
+Whereas whisperflow is so accurate and super smart.
+
+**The real benefit:**
+The math is simple: I speak at around 150 words per minute. Typing is 60-80 WPM at best. That's a 2-3x speed increase on every piece of text I create. ⭐️
+
+If you're not using voice-to-text, you're working harder and slower than you need.`,
                     },
                     {
                         id: 'notebooklm',
@@ -1087,16 +1152,19 @@ If you're on Mac and not using voice-to-text, you're working harder than you nee
                         url: 'https://notebooklm.google/',
                         faviconPath: '/favicons/notebooklm.png',
                         iconPath: '/icons/book.svg',
-                        detailedContent: `NotebookLM has become central to my content workflow. It's not just a research tool, it's a production tool.
+                        detailedContent: `NotebookLM has become central to my content workflow. 📚 \n\nIt's not just a research tool, it's a production tool.
 
 **How I use it:**
 - Upload documents and research papers, then have conversations about the content
 - Generate the audio I use for HeyGen avatar videos, Google's audio quality is genuinely spectacular
 - Create slide presentations based on complex topics I've researched
 
-The "podcast" feature that generates a natural conversation about your documents is remarkably good. The voices sound like two people genuinely discussing your content.
+The "podcast" feature that generates a natural conversation about your documents is remarkably good. 
 
-**Pro tip:** NotebookLM is for research and synthesis. Gamma.app is for presenting that research. They complement each other perfectly.`,
+The voices sound like two people genuinely discussing your content.
+
+**Tip:** 
+NotebookLM is for research and synthesis. Gamma.app is for presenting that research. They complement each other perfectly. 🔗`,
                     },
                     {
                         id: 'gemini-plus',
@@ -1106,15 +1174,18 @@ The "podcast" feature that generates a natural conversation about your documents
                         url: 'https://gemini.google/subscriptions/',
                         faviconPath: '/favicons/gemini.png',
                         iconPath: '/icons/ai.svg',
-                        detailedContent: `I use Gemini for Workspace every single day. It's integrated into Gmail, Docs, Sheets, Drive, everywhere I already work.
+                        detailedContent: `I use Gemini for Workspace every single day. ✅ \n\nIt's integrated into Gmail, Docs, Sheets, Drive, everywhere I already work.
 
 There are two ways to use it:
 - **Individual Gmail:** Gemini for your personal Google account
 - **Workspace for domains:** Full integration across your organization's email and docs
 
-**Why I'm bullish on this:** Google already owns the productivity stack that billions use. Adding native AI to that stack isn't just convenient, it's potentially the biggest AI ecosystem of the future.
+**Why I'm bullish on this:** 
+Google already owns the productivity stack that billions use. Adding native AI to that stack isn't just convenient, it's potentially the biggest AI ecosystem of the future.
 
-I highly recommend learning everything you can about Gemini. Whether you end up using Claude, ChatGPT, or other tools for specific tasks, understanding Gemini's ecosystem will be valuable as AI becomes more integrated into how we work.`,
+I highly recommend learning everything you can about Gemini. 
+
+Whether you end up using Claude, ChatGPT, or other tools for specific tasks, understanding Gemini's ecosystem will be valuable as AI becomes more integrated into how we work. 🚀`,
                     },
                     {
                         id: 'otter',
@@ -1124,13 +1195,14 @@ I highly recommend learning everything you can about Gemini. Whether you end up 
                         url: 'https://otter.ai',
                         faviconPath: '/favicons/otter.png',
                         iconPath: '/icons/headphones.svg',
-                        detailedContent: `I don't use Otter.ai personally, but for anyone who does a lot of recordings and needs comprehensive notes, this is the tool.
+                        detailedContent: `I don't use Otter.ai personally, but for anyone who does a lot of recordings and needs comprehensive notes, this is the tool. 🎧
 
-**The key advantage:** Unlike the native AI transcribers built into Zoom, Google Meet, or other calling platforms, Otter.ai integrates with all of them. One tool, universal access.
+**The key advantage:** 
+Unlike the native AI transcribers built into Zoom, Google Meet, or other calling platforms, Otter.ai integrates with all of them. One tool, universal access.
 
 This means you get consistent transcription quality across all your meeting platforms, and all your meeting notes live in one place rather than scattered across different apps.
 
-If you're in a role with lots of meetings, sales, consulting, project management, having a single source of truth for all meeting transcripts is genuinely valuable.`,
+If you're in a role with lots of meetings, sales, consulting, project management, having a single source of truth for all meeting transcripts is genuinely valuable. 📝`,
                     },
                 ],
             },
@@ -1143,17 +1215,20 @@ If you're in a role with lots of meetings, sales, consulting, project management
                         id: 'gemini',
                         type: 'toolCard',
                         title: 'Gemini Assistant',
-                        content: 'I use the regular Gemini Assistant daily. It knows my Gmail, Calendar, and Drive. Pro tip: install it as an app on your dock.',
+                        content: 'I use the regular Gemini Assistant daily. It knows my Gmail, Calendar, and Drive. Tip: install it as an app on your dock.',
                         url: 'https://gemini.google.com',
                         faviconPath: '/favicons/gemini.png',
                         iconPath: '/icons/ai.svg',
-                        detailedContent: `The regular Gemini Assistant is great. I use it every day for quick questions and tasks.
+                        detailedContent: `The regular Gemini Assistant is great. 💎 \n\nI use it every day for quick questions and tasks.
 
-**Pro tip:** If you use Google Chrome, click the three dots in the upper right corner, then "Cast, Save, and Share," then "Install Page as an app." It becomes an app on your dock (Mac). This works for any web app, I do it with all my favorites.
+**Tip:** 
+If you use Google Chrome, click the three dots in the upper right corner, then "Cast, Save, and Share," then "Install Page as an app." It becomes an app on your dock (Mac). This works for any web app, I do it with all my favorites.
 
-What makes Gemini special is the ecosystem integration. It already knows your Gmail, Calendar, and Drive. You're not copy-pasting context, it's already there.
+What makes Gemini special is the ecosystem integration. It already knows your Gmail, Calendar, and Drive. 
 
-Is it the "best" at everything? No. But for users in Google's ecosystem, the convenience factor is unmatched.`,
+You're not copy-pasting context, it's already there.
+
+Is it the "best" at everything? No. But for users in Google's ecosystem, the convenience factor is unmatched. 🌟`,
                     },
                     {
                         id: 'chatgpt',
@@ -1163,16 +1238,19 @@ Is it the "best" at everything? No. But for users in Google's ecosystem, the con
                         url: 'https://chat.openai.com',
                         faviconPath: '/favicons/chatgpt.png',
                         iconPath: '/icons/artificial-intelligence.svg',
-                        detailedContent: `I use ChatGPT every day. It's genuinely great at so many things.
+                        detailedContent: `I use ChatGPT every day. 🧠 \n\nIt's genuinely great at so many things.
 
 **What I use it for:**
 - Looking through code to find critical issues, vulnerabilities, or better approaches
 - Verifying plans from other AI models (even Claude Opus 4.5), ChatGPT is excellent at finding edge cases
 - Natural conversation, it's the most human-like of all the LLMs
 
-The comprehension and language quality are outstanding. When I need something explained in a clear, accessible way, ChatGPT consistently delivers.
+The comprehension and language quality are outstanding. 
 
-**Pro tip:** Just like with Gemini, you can install the web app to your dock using Chrome's "Install Page as an app" feature.`,
+When I need something explained in a clear, accessible way, ChatGPT consistently delivers.
+
+**Tip:** 
+Just like with Gemini, you can install the web app to your dock using Chrome's "Install Page as an app" feature.`,
                     },
                     {
                         id: 'claude',
@@ -1182,13 +1260,17 @@ The comprehension and language quality are outstanding. When I need something ex
                         url: 'https://claude.ai',
                         faviconPath: '/favicons/claude.png',
                         iconPath: '/icons/artificial-intelligence.svg',
-                        detailedContent: `I don't use the Claude AI assistant that often for general chat, to be honest. But for specific use cases, it's unmatched.
+                        detailedContent: `I don't use the Claude AI assistant that often for general chat, to be honest. But for specific use cases, it's unmatched. ✍️
 
-**Writing:** Copywriting, story writing, scriptwriting, Claude excels. I've used it for several presentations. The prose quality is noticeably better than other models.
+**Writing:** 
+Copywriting, story writing, scriptwriting, Claude excels. I've used it for several presentations. The prose quality is noticeably better than other models.
 
-**Coding:** This is where Claude really shines. I use Claude Opus 4.5 and Claude Sonnet 4.5 daily with my coding agents. It's arguably the best coding AI on the planet right now.
+**Coding:** 
+This is where Claude really shines. I use Claude Opus 4.5 and Claude Sonnet 4.5 daily with my coding agents. It's arguably the best coding AI on the planet right now.
 
-The model can read entire books (200K+ tokens). For long documents, research papers, or analyzing complex codebases, Claude handles context that would overwhelm other models.`,
+The model can read entire books (200K+ tokens). 
+
+For long documents, research papers, or analyzing complex codebases, Claude handles context that would overwhelm other models. 📚`,
                     },
                     {
                         id: 'grok',
@@ -1198,15 +1280,21 @@ The model can read entire books (200K+ tokens). For long documents, research pap
                         url: 'https://x.ai/grok',
                         faviconPath: '/favicons/grok.png',
                         iconPath: '/icons/speedometer.svg',
-                        detailedContent: `I use Grok often, specifically for one thing: understanding what people think.
+                        detailedContent: `I use Grok often, specifically for one thing: understanding what people think. 🌐
 
-**My use case:** Whenever I learn about something new, a tool, technology, or concept, I go to xAI and ask Grok to scour X and tell me what people are saying about it.
+**My use case:** 
+Whenever I learn about something new, a tool, technology, or concept, I go to xAI and ask Grok to scour X and tell me what people are saying about it.
 
-It's like having real-time sentiment analysis. What does the crowd think? What are the common complaints? What are people excited about?
+It's like having real-time sentiment analysis. What does the crowd think? 
 
-Grok is an LLM like ChatGPT, it can do most of the same things. But the 24/7 access to X's data stream is the differentiator. For trends, breaking news, and public opinion, nothing else comes close.
+What are the common complaints? What are people excited about?
 
-**Note:** It also has API access if you want to build with it.`,
+Grok is an LLM like ChatGPT, it can do most of the same things. 
+
+But the 24/7 access to X's data stream is the differentiator. For trends, breaking news, and public opinion, nothing else comes close.
+
+**Note:** 
+It also has API access if you want to build with it. 🛠️`,
                     },
                     {
                         id: 'ai-studio',
@@ -1217,22 +1305,42 @@ Grok is an LLM like ChatGPT, it can do most of the same things. But the 24/7 acc
                         faviconPath: '/favicons/aistudio.png',
                         usesCredits: true,
                         iconPath: '/icons/lightning.svg',
-                        detailedContent: `I don't use AI Studio that much since I mainly work in coding IDEs. But when I do use it, it's valuable.
+                        detailedContent: `I don't use AI Studio that much since I mainly work in coding IDEs. But when I do use it, it's valuable. 🛠️
 
 **What it's good for:**
 - Rapid prototyping with Gemini models
 - Testing prompts before committing them to code
 - Moving quickly from Stitch designs to initial functionality
 
-Think of it as the playground before the real work. You can experiment with different Gemini models (Pro, Flash, Experimental), test system prompts, and export to code when you're happy.
+Think of it as the playground before the real work. 
 
-It uses your $300 Google Cloud credits, so it's essentially free to experiment.`,
+You can experiment with different Gemini models (Pro, Flash, Experimental), test system prompts, and export to code when you're happy.
+
+It uses your $300 Google Cloud credits, so it's essentially free to experiment. 🎮`,
+                    },
+                    {
+                        id: 'open-webui',
+                        type: 'toolCard',
+                        title: 'Open WebUI',
+                        content: 'I\'ve used this in the past as a User Interface for self-hosted LLMs with Ollama. Why? you don\'t need internet to run your models.',
+                        url: 'https://openwebui.com',
+                        faviconPath: '/favicons/openwebui.png',
+                        iconPath: '/icons/ai.svg',
+                        detailedContent: `I've used Open WebUI for self-hosting. 🖥️ \n\nI use Ollama to download AI models, and then I always have an LLM available directly on my machine.
+
+**Important note:** 
+Depending on your computer's specs, there's a limit to which models you can run locally. But it's really cool to have AI that never needs internet. You can also find models on huggingface.co.
+
+**Another use case:** 
+You can use Open WebUI as a starting template for your own application instead of building the entire UI yourself. If you're building an LLM-powered app, starting from their codebase can save weeks.
+
+There's also LM Studio, another popular option for running local models with a nice UI. 👍`,
                     },
                 ],
             },
             {
                 id: 'developer-tools',
-                title: 'Design & Developer Tools',
+                title: 'Design Tools',
                 intro: 'The tools I use for building interfaces and writing code with AI assistance.',
                 cards: [
                     {
@@ -1244,13 +1352,13 @@ It uses your $300 Google Cloud credits, so it's essentially free to experiment.`
                         faviconPath: '/favicons/stitch.png',
                         usesCredits: true,
                         iconPath: '/icons/diamond.svg',
-                        detailedContent: `Google Stitch is great for getting quick concepts for design. If you're sitting with an idea, you can quickly go in and create mockups.
+                        detailedContent: `Google Stitch is great for getting quick concepts for design. 🎨 \n\nIf you're sitting with an idea, you can quickly go in and create mockups.
 
 I haven't used it yet for final designs that I take directly to my coding agents, but it's very good for exploring ideas and getting visual direction quickly.
 
-**How it works:** Describe a UI in plain English, get production-ready code. It's like having a designer and developer in one, you say what you want, it builds it.
+** How it works:** Describe a UI in plain English, get production- ready code.It's like having a designer and developer in one, you say what you want, it builds it.
 
-It uses your $300 Google Cloud credits, so you can experiment freely.`,
+It uses your $300 Google Cloud credits, so you can experiment freely. ✨`,
                     },
                     {
                         id: 'v0',
@@ -1260,13 +1368,15 @@ It uses your $300 Google Cloud credits, so you can experiment freely.`,
                         url: 'https://v0.dev',
                         faviconPath: '/favicons/v0.png',
                         iconPath: '/icons/startup.svg',
-                        detailedContent: `I haven't actually used v0.dev yet, but I hear good things. In some circles, people are very happy with it.
+                        detailedContent: `I haven't actually used v0.dev yet, but I hear good things. 👀 \n\nIn some circles, people are very happy with it.
 
-I see there are some great components in there, and I typically use 21st.dev instead. But I'm eyeing some cool designs in v0 and might try some out in the coming weeks.
+I see there are some great components in there, and I typically use 21st.dev instead.
 
-**What it offers:** Finished components, small applications, and full designs, even landing pages, that you can implement instead of creating from scratch.
+But I'm eyeing some cool designs in v0 and might try some out in the coming weeks.
 
-If you're coding or doing anything like that, it's definitely worth taking a look. Vercel (the company behind it) has a strong track record.`,
+            ** What it offers:** Finished components, small applications, and full designs, even landing pages, that you can implement instead of creating from scratch.
+
+If you're coding or doing anything like that, it's definitely worth taking a look.Vercel(the company behind it) has a strong track record. 👍`,
                     },
                     {
                         id: '21st-dev',
@@ -1276,11 +1386,11 @@ If you're coding or doing anything like that, it's definitely worth taking a loo
                         url: 'https://21st.dev',
                         faviconPath: '/favicons/21st.png',
                         iconPath: '/icons/diamond.svg',
-                        detailedContent: `I typically use 21st.dev for finding components. Instead of generating everything from scratch, you browse a marketplace of community-made UI elements.
+                        detailedContent: `I typically use 21st.dev for finding components. 🛒 \n\nInstead of generating everything from scratch, you browse a marketplace of community- made UI elements.
 
-**Think of it like a grocery store for UI:** You pick what looks good and customize it to taste. Much faster than generating everything with AI when someone has already built something close to what you need.
+** Think of it like a grocery store for UI:** You pick what looks good and customize it to taste.Much faster than generating everything with AI when someone has already built something close to what you need.
 
-It integrates nicely with Cursor and VS Code, so you can pull components directly into your project.`,
+It integrates nicely with Cursor and VS Code, so you can pull components directly into your project. ⚡`,
                     },
                     {
                         id: 'shadcn',
@@ -1290,11 +1400,11 @@ It integrates nicely with Cursor and VS Code, so you can pull components directl
                         url: 'https://ui.shadcn.com',
                         faviconPath: '/favicons/shadcn.png',
                         iconPath: '/icons/coding.svg',
-                        detailedContent: `shadcn/ui is very popular, and it's a must-know for modern React development. 21st.dev is actually built from this library.
+                        detailedContent: `shadcn / ui is very popular, and it's a must-know for modern React development. 🧱 \n\n21st.dev is actually built from this library.
 
-**What makes it different:** Unlike npm packages where you're dependent on external code, shadcn components are copied directly into YOUR project. You own the code completely.
+    ** What makes it different:** Unlike npm packages where you're dependent on external code, shadcn components are copied directly into YOUR project. You own the code completely.
 
-It's like the difference between recipes and microwave meals. More work, but you control every ingredient. When you need to customize something specific, you're not fighting against library abstractions.`,
+It's like the difference between recipes and microwave meals. More work, but you control every ingredient. When you need to customize something specific, you're not fighting against library abstractions. 🍳`,
                     },
                     {
                         id: 'gamma',
@@ -1304,11 +1414,13 @@ It's like the difference between recipes and microwave meals. More work, but you
                         url: 'https://gamma.app',
                         faviconPath: '/favicons/gamma.png',
                         iconPath: '/icons/diamond.svg',
-                        detailedContent: `I've used Gamma.app a few times. I think it's really good.
+                        detailedContent: `I've used Gamma.app a few times. 📊 \n\nI think it's really good.
 
-The cool thing is the interactive features you can add for super engaging presentations. It's not just static slides, you can make things that feel more like mini-apps.
+The cool thing is the interactive features you can add for super engaging presentations.
 
-**How I think of it:** NotebookLM is for research and synthesis. Gamma.app is for presenting that research in a compelling way. They complement each other perfectly.`,
+It's not just static slides, you can make things that feel more like mini-apps.
+
+    ** How I think of it:** NotebookLM is for research and synthesis.Gamma.app is for presenting that research in a compelling way.They complement each other perfectly. ✨`,
                     },
                     {
                         id: 'vibesdk',
@@ -1318,55 +1430,59 @@ The cool thing is the interactive features you can add for super engaging presen
                         url: 'https://github.com/cloudflare/vibesdk',
                         faviconPath: '/favicons/cloudflare.png',
                         iconPath: '/icons/cloud-network.svg',
-                        detailedContent: `VibeSDK from Cloudflare is a complete hack, and I think Cloudflare is something you should keep an eye on for the future.
+                        detailedContent: `VibeSDK from Cloudflare is a complete hack, and I think Cloudflare is something you should keep an eye on for the future. 🚀
 
-**Why I'm excited:** They're going to surprise everybody with some cool AI features. They already have Workers (serverless functions), cool backend infrastructure, and can deliver at edge. 25% of the world's internet flows through Cloudflare.
+** Why I'm excited:** 
+They're going to surprise everybody with some cool AI features.
+
+They already have Workers(serverless functions), cool backend infrastructure, and can deliver at edge. 25 % of the world's internet flows through Cloudflare.
 
 I'm putting this up on my own site as a placeholder for when my next application is ready. You can literally set up your own coding agent in 15 minutes.
 
-Looking at their GitHub, they push many updates every week. I think they're planning something big with this.`,
-                    },
-                    {
-                        id: 'open-webui',
-                        type: 'toolCard',
-                        title: 'Open WebUI',
-                        content: 'I\'ve used this for self-hosting LLMs with Ollama. You can also use it as a starting template for building your own LLM-powered app.',
-                        url: 'https://openwebui.com',
-                        faviconPath: '/favicons/openwebui.png',
-                        iconPath: '/icons/ai.svg',
-                        detailedContent: `I've used Open WebUI for self-hosting. I use Ollama to download AI models, and then I always have an LLM available directly on my machine.
-
-**Important note:** Depending on your computer's specs, there's a limit to which models you can run locally. But it's really cool to have AI that never needs internet.
-
-**Another use case:** You can use Open WebUI as a starting template for your own application instead of building the entire UI yourself. If you're building an LLM-powered app, starting from their codebase can save weeks.
-
-There's also LM Studio, another popular option for running local models with a nice UI.`,
+Looking at their GitHub, they push many updates every week.I think they're planning something big with this. 🔥`,
                     },
                 ],
             },
             {
                 id: 'ai-infrastructure',
-                title: 'AI Infrastructure & Agents',
+                title: 'AI Powertools',
                 intro: 'The advanced tools I use for autonomous AI workflows, the next frontier of developer productivity.',
                 cards: [
                     {
                         id: 'antigravity',
                         type: 'toolCard',
                         title: 'Antigravity',
-                        content: 'My daily driver now. I believe Google will slingshot past everyone. They have a 20-year head start and own the entire stack.',
+                        content: 'My daily driver now with Cursor. I believe Google will slingshot past everyone. They have a 20-year head start and own the entire stack.',
                         url: 'https://antigravity.google/',
                         faviconPath: '/favicons/antigravity.png',
                         iconPath: '/icons/ai.svg',
-                        detailedContent: `Antigravity is my daily driver now. Although there might be IDEs more tuned at the moment, I believe Antigravity will slingshot and catch up, then go far beyond on every parameter.
+                        detailedContent: `Antigravity is among my daily drivers now. 🚀 \n\nAlthough there might be IDEs more tuned at the moment, I believe Antigravity will slingshot and catch up, then go far beyond on every parameter.
 
 **Why I'm bullish on Google's ecosystem:**
 - They own the entire stack already
 - 20-year head start on infrastructure
 - The transformer model that eventually created ChatGPT came from Google engineers
+- You will eventually be able to integrate it with all google's services
+- You can already integrate it with notebookLM
+- It's DIRT CHEAP - you can start today for free
+
+**Why you SHOULD be bullish and use it**
+- listen you don't need to code or create apps, you can use it in combination with NotebookLM forexample and have antigravity carry out multiple tasks at once MUCH faster than you can!
+
+MARK MY WORDS: 🔥
+EVERYONE - and i mean EVERYONE - should download antigravity and learn how to use it - are you in Finance? Marketing? Sales? Hospitality? Leadership? Business Development? whatever industry you are in - Get it and learn how to use it!
+
+It's not hype - get it and you will understand. 
+
+It can be your guiding task manager. It can carry out work for you - yes autonomously - and if you want to level up completely connect clawdbot either to a VPS (hostinger) or get a second machine (mac mini/studio) and connect clawdbot to your computer and experience the closest thing to AI superpower on the planet right now - and if you are taken back and think "what are all these names?" go on youtube (I will also supply videos on my youtube and socials over time) and learn.
+
+And believe me IT IS NOT HARD - it has NEVER been easier to work with technology! 💪 
+
 
 I genuinely think the future of AI applications and coding will be strongest in the Google ecosystem. Using Antigravity is a real pleasure.
 
-**Note:** It's compared to tools like Cursor or OpenCode, but the ecosystem integration is what sets it apart long-term.`,
+**Note:** 
+It's compared to tools like Cursor or OpenCode, but the ecosystem integration is what sets it apart long-term.`,
                     },
                     {
                         id: 'opencode',
@@ -1376,16 +1492,20 @@ I genuinely think the future of AI applications and coding will be strongest in 
                         url: 'https://opencode.ai/',
                         faviconPath: '/favicons/opencode.png',
                         iconPath: '/icons/coding.svg',
-                        detailedContent: `I now use OpenCode with Antigravity, and it's spectacular. It's becoming a favorite of most AI-focused developers and growing quickly in popularity.
+                        detailedContent: `I now use OpenCode with Antigravity, and it's spectacular. 👍 \n\nIt's becoming a favorite of most AI-focused developers and growing quickly in popularity.
 
 **What sets it apart:**
 - Terminal-based, works with any LLM (local or cloud)
 - Their CLI tool is amazing
 - They also have a desktop app that is supreme
 
-**My workflow:** I use Antigravity for planning and light execution, then I've coded a watcher bridge that sends multiple work orders to OpenCode. OpenCode then does the heavy lifting, following Claude Opus 4.5 directions to code.
+**My workflow:** 
+I use Antigravity for planning and light execution, then I've coded a watcher bridge that sends multiple work orders to OpenCode. OpenCode then does the heavy lifting, following Claude Opus 4.5 directions to code.
 
-I also code with Claude Opus 4.5 through OpenCode. If you want to avoid IDE lock-in or use custom models, this is the way.`,
+I also code with Claude Opus 4.5 through OpenCode. If you want to avoid IDE lock-in or use custom models, this is the way.
+
+**Insanity level**
+Try and connect Clawdbot to your coding stack`,
                     },
                     {
                         id: 'jules',
@@ -1395,13 +1515,23 @@ I also code with Claude Opus 4.5 through OpenCode. If you want to avoid IDE lock
                         url: 'https://jules.google/',
                         faviconPath: '/favicons/jules.png',
                         iconPath: '/icons/ai.svg',
-                        detailedContent: `Jules is simply amazing. Google's autonomous coding agent changes everything about how you can approach development.
+                        detailedContent: `Jules is simply amazing. 🤖 \n\nGoogle's autonomous coding agent changes everything about how you can approach development.
 
-**How it works:** Give Jules a GitHub issue. It clones your repo, understands the codebase, implements the fix, and opens a PR. Like a junior developer who works 24/7 and never gets tired.
+**How it works:** 
+Give Jules a GitHub issue. 
 
-**The combination with Gemini CLI:** When you pair Jules with Gemini CLI, you can orchestrate complex multi-step workflows. Gemini plans, Jules executes.
+It clones your repo, understands the codebase, implements the fix, and opens a PR. Like a junior developer who works 24/7 and never gets tired.
 
-This is the kind of tool that makes you rethink what "productivity" means in software development.`,
+**The combination with Gemini CLI:** 
+When you pair Jules with Gemini CLI, you can orchestrate complex multi-step workflows. 
+
+Gemini plans, Jules executes.
+
+This is the kind of tool that makes you rethink what "productivity" means in software development. ⚡
+
+**INSTANITY LEVEL** 
+Try and connect Clawdbot to your coding stack and combine Jules into it 🤯
+I am still testing it out and man oh man is it wild!`,
                     },
                     {
                         id: 'gemini-cli',
@@ -1411,13 +1541,18 @@ This is the kind of tool that makes you rethink what "productivity" means in sof
                         url: 'https://geminicli.com/',
                         faviconPath: '/favicons/geminicli.png',
                         iconPath: '/icons/ai.svg',
-                        detailedContent: `Gemini CLI is Google's command-line interface for interacting with Gemini models. It's powerful for automation and scripting.
+                        detailedContent: `Gemini CLI is Google's command-line interface for interacting with Gemini models. ⌨️ \n\nIt's powerful for automation and scripting.
 
-**Why it matters:** It works beautifully with Jules for automated coding workflows. You can script multi-step processes where Gemini handles planning and Jules handles execution.
+**Why it matters:** 
+It works beautifully with Jules for automated coding workflows. 
 
-For developers comfortable with the terminal, this opens up workflows that aren't possible in GUI tools. Pipe outputs, chain commands, automate repetitive tasks.
+You can script multi-step processes where Gemini handles planning and Jules handles execution.
 
-Uses your $300 Google Cloud credits if you have them.`,
+For developers comfortable with the terminal, this opens up workflows that aren't possible in GUI tools. 
+
+Pipe outputs, chain commands, automate repetitive tasks.
+
+Uses your $300 Google Cloud credits if you have them. 💰`,
                     },
                     {
                         id: 'beads',
@@ -1427,60 +1562,89 @@ Uses your $300 Google Cloud credits if you have them.`,
                         url: 'https://github.com/steveyegge/beads',
                         faviconPath: '/favicons/github.png',
                         iconPath: '/icons/artificial-intelligence.svg',
-                        detailedContent: `Beads is fantastic for having a memory system for AI agents. It solves the "50 First Dates" problem. Agents remember previous sessions instead of starting fresh.
+                        detailedContent: `Beads is fantastic for having a memory system for AI agents. 🧠 \n\nIt solves the "50 First Dates" problem. Agents remember previous sessions instead of starting fresh.
 
-**My setup:** I use Beads alongside my own custom ruleset. The synergy is amazing.
+**My setup:** 
+I use Beads alongside my own custom ruleset. The synergy is amazing.
+This is for developers who wanna go beast mode!
 
-**The benefit:** It gives the agent an expanded context, like a peripheral memory. This allows you to be much more precise with work orders and scope.
+**The benefit:** 
+It gives the agent an expanded context, like a peripheral memory. 
+This allows you to be much more precise with work orders and scope. 
 
 Even if you're not meticulous about documentation, it becomes very difficult to lose a thread if Beads is set up correctly. The agent maintains continuity across sessions.
 
-Highly recommend looking into it if you work with AI coding agents regularly.`,
+Highly recommend looking into it if you work with AI coding agents regularly. 🌟`,
                     },
                     {
                         id: 'cursor',
                         type: 'toolCard',
                         title: 'Cursor',
-                        content: 'I\'ve coded myprofiles.biz and teklatoppings.com all in Cursor. It\'s highly VC-backed and pushing for something great.',
+                        content: 'I\'ve coded myprofiles.biz, teklatoppings.com, grokly.ai (under works) all in Cursor. It\'s highly VC-backed and pushing for something great.',
                         url: 'https://cursor.sh',
                         faviconPath: '/favicons/cursor.png',
                         iconPath: '/icons/coding.svg',
-                        detailedContent: `Cursor is an AI-first code editor. Like VS Code, but AI is built into its DNA, not bolted on.
+                        detailedContent: `Cursor is an AI-first code editor. 🤌 \n\nLike VS Code, but AI is built into its DNA, not bolted on, they push updates sometimes multiple times a day.
 
-I've coded several projects in Cursor, including myprofiles.biz and teklatoppings.com. Just describe what you want, and it writes the code.
+Cursor has written over 250k lines of code for me over 6 different projects and some smaller websites. 
 
-**Why it matters:** Cursor is highly VC-backed, and I think they're pushing for something great in the future. The experience of coding with AI feels more native than other solutions.
+It's GREAT! if you want to build apps, then I suggest cursor, get antigravity also and opencode and work between them.
 
-For beginners, it's surprisingly approachable. You're literally just describing what you want in plain English.`,
+Just describe what you want, and it writes the code, you need to learn about devops but if you want to code - I think it's supreme - better than claude code and still above Antigravity for now. 
+
+Unlike claude code you can switch different models - they also just launched a new cursor CLI with it and cursor is just SO reliable - it burns through token quick however! 💸
+
+**Why cursor matters:** 
+Cursor is highly VC-backed, and I think they're pushing for something great in the future. 
+
+The experience of coding with AI on cursor feels more native than other solutions i've tried - and i've used everything worth talking about.
+
+Cursor is really great for hard application building.
+
+And it's also very approachable for beginners.`,
                     },
                     {
                         id: 'claude-code',
                         type: 'toolCard',
                         title: 'Claude Code (CLI)',
-                        content: 'Developer-focused CLI tool from Anthropic. Best coding models on the planet. I don\'t use it anymore, but many developers swear by it.',
+                        content: 'Developer-focused CLI turned popular for everyone - from Anthropic. Best coding models on the planet.',
                         url: 'https://claude.com/product/claude-code',
                         faviconPath: '/favicons/claudecode.png',
                         iconPath: '/icons/coding.svg',
-                        detailedContent: `Claude Code is Anthropic's native CLI tool for coding. It's very developer-focused. The UI is essentially a CLI, but don't let that intimidate you.
+                        detailedContent: `Claude Code is Anthropic's native CLI tool for coding. 💻 \n\nI don\'t use their CLI anymore, but many developers swear by it. \n\n I do however use their models in other Coders/Agents.\n\nThe UI is essentially a CLI, but don't let that intimidate you.
 
-**For beginners:** Don't be afraid of these coding tools. They're very easy to learn. You literally have an expert LLM that you can ask how to use the tool itself.
+**For beginners:** 
+Don't be afraid of these coding tools. They're very easy to learn. You literally have an expert LLM that you can ask how to use the tool itself.
 
-It's a fan favorite by many developers. Claude has arguably the best coding models on the planet right now. If you want the best coding models in the environment they were built for, Claude Code is it.
+It's a fan favorite by many developers. 
 
-**My honest take:** I don't use it anymore since I'm focused on investing in ecosystems for the future. But the hype is real. Many people have great success with it.
+Claude has - without much dispute from anyone - the best coding models on the planet right now. 
 
-**Pro tip:** OpenCode's CLI is way better in my opinion, and you can still use Claude models there via API or by connecting your Antigravity subscription through the opencode-antigravity-auth MCP server.`,
+If you want the best coding models in the environment they were built for, Claude Code is it.
+(you can use them elsewhere too)
+
+**My honest take:** ☝️
+I don't use it anymore and I actually think Opnecodes CLI inside something like Antigravity is better.
+
+But the hype is real. Many people have great success with it.
+
+I would advice EVERYONE to at the very least, download it, install it, try it out for a day - even if you don't code, just to get into the DNA of ai in the world.
+
+And if you are not a developer try and use it for something anyway - you can automate a bunch of stuff with it.
+
+**Tip:** 🤌
+OpenCode's CLI is way better in my opinion, and you can still use Claude models there via API or by connecting your Antigravity subscription through the opencode-antigravity-auth MCP server.`,
                     },
                     {
                         id: 'vertex',
                         type: 'toolCard',
                         title: 'Vertex AI',
-                        content: 'I\'m upskilling myself here. Learning to work with enterprise data, RAG, and ML operations. Critical for large-scale work.',
+                        content: 'I\'m upskilling myself here. 🚀 Learning to work with enterprise data, RAG, and ML operations. Critical for large-scale work.',
                         url: 'https://cloud.google.com/vertex-ai',
                         faviconPath: '/favicons/google-cloud.png',
                         usesCredits: true,
                         iconPath: '/icons/cloud-network.svg',
-                        detailedContent: `I'm using Vertex AI for upskilling myself to work with enterprise data at scale.
+                        detailedContent: `I'm using Vertex AI for upskilling myself to work with enterprise data at scale. 🏭
 
 **What I'm learning:**
 - Connecting to and manipulating company data (emails, PDFs, databases)
@@ -1488,11 +1652,16 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
 - Building RAG systems (retrieval-augmented generation) to answer questions from knowledge bases
 - Machine learning operations (MLOps) for production systems
 
-**Why this matters:** Vertex is the plumbing for large-scale AI operations. To be valuable for large corporations in the future, learning Vertex is essential. It offers enterprise-grade compliance, which matters for big companies.
+**Why this matters:** 
+Vertex is the plumbing for large-scale AI operations. To be valuable for large corporations in the future, learning Vertex is going to be essential if you ask me. It offers enterprise-grade compliance, which matters for big companies and you can do some incredible things connecting across many things.
 
-**The Model Garden:** One huge benefit: you can rent and run other people's models on Google's servers. Llama 3, Claude, Mistral, all inside Vertex. Companies that don't want to be locked into just Gemini can use multiple models, even their own trained models.
+**The Model Garden:** 
+One huge benefit: you can rent and run other people's models on Google's servers. Llama 3, Claude, Mistral, all inside Vertex. Companies that don't want to be locked into just Gemini can use multiple models, even their own trained models. ✅
 
-**Analogy:** Think of Vertex as a professional kitchen. Gemini is one recipe. Vertex lets you run any recipe, at any scale, with the equipment and processes that professional operations need.`,
+**Analogy:** 
+Think of Vertex as a professional kitchen. Gemini is one recipe. 
+
+Vertex lets you run any recipe, at any scale, with the equipment and processes that professional operations need and you can do all sorts of things from training on data, analysicing data, segmenting data, training models, to video generation (use veo3 here, it's much better) and so much more - it's truly a powertool. 🤖`,
                     },
                 ],
             },
@@ -1505,11 +1674,11 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
                         id: 'cloudflare',
                         type: 'toolCard',
                         title: 'Cloudflare',
-                        content: 'I mainly use Convex and Cloudflare for most things. R2 has zero egress fees, which is huge for video.',
+                        content: 'I mainly use Convex and Cloudflare for most things',
                         url: 'https://cloudflare.com',
                         faviconPath: '/favicons/cloudflare.png',
                         iconPath: '/icons/cloud-network.svg',
-                        detailedContent: `25% of the world's internet flows through Cloudflare's network. I'm very bullish on them.
+                        detailedContent: `25% of the world's internet flows through Cloudflare's network. 🌐 \n\n I'm very bullish on them.
 
 **What I use:**
 - Workers (serverless functions at the edge)
@@ -1517,7 +1686,10 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
 - R2 (S3-compatible storage with zero egress fees, perfect for video)
 - VibeSDK for AI applications
 
-**A good architecture:** Use Google Cloud Run for heavy backend processing, Cloudflare R2 for video/media storage (zero egress saves money), point DNS to Cloudflare's front door, and Convex for the light, real-time backend. This combination covers most use cases elegantly.`,
+**A good architecture:** 
+Use Google Cloud Run for heavy backend processing, Cloudflare R2 for video/media storage (zero egress saves money), point DNS to Cloudflare's front door, and Convex for the light, real-time backend. 
+
+This combination covers most use cases elegantly. ⚡️`,
                     },
                     {
                         id: 'google-cloud-run',
@@ -1528,7 +1700,7 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
                         faviconPath: '/favicons/google-cloud.png',
                         usesCredits: true,
                         iconPath: '/icons/cloud-network.svg',
-                        detailedContent: `I'm starting to focus on learning Google Cloud Run. It's serverless containers done right.
+                        detailedContent: `I'm starting to focus on learning Google Cloud Run. ☁️ \n\nIt's serverless containers done right and BIG.
 
 **What I'm excited about:**
 - Deploy any Docker container
@@ -1536,7 +1708,12 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
 - Pay only for what you use
 - Connect MCP with Antigravity to essentially configure the whole thing for you
 
-**Why learn this:** Having Google Cloud experience is valuable for anyone in tech. For heavy backend work that needs more power than serverless edge functions, Cloud Run is the place. It uses your $300 Google Cloud credits.`,
+**Why learn this:** 
+Having Google Cloud experience is valuable for anyone in tech. 
+
+For heavy backend work that needs more power than serverless edge functions, Cloud Run is the place. 
+
+It uses your $300 Google Cloud credits. 💪`,
                     },
                     {
                         id: 'convex',
@@ -1546,14 +1723,19 @@ It's a fan favorite by many developers. Claude has arguably the best coding mode
                         url: 'https://convex.dev',
                         faviconPath: '/favicons/convex.png',
                         iconPath: '/icons/database.svg',
-                        detailedContent: `The database syncs automatically with your frontend. No manual API building required.
+                        detailedContent: `The database syncs automatically with your frontend. ⚡ \n\nNo manual API building required.
 
 **What makes it special:**
 - Database and frontend talk directly
 - Real-time updates out of the box
 - TypeScript end-to-end
 
-For apps that need real-time features (chat, collaboration, dashboards), Convex can save you weeks of backend work. The developer experience is genuinely impressive.`,
+For apps that need real-time features (chat, collaboration, dashboards), Convex can save you weeks of backend work. 
+
+The developer experience is genuinely impressive.
+
+However I build myprofiles.biz with Supabase as backend - but don't recommend it currently building on convex with all new apps under way, - much better - I am building a video member site and cloudflare has R2 which has zero egress fees, which is huge for video storage. 🎥
+`,
                     },
                     {
                         id: 'clerk',
@@ -1563,7 +1745,7 @@ For apps that need real-time features (chat, collaboration, dashboards), Convex 
                         url: 'https://clerk.com',
                         faviconPath: '/favicons/clerk.png',
                         iconPath: '/icons/login.svg',
-                        detailedContent: `User management, sign-up flows, OAuth providers, all handled out of the box.
+                        detailedContent: `User management, sign-up flows, OAuth providers, all handled out of the box. 🔐
 
 **Why developers love it:**
 - Beautiful pre-built UI components
@@ -1571,7 +1753,9 @@ For apps that need real-time features (chat, collaboration, dashboards), Convex 
 - User management dashboard included
 - Social login (Google, GitHub, etc.) in minutes
 
-Authentication is one of those things you don't want to build from scratch. I use it for projects where I need auth quickly without compromising on quality.`,
+Authentication is one of those things you don't want to build from scratch. 
+
+I use it for projects where I need auth quickly without compromising on quality. ✅`,
                     },
                     {
                         id: 'github',
@@ -1581,7 +1765,7 @@ Authentication is one of those things you don't want to build from scratch. I us
                         url: 'https://github.com',
                         faviconPath: '/favicons/github.png',
                         iconPath: '/icons/coding.svg',
-                        detailedContent: `If you're a developer, you probably already use it. It's foundational.
+                        detailedContent: `If you're a developer, you probably already use it. It's foundational. 📁
 
 **What I use it for:**
 - Version control (obviously)
@@ -1589,7 +1773,8 @@ Authentication is one of those things you don't want to build from scratch. I us
 - Issues for project management
 - Copilot for AI assistance
 
-**Pro tip:** Use Jules with GitHub. Jules can clone your repo, read issues, implement fixes, and open PRs automatically. The integration is seamless.`,
+**Tip:** 
+Use Jules with GitHub. Jules can clone your repo, read issues, implement fixes, and open PRs automatically. The integration is seamless.`,
                     },
                     {
                         id: 'greptile',
@@ -1599,11 +1784,12 @@ Authentication is one of those things you don't want to build from scratch. I us
                         url: 'https://greptile.com',
                         faviconPath: '/favicons/greptile.png',
                         iconPath: '/icons/speedometer.svg',
-                        detailedContent: `Ask "how does payment work?" and it finds the answer across 100 files. Like having an engineer who's read every line of code.
+                        detailedContent: `Ask "how does payment work?" and it finds the answer across 100 files. 🔍 \n\nLike having an engineer who's read every line of code.
 
-**Why I'm using it:** It allows you to have checks and balances on your code and can help you become a better developer by having AI that reviews the work being done.
+**Why I'm using it:** 
+It allows you to have checks and balances on your code and can help you become a better developer by having AI that reviews the work being done.
 
-The ultimate workflow I'm building toward: Greptile with Graphite and Jules all working together.`,
+The ultimate workflow I'm building toward: Greptile with Graphite and Jules all working together. 🛠️`,
                     },
                     {
                         id: 'graphite',
@@ -1613,11 +1799,13 @@ The ultimate workflow I'm building toward: Greptile with Graphite and Jules all 
                         url: 'https://graphite.dev',
                         faviconPath: '/favicons/graphite.png',
                         iconPath: '/icons/diamond.svg',
-                        detailedContent: `Break big changes into small, reviewable chunks. Like dividing a novel into chapters instead of submitting the whole book at once.
+                        detailedContent: `Break big changes into small, reviewable chunks. 📝 \n\nLike dividing a novel into chapters instead of submitting the whole book at once.
 
-This leads to faster reviews, smaller bugs, and better code quality. The workflow changes how you think about version control.
+This leads to faster reviews, smaller bugs, and better code quality. 
 
-My goal: Get Greptile + Graphite + Jules all working together for an automated, AI-powered development pipeline.`,
+The workflow changes how you think about version control.
+
+My goal: Get Greptile + Graphite + Jules all working together for an automated, AI-powered development pipeline. 🎯`,
                     },
                 ],
             },
