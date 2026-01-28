@@ -45,10 +45,9 @@ export default function Timeline({ nodes }: TimelineProps) {
 
     return (
         <div className="sticky h-fit" style={{ top: '50%', transform: 'translateY(-50%)' }}>
-            {/* The Rail */}
+            {/* The Rail - Gradient */}
             <div
-                className="absolute left-[5px] top-1 bottom-1 w-[2px]"
-                style={{ backgroundColor: 'var(--color-border)' }}
+                className="absolute left-[5px] top-1 bottom-1 w-[2px] gradient-bg-vertical"
             />
 
             <div className="relative space-y-4">
@@ -61,12 +60,13 @@ export default function Timeline({ nodes }: TimelineProps) {
                             className="flex items-start gap-3 group text-left outline-none w-full"
                         >
                             <div
-                                className="w-3 h-3 rounded-full border-2 transition-all duration-300 relative z-10 flex-shrink-0 mt-0.5"
+                                className={`w-3 h-3 rounded-full border-2 transition-all duration-300 relative z-10 flex-shrink-0 mt-0.5 ${isActive ? 'gradient-bg border-transparent' : ''
+                                    }`}
                                 style={{
-                                    backgroundColor: isActive ? 'var(--color-accent)' : 'var(--color-bg-card)',
-                                    borderColor: isActive ? 'var(--color-accent)' : 'var(--color-border)',
+                                    backgroundColor: !isActive ? 'var(--color-bg-card)' : undefined,
+                                    borderColor: !isActive ? 'var(--color-border)' : 'transparent',
                                     transform: isActive ? 'scale(1.3)' : 'scale(1)',
-                                    boxShadow: isActive ? '0 0 8px var(--color-accent)' : 'none'
+                                    boxShadow: isActive ? '0 0 8px rgba(139, 92, 246, 0.5)' : 'none'
                                 }}
                             />
                             <span

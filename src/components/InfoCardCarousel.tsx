@@ -71,10 +71,7 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
             >
                 {/* Left Accent Strip */}
                 <div
-                    className="absolute left-0 top-0 bottom-0 w-1.5 z-10"
-                    style={{
-                        background: 'linear-gradient(180deg, var(--color-accent), #8B5CF6)',
-                    }}
+                    className="absolute left-0 top-0 bottom-0 w-1.5 z-10 gradient-bg-vertical"
                 />
 
                 <AnimatePresence mode="wait" custom={direction}>
@@ -132,13 +129,7 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
                         {currentItem.stat && (
                             <div className="mt-4 inline-block">
                                 <div
-                                    className="text-3xl font-black tracking-tight"
-                                    style={{
-                                        background: 'linear-gradient(135deg, #3B82F6, #8B5CF6)',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                        backgroundClip: 'text',
-                                    }}
+                                    className="text-3xl font-black tracking-tight gradient-text"
                                 >
                                     {currentItem.stat}
                                 </div>
@@ -157,10 +148,8 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
 
                 {/* Right Accent Strip */}
                 <div
-                    className="absolute right-0 top-0 bottom-0 w-1.5 z-10"
-                    style={{
-                        background: 'linear-gradient(180deg, #8B5CF6, var(--color-accent))',
-                    }}
+                    className="absolute right-0 top-0 bottom-0 w-1.5 z-10 gradient-bg-vertical"
+                    style={{ transform: 'scaleY(-1)' }}
                 />
             </div>
 
@@ -185,13 +174,14 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
                                     setDirection(index > currentIndex ? 1 : -1);
                                     setCurrentIndex(index);
                                 }}
-                                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'w-8' : 'w-2 hover:w-3'
+                                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                                        ? 'w-8 gradient-dot'
+                                        : 'w-2 hover:w-3'
                                     }`}
                                 style={{
-                                    backgroundColor:
-                                        index === currentIndex
-                                            ? 'var(--color-accent)'
-                                            : 'var(--color-text-muted)',
+                                    backgroundColor: index !== currentIndex
+                                        ? 'var(--color-text-muted)'
+                                        : undefined,
                                     opacity: index === currentIndex ? 1 : 0.3,
                                 }}
                                 aria-label={`Go to slide ${index + 1}`}

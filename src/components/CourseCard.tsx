@@ -131,11 +131,8 @@ export default function CourseCard({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm transition-all hover:opacity-90"
-                    style={{
-                        backgroundColor: 'var(--color-accent)',
-                        color: 'white'
-                    }}
+                    className="mt-4 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm transition-all hover:opacity-90 gradient-bg"
+                    style={{ color: 'white' }}
                 >
                     Start Course
                     <ExternalLink size={14} />

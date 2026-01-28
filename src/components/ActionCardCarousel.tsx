@@ -102,11 +102,12 @@ export default function ActionCardCarousel({ items, title }: ActionCardCarouselP
                         <button
                             key={index}
                             onClick={() => setCurrentIndex(index)}
-                            className="w-2 h-2 rounded-full transition-colors"
+                            className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? 'gradient-dot' : ''
+                                }`}
                             style={{
-                                backgroundColor: index === currentIndex
-                                    ? 'var(--color-accent)'
-                                    : 'var(--color-border)'
+                                backgroundColor: index !== currentIndex
+                                    ? 'var(--color-border)'
+                                    : undefined
                             }}
                             aria-label={`Go to slide ${index + 1}`}
                         />

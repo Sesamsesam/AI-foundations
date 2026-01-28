@@ -24,6 +24,14 @@
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
+
+  /* Purple Gradient System */
+  --gradient-start: #3B82F6;
+  /* Blue */
+  --gradient-end: #06B6D4;
+  /* Cyan */
+  --gradient-accent: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  --gradient-accent-vertical: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
 }
 
 .dark {
@@ -40,7 +48,8 @@
   --color-border: #2d2d2d;
   --color-border-subtle: #1f1f1f;
   --color-accent: #60a5fa;
-  --color-accent-subtle: #1e3a5f;
+  --color-accent-subtle: #2a2a2a;
+  /* Light gray imprint effect */
   --color-accent-text: #93c5fd;
 
   --color-success: #34d399;
@@ -182,6 +191,14 @@ body {
   color: var(--color-text-muted);
 }
 
+/* Gold gradient text for premium elements */
+.gradient-text-gold {
+  background: linear-gradient(135deg, #D4AF37, #F5D67B, #C9A227);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Smooth transitions for dark mode */
 * {
   transition-property: background-color, border-color, color;
@@ -243,4 +260,58 @@ textarea {
   width: 100%;
   height: 100%;
   background-color: #000;
+}
+
+/* ========================================
+   PURPLE GRADIENT UTILITIES
+   Single source of truth for accent gradients
+   ======================================== */
+
+/* Gradient background - for buttons, badges, indicators */
+.gradient-bg {
+  background: var(--gradient-accent);
+}
+
+/* Vertical gradient background - for accent strips */
+.gradient-bg-vertical {
+  background: var(--gradient-accent-vertical);
+}
+
+/* Gradient text - for stats, highlights */
+.gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient left border - for timeline, accent cards */
+.gradient-border-left {
+  position: relative;
+}
+
+.gradient-border-left::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-accent-vertical);
+  border-radius: 2px 0 0 2px;
+}
+
+/* Gradient dot - for carousel indicators */
+.gradient-dot {
+  background: var(--gradient-accent);
+}
+
+/* Gradient circle - for numbered steps, badges */
+.gradient-circle {
+  background: var(--gradient-accent);
+  border-radius: 9999px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

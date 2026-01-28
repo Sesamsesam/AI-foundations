@@ -17,11 +17,10 @@ export default function Tooltip({ content }: TooltipProps) {
             {/* Desktop: CSS-only hover */}
             <span className="hidden md:inline-block relative group ml-2">
                 <span
-                    className="inline-flex items-center justify-center h-6 w-6 rounded-full text-xs font-bold shadow-lg cursor-help transition-transform hover:scale-110"
+                    className="inline-flex items-center justify-center h-6 w-6 rounded-full text-xs font-bold shadow-lg cursor-help transition-transform hover:scale-110 gradient-bg"
                     style={{
-                        background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
                         color: 'white',
-                        boxShadow: '0 0 12px rgba(59, 130, 246, 0.5)',
+                        boxShadow: '0 0 12px rgba(139, 92, 246, 0.5)',
                     }}
                 >
                     ?
@@ -40,11 +39,10 @@ export default function Tooltip({ content }: TooltipProps) {
             {/* Mobile: Click toggle */}
             <span className="md:hidden inline-block relative ml-2">
                 <span
-                    className="inline-flex items-center justify-center h-6 w-6 rounded-full text-xs font-bold shadow-lg cursor-pointer active:scale-95 transition-transform"
+                    className="inline-flex items-center justify-center h-6 w-6 rounded-full text-xs font-bold shadow-lg cursor-pointer active:scale-95 transition-transform gradient-bg"
                     style={{
-                        background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
                         color: 'white',
-                        boxShadow: '0 0 12px rgba(59, 130, 246, 0.5)',
+                        boxShadow: '0 0 12px rgba(139, 92, 246, 0.5)',
                     }}
                     onClick={(e) => {
                         e.stopPropagation();

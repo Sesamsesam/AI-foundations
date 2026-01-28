@@ -148,11 +148,8 @@ export default function MobileCourseCard({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg font-medium text-xs transition-all hover:opacity-90 ${isExpanded ? '' : 'mt-auto'}`}
-                    style={{
-                        backgroundColor: 'var(--color-accent)',
-                        color: 'white'
-                    }}
+                    className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg font-medium text-xs transition-all hover:opacity-90 gradient-bg ${isExpanded ? '' : 'mt-auto'}`}
+                    style={{ color: 'white' }}
                 >
                     {isExpanded ? 'Start Course' : 'Start'}
                     <ExternalLink size={12} />

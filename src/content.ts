@@ -824,7 +824,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         type: 'linksGrid',
                         title: 'Get Coursera Plus - 50% Off',
                         links: [
-                            { label: 'Coursera Plus', url: 'https://www.coursera.org/courseraplus', description: 'Unlimited access to all courses. Annual: $100 (normally $200). Monthly: $20 (40% off).' },
+                            { label: 'Coursera Plus', url: 'https://www.coursera.org/courseraplus', description: 'Unlimited access to all courses. Annual: $100 (normally $200). Monthly: $20 (40% off).', premium: true },
                         ],
                     },
                     {

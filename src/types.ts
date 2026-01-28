@@ -53,7 +53,7 @@ export interface Card {
   items?: string[];
   // Checklist with links - each item can have an optional URL
   checklistLinks?: { label: string; url?: string }[];
-  links?: { label: string; url: string; image?: string; description?: string }[];
+  links?: { label: string; url: string; image?: string; description?: string; premium?: boolean }[];
   embedUrl?: string;
   // Alert card
   alertType?: 'tip' | 'warning' | 'important';

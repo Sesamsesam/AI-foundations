@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { content } from '../content';
 import Hero from './Hero';
-import TabBar from './TabBar';
-import MobileTabBar from './MobileTabBar';
+import UnifiedTabBar from './UnifiedTabBar';
 import ContentSection from './ContentSection';
 import Timeline from './Timeline';
 import AnimatedGrid from './AnimatedGrid';
@@ -177,17 +176,8 @@ export default function SamiApp() {
                 </motion.div>
             </AnimatePresence>
 
-            {/* Desktop Floating Pill Tab Bar */}
-            <div className="hidden md:block">
-                <TabBar
-                    tabs={content.map(t => ({ id: t.id, label: t.label }))}
-                    activeTabId={activeTabId}
-                    onTabChange={handleTabChange}
-                />
-            </div>
-
-            {/* Mobile Icon Tab Bar */}
-            <MobileTabBar
+            {/* Unified Tab Bar - Desktop floating pill, Mobile bottom bar */}
+            <UnifiedTabBar
                 tabs={content.map(t => ({ id: t.id, label: t.label }))}
                 activeTabId={activeTabId}
                 onTabChange={handleTabChange}

@@ -129,9 +129,8 @@ const Card = ({ card, darkMode = false }: CardProps) => {
         case 'callout':
             return (
                 <div
-                    className="surface-accent p-6 rounded-xl relative overflow-hidden h-full flex flex-col"
+                    className="surface-accent p-6 pl-8 rounded-xl relative overflow-hidden h-full flex flex-col gradient-border-left"
                     style={{
-                        borderLeft: '4px solid var(--color-accent)',
                         minHeight: '120px',
                     }}
                 >
@@ -221,20 +220,20 @@ const Card = ({ card, darkMode = false }: CardProps) => {
                             >
                                 <div className="flex items-center justify-between mb-1">
                                     <span
-                                        className="font-medium"
-                                        style={{ color: 'var(--color-text-primary)' }}
+                                        className={`font-medium ${link.premium ? 'gradient-text-gold' : ''}`}
+                                        style={link.premium ? {} : { color: 'var(--color-text-primary)' }}
                                     >
                                         {link.label}
                                     </span>
                                     <ExternalLink
                                         size={16}
-                                        style={{ color: 'var(--color-text-muted)' }}
+                                        style={{ color: link.premium ? '#D4AF37' : 'var(--color-text-muted)' }}
                                     />
                                 </div>
                                 {link.description && (
                                     <span
-                                        className="text-sm line-clamp-2"
-                                        style={{ color: 'var(--color-text-muted)' }}
+                                        className={`text-sm line-clamp-2 ${link.premium ? 'gradient-text-gold' : ''}`}
+                                        style={link.premium ? {} : { color: 'var(--color-text-muted)' }}
                                     >
                                         {link.description}
                                     </span>
