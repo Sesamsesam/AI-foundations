@@ -29,7 +29,7 @@ export interface CaseStudyStep {
   time: string;
   title: string;
   description: string;
-  tools: { name: string; usesCredits?: boolean }[];
+  tools: { name: string; usesCredits?: boolean; url?: string }[];
 }
 
 export interface CaseStudyData {

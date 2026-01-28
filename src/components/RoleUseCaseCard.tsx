@@ -43,11 +43,11 @@ export default function RoleUseCaseCard({ useCase, darkMode = false }: RoleUseCa
             >
                 {/* Solid Header Bar with Role */}
                 <div
-                    className="surface-secondary px-5 py-3 flex items-center justify-between"
+                    className="surface-secondary px-3 py-2 md:px-5 md:py-3 flex items-center justify-between"
                     style={{ borderBottom: '1px solid var(--color-border)' }}
                 >
                     <span
-                        className="font-medium"
+                        className="text-xs md:text-base font-medium"
                         style={{ color: 'var(--color-text-primary)' }}
                     >
                         {useCase.role}
@@ -56,10 +56,10 @@ export default function RoleUseCaseCard({ useCase, darkMode = false }: RoleUseCa
                 </div>
 
                 {/* Content - Centered */}
-                <div className="p-5 text-center">
+                <div className="p-3 md:p-5 text-center">
                     {/* Scenario Preview */}
                     <h4
-                        className="font-semibold mb-3 line-clamp-2"
+                        className="text-xs md:text-lg font-semibold mb-2 md:mb-3 line-clamp-3 md:line-clamp-2"
                         style={{ color: 'var(--color-text-primary)' }}
                     >
                         {useCase.scenario}
@@ -70,7 +70,7 @@ export default function RoleUseCaseCard({ useCase, darkMode = false }: RoleUseCa
                         {useCase.tools.slice(0, 3).map((tool, i) => (
                             <span
                                 key={i}
-                                className="text-xs px-2 py-1 rounded flex items-center gap-1"
+                                className="text-[10px] md:text-xs px-1.5 py-0.5 md:px-2 md:py-1 rounded flex items-center gap-1"
                                 style={{
                                     backgroundColor: 'var(--color-bg-secondary)',
                                     color: 'var(--color-text-secondary)',
@@ -92,7 +92,7 @@ export default function RoleUseCaseCard({ useCase, darkMode = false }: RoleUseCa
 
                     {/* Result Preview */}
                     <p
-                        className="text-sm mt-4 font-medium"
+                        className="text-xs md:text-sm mt-3 md:mt-4 font-medium"
                         style={{ color: '#3B82F6' }}
                     >
                         {useCase.result}

@@ -5,9 +5,11 @@ interface AnimatedGridProps {
 }
 
 // Generate sparse, organic dot positions
-const generateDotPositions = (width: number, height: number, density: number = 0.35) => {
+const generateDotPositions = (width: number, height: number, isMobile: boolean) => {
     const dots: { x: number; y: number; baseRadius: number; phase: number }[] = [];
-    const gridSize = 55;
+    const gridSize = isMobile ? 70 : 55; // Larger grid (fewer dots) on mobile
+    const density = isMobile ? 0.25 : 0.35; // Lower density on mobile
+
     const cols = Math.ceil(width / gridSize) + 1;
     const rows = Math.ceil(height / gridSize) + 1;
 
@@ -30,9 +32,11 @@ const generateDotPositions = (width: number, height: number, density: number = 0
 };
 
 // Generate star positions (more stars, biased toward edges)
-const generateStarPositions = (width: number, height: number) => {
+const generateStarPositions = (width: number, height: number, isMobile: boolean) => {
     const stars: { x: number; y: number; size: number; rotationSpeed: number; phase: number }[] = [];
-    const count = Math.floor((width * height) / 40000); // ~18-25 stars on typical screen
+    // Reduce star count significantly on mobile
+    const div = isMobile ? 80000 : 40000;
+    const count = Math.floor((width * height) / div);
 
     for (let i = 0; i < count; i++) {
         // Bias X position toward edges (left 25% or right 25%)
@@ -61,6 +65,7 @@ const generateStarPositions = (width: number, height: number) => {
 };
 
 // Draw a 4-pointed curved star (Gemini-style)
+// Optimized: Replaced expensive shadowBlur with manual glow drawing
 const drawStar = (
     ctx: CanvasRenderingContext2D,
     x: number,
@@ -71,6 +76,15 @@ const drawStar = (
 ) => {
     ctx.save();
     ctx.translate(x, y);
+
+    // Draw Fake Glow (Performance Optimization)
+    // Instead of shadowBlur, we draw a faint circle behind the star.
+    // This is much cheaper for the GPU.
+    ctx.beginPath();
+    ctx.arc(0, 0, size * 2, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.15})`; // Low opacity glow
+    ctx.fill();
+
     ctx.rotate(rotation);
 
     // 4-pointed star with curved concave edges
@@ -108,10 +122,10 @@ const drawStar = (
 
     ctx.closePath();
 
-    // White fill with glow
+    // White fill
     ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-    ctx.shadowBlur = 6;
-    ctx.shadowColor = `rgba(255, 255, 255, ${alpha * 0.8})`;
+    // ctx.shadowBlur = 6; -- REMOVED for performance
+    // ctx.shadowColor = `rgba(255, 255, 255, ${alpha * 0.8})`;
     ctx.fill();
 
     ctx.restore();
@@ -131,11 +145,13 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const dpr = window.devicePixelRatio || 1;
+        // Cap DPR at 2 for performance (Retina screens don't need 3x/4x for BG effects)
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
         const resizeCanvas = () => {
             const width = window.innerWidth;
             const height = window.innerHeight;
+            const isMobile = width < 768;
 
             canvas.width = width * dpr;
             canvas.height = height * dpr;
@@ -145,8 +161,8 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
 
             if (darkMode && (Math.abs(lastSizeRef.current.w - width) > 100 ||
                 Math.abs(lastSizeRef.current.h - height) > 100)) {
-                dotsRef.current = generateDotPositions(width, height, 0.38);
-                starsRef.current = generateStarPositions(width, height);
+                dotsRef.current = generateDotPositions(width, height, isMobile);
+                starsRef.current = generateStarPositions(width, height, isMobile);
                 lastSizeRef.current = { w: width, h: height };
             }
         };
@@ -154,8 +170,10 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
 
         // Generate initial elements for dark mode
         if (darkMode && dotsRef.current.length === 0) {
-            dotsRef.current = generateDotPositions(window.innerWidth, window.innerHeight, 0.38);
-            starsRef.current = generateStarPositions(window.innerWidth, window.innerHeight);
+            const width = window.innerWidth;
+            const isMobile = width < 768;
+            dotsRef.current = generateDotPositions(width, window.innerHeight, isMobile);
+            starsRef.current = generateStarPositions(width, window.innerHeight, isMobile);
         }
 
         window.addEventListener('resize', resizeCanvas);
@@ -168,12 +186,12 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
         };
         window.addEventListener('mousemove', handleMouseMove);
 
-        const gridSize = 50;
         let time = 0;
 
         const animate = () => {
             const width = window.innerWidth;
             const height = window.innerHeight;
+            const isMobile = width < 768;
 
             ctx.clearRect(0, 0, width, height);
 
@@ -200,6 +218,7 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
 
                     let waveIntensity = 0;
                     waveCenters.forEach((center, idx) => {
+                        // Using Math.sqrt is fine here (only 2 centers)
                         const dist = Math.sqrt(Math.pow(x - center.x, 2) + Math.pow(y - center.y, 2));
                         const wave = Math.sin(dist * 0.008 - time * 0.015 + phase + idx * 1.5);
                         waveIntensity += (wave + 1) / 2;
@@ -209,8 +228,18 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
                     const pulse = (Math.sin(time * 0.01 + phase) + 1) / 2;
                     waveIntensity = waveIntensity * 0.6 + pulse * 0.4;
 
-                    const mouseDistance = Math.sqrt(Math.pow(x - mouse.x, 2) + Math.pow(y - mouse.y, 2));
-                    const mouseInfluence = Math.max(0, 1 - mouseDistance / 180);
+                    // Performance: Skip mouse calculations on mobile or if mouse is off-screen
+                    let mouseInfluence = 0;
+                    if (!isMobile && mouse.x > -500) {
+                        const dx = x - mouse.x;
+                        const dy = y - mouse.y;
+                        // Simple bounding box check before sqrt
+                        if (Math.abs(dx) < 180 && Math.abs(dy) < 180) {
+                            const mouseDistance = Math.sqrt(dx * dx + dy * dy);
+                            mouseInfluence = Math.max(0, 1 - mouseDistance / 180);
+                        }
+                    }
+
                     const finalIntensity = Math.min(1, waveIntensity + mouseInfluence * 0.6);
 
                     const radius = baseRadius * (0.8 + finalIntensity * 1.5); // Less scaling
@@ -251,14 +280,16 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
 
                     drawStar(ctx, x, y, size, rotation, alpha);
                 });
-                ctx.shadowBlur = 0;
+                // ctx.shadowBlur = 0; -- No longer needed
 
             } else {
                 // ========== LIGHT MODE: Simple wireframe grid (no energy pulses) ==========
+                // Re-calculate basic grid if needed, simplistic draw
+                const gridSize = 50;
                 const cols = Math.ceil(width / gridSize) + 1;
                 const rows = Math.ceil(height / gridSize) + 1;
 
-                ctx.strokeStyle = 'rgba(26, 115, 232, 0.12)'; // More visible grid
+                ctx.strokeStyle = 'rgba(26, 115, 232, 0.12)';
                 ctx.lineWidth = 0.6;
 
                 for (let i = 0; i < cols; i++) {

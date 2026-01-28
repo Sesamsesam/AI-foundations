@@ -7,7 +7,7 @@ export const content: Tab[] = [
         label: 'Overview',
         hero: {
             title: 'Welcome to AI Foundations',
-            subtitle: 'Your guided path to mastering AI.\nFrom complete beginner to confident practitioner.',
+            subtitle: 'Your guided path to mastering AI.\nFor anyone to become aconfident practitioner',
             videoUrl: null, // O-V1: Placeholder for new welcome video - user to provide URL
         },
         sections: [
@@ -29,7 +29,7 @@ export const content: Tab[] = [
                 id: 'why-learn-ai',
                 title: 'Why Learn AI Now?',
                 sidebarTitle: 'Why AI Now?',
-                intro: 'AI is transforming every industry.\nUnderstanding it is no longer optional - it is essential for career growth.',
+                intro: 'AI is transforming every industry, it is no longer optional - it is essential for career growth',
                 cards: [
                     {
                         id: 'why-learn-carousel',
@@ -38,78 +38,83 @@ export const content: Tab[] = [
                         infoItems: [
                             {
                                 title: 'A New Baseline',
-                                content: 'In 2026, learning AI is no longer about staying ahead;\n it is about keeping up with a new "baseline" for professional competence.',
+                                content: 'In 2026, learning AI is about keeping up with professional competence',
                                 iconPath: '/icons/Color/level-up.svg'
                             },
                             {
                                 title: 'The Reality',
-                                content: 'Experts now compare AI literacy to the rise of the internet or basic office software - \n it is becoming a mandatory workplace skill regardless of your industry.',
+                                content: 'Experts now regard AI literacy as a mandatory skill',
                                 iconPath: '/icons/Color/world.svg'
                             },
                             {
                                 title: 'The AI Imperative',
-                                content: 'By 2030, AI is projected to contribute $15.7 trillion to the global economy.\n The greatest value will flow to those who master these tools.',
+                                content: 'By 2030, AI is projected to contribute $15.7 trillion to the global economy',
                                 stat: '$15.7T',
                                 statLabel: 'Global GDP Impact',
                                 iconPath: '/icons/Color/artificial-intelligence_gold.svg'
                             },
                             {
+                                title: 'The Mastery Dividend',
+                                content: 'The greatest value will flow to those who master these tools.',
+                                iconPath: '/icons/Color/diamond.svg'
+                            },
+                            {
                                 title: 'Substantial Salary Premium',
-                                content: 'Job postings that require AI skills currently offer\n a significant salary-premium compared to roles without them.',
+                                content: 'Jobs that require AI skills command a significant salary premium',
                                 stat: '25-56%',
                                 statLabel: 'Salary Premium',
                                 iconPath: '/icons/Color/salary.svg'
                             },
                             {
                                 title: 'Market Advantage',
-                                content: 'In the US, the median salary for AI-capable professionals is roughly $160,000.',
+                                content: 'In the US, the median salary for AI-capable professionals is roughly \n$160,000.',
                                 iconPath: '/icons/Color/bar-graph.svg'
                             },
                             {
                                 title: 'Specialized Roles',
-                                content: 'Technical roles command even higher premiums of up to $200,000.',
+                                content: 'Technical roles command even higher premiums of up to \n$200,000+',
                                 iconPath: '/icons/Color/scientist.svg'
                             },
                             {
                                 title: 'The Hiring Signal',
-                                content: 'Candidates who list AI skills on their CVs are significantly more likely \nto receive interview callbacks.',
+                                content: 'Candidates who list AI skills on their CVs are significantly more likely to receive callbacks',
                                 stat: '+15%',
                                 statLabel: 'Callback Rate',
                                 iconPath: '/icons/Color/wink-emoji.svg'
                             },
                             {
                                 title: 'From Support to Teammate',
-                                content: 'Organizations are moving beyond simple chatbots to AI Agents \nthat coordinate entire workflows.',
+                                content: 'Organizations are integrating AI Agents that coordinate entire workflows.',
                                 iconPath: '/icons/Color/virtual-assistant.svg'
                             },
                             {
                                 title: 'Agent Orchestration',
-                                content: 'By 2026, an estimated 40% of enterprise apps \nwill include task-specific AI agents.',
+                                content: 'By 2026, an estimated 40% of enterprise apps will include task-specific AI agents.',
                                 iconPath: '/icons/Color/ai_purple.svg'
                             },
                             {
                                 title: 'Management Skills',
-                                content: 'The most valuable workers are becoming "Managers of Agents" - \n delegating tasks and ensuring ethical standards.',
+                                content: 'The most valuable workers are becoming "Managers of Agents"',
                                 iconPath: '/icons/Color/teaching.svg'
                             },
                             {
-                                title: 'Protection Against Erosion',
-                                content: 'Without AI literacy, careers do not end abruptly;\n they plateau and narrow.',
+                                title: 'Protection',
+                                content: 'Without AI literacy, careers do not end abruptly; they plateau and narrow.',
                                 iconPath: '/icons/Color/valentin-day.svg'
                             },
                             {
                                 title: 'Automation Resilience',
-                                content: 'Roles that require human judgment, empathy, \nand strategy are growing faster and are significantly less vulnerable.',
+                                content: 'Roles that require human judgment, emathy and strategy are growing faster and are less vulnerable.',
                                 iconPath: '/icons/Color/brain%20(1).svg'
                             },
                             {
                                 title: 'Decision Quality',
-                                content: 'AI-literate professionals are trusted with high-impact projects\n because they know how to validate AI outputs.',
+                                content: 'AI-literate professionals are trusted with high-impact projects because they know how to validate AI outputs.',
                                 iconPath: '/icons/Color/mind%20(1).svg'
                             },
                             {
                                 title: 'Exponential Productivity',
-                                content: 'Early adopters are seeing drastically more output \nby blending human creativity with automated systems.',
+                                content: 'Early adopters are seeing drastically more output by blending human creativity with automated systems.',
                                 stat: '10x',
                                 statLabel: 'Productivity',
                                 iconPath: '/icons/Color/rocket%20(2).svg'
@@ -121,7 +126,7 @@ export const content: Tab[] = [
                             },
                             {
                                 title: 'AI-Native',
-                                content: 'Companies are increasingly looking for professionals \nwho think in terms of systems and workflows.',
+                                content: 'Companies are increasingly looking for professionals who think in terms of systems and workflows.',
                                 iconPath: '/icons/Color/neural-network.svg'
                             }
                         ]
@@ -141,37 +146,7 @@ export const content: Tab[] = [
                         videoId: undefined, // O-V2: Placeholder for instructional video - user to provide URL
                         fullWidth: true,
                     },
-                    {
-                        id: 'g300-explainer',
-                        type: 'toolCard',
-                        title: 'How to Get G$300 Free from Google',
-                        content: 'The $300 credit is for anyone who creates a new billing account on Google Cloud. You do not need to be a "professional developer" or pay for a membership. Click to learn exactly how to activate it.',
-                        faviconPath: '/favicons/google-cloud.png',
-                        url: 'https://cloud.google.com/?hl=en',
-                        fullWidth: true,
-                        detailedContent: `**The "Google Cloud" Rule (Where the money is)**
 
-The Offer: Google gives $300 in free credit to any new customer who sets up a Cloud Billing Account.
-
-The Requirement: You must provide a credit card to verify you are a human (identity verification), even though they won't charge you until the $300 runs out.
-
-NOTE: Your have 90 days to spend it from time of sign up. 
-It can be used for any Google Cloud service, including AI Studio and Vertex AI. 
-(veo 3 video generation etc.)
-
-Is it "Developer Only"? No. Anyone can sign up. You could be a student, a hobbyist, or a baker. To Google, you are a "new cloud customer."
-
-**The "AI Studio" Rule (Where the interface is)**
-
-The Default: When you sign up for Google AI Studio, you get the Free Tier. You don't need a credit card, and you don't get $300. You just get free (limited) access.
-
-**How to get the $300 applied to AI Studio:**
-
-1. Sign up for Google Cloud Free Trial first to get your $300 wallet
-2. Go to AI Studio
-3. Click Settings → Billing and link your project to that Cloud account
-4. Now your API usage will drain from that $300 credit instead of being capped by the free tier limits`,
-                    },
                     {
                         id: 'quick-wins-carousel',
                         type: 'actionCarousel',
@@ -241,7 +216,7 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
             },
             {
                 id: 'physical-reality',
-                title: 'Understanding AI\'s Physical Reality',
+                title: 'AI\'s Physical Reality',
                 sidebarTitle: 'AI Reality',
                 intro: 'Before diving into tools, understand what AI actually is and how it works.',
                 cards: [
@@ -269,7 +244,7 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
                         id: 'path-callout',
                         type: 'callout',
                         title: 'Recommended Journey',
-                        content: 'Start with Google Setup to get your accounts ready. Take the free courses to build foundations. Then explore tools and eventually pursue certifications for career advancement.',
+                        content: '1. Start with \'Google Setup\' to get your accounts ready. 2. Take the free courses to build foundations. 3. Then explore tools and eventually pursue certifications for career advancement.',
                     },
                     {
                         id: 'ai-ml-dl',
@@ -287,8 +262,8 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
         id: 'google-setup',
         label: 'Google Setup',
         hero: {
-            title: 'Set Up Your Google AI Workspace',
-            subtitle: 'Google has SO much to offer. Let us unlock it all.',
+            title: 'Set Up Your AI Workspace',
+            subtitle: 'Google has SO much to offer. \nLet us unlock it all.',
             videoUrl: 'https://www.youtube.com/embed/sVj8_kHiguY', // G-V1: Existing - should explain Workspace + Gemini Plus alternative
         },
         sections: [
@@ -301,7 +276,7 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
                         type: 'alert',
                         alertType: 'warning',
                         title: 'Google Can Be Confusing',
-                        content: 'Google\'s AI ecosystem is powerful but not always easy to navigate. They have many overlapping products with similar names. Do not worry - we will guide you through exactly what you need. Bookmark this page!',
+                        content: 'Google\'s AI ecosystem is powerful but not always easy to navigate. They have many overlapping products with similar names. Do not worry - I will guide you through exactly what you need. Bookmark this page!',
                         fullWidth: true,
                     },
                 ],
@@ -339,7 +314,7 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
             },
             {
                 id: 'cloud-credits',
-                title: 'Step 2: G$300 Free Cloud Credits',
+                title: 'Step 2: G$300 Free',
                 sidebarTitle: 'Step 2',
                 intro: 'Google gives you G$300 to experiment with their cloud services.',
                 cards: [
@@ -351,11 +326,42 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
                         fullWidth: true,
                     },
                     {
+                        id: 'g300-explainer',
+                        type: 'toolCard',
+                        title: 'How to Get G$300 Free from Google',
+                        content: 'The $300 credit is for anyone who creates a new billing account on Google Cloud. You do not need to be a "professional developer" or pay for a membership. Click to learn exactly how to activate it.',
+                        faviconPath: '/favicons/google-cloud.png',
+                        url: 'https://cloud.google.com/?hl=en',
+                        fullWidth: true,
+                        detailedContent: `**The "Google Cloud" Rule (Where the money is)**
+
+The Offer: Google gives $300 in free credit to any new customer who sets up a Cloud Billing Account.
+
+The Requirement: You must provide a credit card to verify you are a human (identity verification), even though they won't charge you until the $300 runs out.
+
+NOTE: Your have 90 days to spend it from time of sign up. 
+It can be used for any Google Cloud service, including AI Studio and Vertex AI. 
+(veo 3 video generation etc.)
+
+Is it "Developer Only"? No. Anyone can sign up. You could be a student, a hobbyist, or a baker. To Google, you are a "new cloud customer."
+
+**The "AI Studio" Rule (Where the interface is)**
+
+The Default: When you sign up for Google AI Studio, you get the Free Tier. You don't need a credit card, and you don't get $300. You just get free (limited) access.
+
+**How to get the $300 applied to AI Studio:**
+
+1. Sign up for Google Cloud Free Trial first to get your $300 wallet
+2. Go to AI Studio
+3. Click Settings → Billing and link your project to that Cloud account
+4. Now your API usage will drain from that $300 credit instead of being capped by the free tier limits`,
+                    },
+                    {
                         id: 'credits-alert',
                         type: 'alert',
                         alertType: 'tip',
                         title: '90 Days to Spend Your Credits',
-                        content: 'Your G$300 credits expire in 90 days. Use them wisely! Great for experimenting with Gemini API, Vertex AI, and building real projects. Start small and scale up.',
+                        content: 'Your G$300 credits expire in 90 days. Great for experimenting with Gemini API, Vertex AI, and building real projects. Start small and scale up.',
                     },
                     {
                         id: 'credits-uses',
@@ -435,9 +441,9 @@ The Default: When you sign up for Google AI Studio, you get the Free Tier. You d
             },
             {
                 id: 'role-use-cases',
-                title: 'Real-World AI Use Cases by Role',
+                title: 'Real-World AI Cases by Role',
                 sidebarTitle: 'Use Cases',
-                intro: 'Click any card to see how AI transforms real work scenarios with specific tools and workflows.\nWhen you see the G$ symbol, it means you can use your G$300 of free credits for that feature.',
+                intro: 'Click any card to see how AI transforms real work scenarios with specific tools and workflows.\n\nWhen you see the G$ symbol, it means you can use your G$300 of free credits for that feature.',
                 cards: [
                     {
                         id: 'role-cases-grid',
@@ -647,7 +653,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                                     time: '12:00 PM',
                                     title: 'Video Assembly',
                                     description: 'Combine all assets in any video editor. Add music, transitions, and export for web and social.',
-                                    tools: [{ name: 'Any Editor' }],
+                                    tools: [{ name: 'Any Editor' }, { name: 'Google Vids', url: 'https://workspace.google.com/products/vids/' }],
                                 },
                                 {
                                     time: '2:00 PM',
@@ -745,7 +751,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                     {
                         id: 'fast-ai',
                         type: 'courseCard',
-                        title: 'Practical Deep Learning',
+                        title: 'Deep Learning',
                         provider: 'fast.ai',
                         duration: 'Self-paced',
                         level: 'intermediate',
@@ -766,7 +772,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         id: 'microsoft-ai',
                         type: 'courseCard',
                         title: 'AI Fundamentals',
-                        provider: 'Microsoft Learn',
+                        provider: 'Microsoft',
                         duration: '5 hours',
                         level: 'beginner',
                         content: 'Prepare for the Azure AI Fundamentals certification. Free learning path.',

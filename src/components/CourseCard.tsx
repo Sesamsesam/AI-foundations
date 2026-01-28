@@ -12,6 +12,10 @@ interface CourseCardProps {
     level?: 'beginner' | 'intermediate' | 'advanced';
 }
 
+/**
+ * Desktop Course Card - Full-featured card with description visible
+ * Used on md+ viewports
+ */
 export default function CourseCard({
     title,
     provider,

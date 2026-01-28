@@ -22,7 +22,7 @@ interface CaseStudyStep {
     time: string;
     title: string;
     description: string;
-    tools: { name: string; usesCredits?: boolean }[];
+    tools: { name: string; usesCredits?: boolean; url?: string }[];
 }
 
 interface CaseStudyProps {
@@ -149,7 +149,7 @@ export default function CaseStudy({ title, context, steps, outcome, darkMode = f
                                     </p>
                                     <div className="flex flex-wrap gap-2">
                                         {step.tools.map((tool, j) => {
-                                            const toolUrl = TOOL_URLS[tool.name];
+                                            const toolUrl = tool.url || TOOL_URLS[tool.name];
                                             const TagComponent = toolUrl ? 'a' : 'span';
                                             const linkProps = toolUrl ? {
                                                 href: toolUrl,

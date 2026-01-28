@@ -2,7 +2,10 @@
 import React, { useState } from 'react';
 import type { Section } from '../types';
 import Card from './Card';
-import { motion } from 'framer-motion';
+import CourseCard from './CourseCard';
+import MobileCourseCard from './MobileCourseCard';
+import { motion, LayoutGroup } from 'framer-motion';
+import Tooltip from './Tooltip';
 
 interface SectionProps {
     section: Section;
@@ -12,53 +15,110 @@ interface SectionProps {
 // Card types that should span full width
 const FULL_WIDTH_TYPES = ['slideViewer', 'videoEmbed', 'pdfCarousel', 'actionCarousel'];
 
-// Help Indicator Component - Fixed positioning to prevent lift
-function HelpIndicator({ tooltip }: { tooltip: string }) {
-    const [showTooltip, setShowTooltip] = useState(false);
-
-    return (
-        <span
-            className="relative inline-flex items-center justify-center ml-2 cursor-pointer"
-            style={{ width: '24px', height: '24px' }}
-            onMouseEnter={() => setShowTooltip(true)}
-            onMouseLeave={() => setShowTooltip(false)}
-            onClick={() => setShowTooltip(!showTooltip)}
-        >
-            {/* Main ? button - Gradient */}
-            <span
-                className="inline-flex items-center justify-center h-6 w-6 rounded-full text-xs font-bold shadow-lg"
-                style={{
-                    background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
-                    color: 'white',
-                    boxShadow: '0 0 12px rgba(59, 130, 246, 0.5)',
-                }}
-            >
-                ?
-            </span>
-
-            {/* Tooltip */}
-            {showTooltip && (
-                <div
-                    className="surface-elevated absolute z-50 left-8 top-0 w-64 p-3 rounded-lg shadow-lg text-sm"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                >
-                    {tooltip}
-                </div>
-            )}
-        </span>
-    );
-}
-
-
 export default function ContentSection({ section, darkMode = false }: SectionProps) {
+    // Track which card is expanded (by ID) - only used for mobile
+    const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
+
     // Check if this is the role-use-cases section
     const isRoleUseCases = section.id === 'role-use-cases';
+
+    // Check if this is a course card section (Learn tab)
+    const isCourseSection = section.id === 'google-free' || section.id === 'other-free';
 
     // Helper to check if a card should be full width
     const isFullWidth = (card: any) => FULL_WIDTH_TYPES.includes(card.type) || card.fullWidth;
 
+    // Toggle expansion for a card (mobile only)
+    const toggleCardExpansion = (cardId: string) => {
+        setExpandedCardId(prev => prev === cardId ? null : cardId);
+    };
+
+    // Render course cards for MOBILE - compact with expansion
+    const renderMobileCourseCards = () => {
+        return (
+            <div className="md:hidden">
+                <LayoutGroup>
+                    <div className="grid grid-cols-2 gap-3" style={{ alignItems: 'start' }}>
+                        {section.cards.map((card, idx) => {
+                            const isExpanded = expandedCardId === card.id;
+
+                            return (
+                                <motion.div
+                                    key={card.id}
+                                    layout
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{
+                                        opacity: { duration: 0.5, delay: idx * 0.1 },
+                                        layout: { type: "spring", stiffness: 300, damping: 30 }
+                                    }}
+                                    className={isExpanded ? 'col-span-2' : ''}
+                                >
+                                    <MobileCourseCard
+                                        title={card.title || ''}
+                                        provider={card.provider || 'Course'}
+                                        duration={card.duration}
+                                        price={card.price}
+                                        url={card.url || '#'}
+                                        description={card.content}
+                                        thumbnailUrl={card.thumbnailUrl}
+                                        level={card.level}
+                                        isExpanded={isExpanded}
+                                        onToggleExpand={() => toggleCardExpansion(card.id)}
+                                    />
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </LayoutGroup>
+            </div>
+        );
+    };
+
+    // Render course cards for DESKTOP - full-featured
+    const renderDesktopCourseCards = () => {
+        return (
+            <div className="hidden md:grid md:grid-cols-2 gap-5" style={{ alignItems: 'stretch' }}>
+                {section.cards.map((card, idx) => (
+                    <motion.div
+                        key={card.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.5, delay: idx * 0.1 }}
+                        className="flex"
+                    >
+                        <div className="w-full">
+                            <CourseCard
+                                title={card.title || ''}
+                                provider={card.provider || 'Course'}
+                                duration={card.duration}
+                                price={card.price}
+                                url={card.url || '#'}
+                                description={card.content}
+                                thumbnailUrl={card.thumbnailUrl}
+                                level={card.level}
+                            />
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        );
+    };
+
     // Group consecutive non-fullWidth cards together for grid layout
     const renderCards = () => {
+        // For course sections, use separate mobile/desktop rendering
+        if (isCourseSection) {
+            return (
+                <>
+                    {renderMobileCourseCards()}
+                    {renderDesktopCourseCards()}
+                </>
+            );
+        }
+
         const result: React.ReactNode[] = [];
         let currentGridCards: any[] = [];
         let gridStartIdx = 0;
@@ -139,9 +199,7 @@ export default function ContentSection({ section, darkMode = false }: SectionPro
                 >
                     {section.title}
                     {isRoleUseCases && (
-                        <HelpIndicator
-                            tooltip="When you see the G$ symbol, it means you can use your G$300 of free Google Cloud credits for that feature!"
-                        />
+                        <Tooltip content="When you see the G$ symbol, it means you can use your G$300 of free Google Cloud credits for that feature!" />
                     )}
                 </h3>
                 {section.intro && (

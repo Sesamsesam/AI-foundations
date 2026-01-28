@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { content } from '../content';
 import Hero from './Hero';
 import TabBar from './TabBar';
+import MobileTabBar from './MobileTabBar';
 import ContentSection from './ContentSection';
 import Timeline from './Timeline';
 import AnimatedGrid from './AnimatedGrid';
@@ -89,7 +90,7 @@ export default function SamiApp() {
     const hasSections = activeTab.sections.length > 0;
 
     return (
-        <div className="min-h-screen flex flex-col relative pb-32">
+        <div className="min-h-screen flex flex-col relative pb-24 md:pb-32">
             {/* Animated Grid Background */}
             <AnimatedGrid darkMode={darkMode} />
 
@@ -176,8 +177,17 @@ export default function SamiApp() {
                 </motion.div>
             </AnimatePresence>
 
-            {/* Floating Pill Tab Bar */}
-            <TabBar
+            {/* Desktop Floating Pill Tab Bar */}
+            <div className="hidden md:block">
+                <TabBar
+                    tabs={content.map(t => ({ id: t.id, label: t.label }))}
+                    activeTabId={activeTabId}
+                    onTabChange={handleTabChange}
+                />
+            </div>
+
+            {/* Mobile Icon Tab Bar */}
+            <MobileTabBar
                 tabs={content.map(t => ({ id: t.id, label: t.label }))}
                 activeTabId={activeTabId}
                 onTabChange={handleTabChange}

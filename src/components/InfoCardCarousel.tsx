@@ -63,7 +63,7 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
                 className="relative overflow-hidden rounded-2xl surface-card"
                 style={{
                     // Fixed height to prevent layout shift - Increased to accommodate stats
-                    minHeight: '380px',
+                    minHeight: '420px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
@@ -132,7 +132,7 @@ export default function InfoCardCarousel({ items, title }: InfoCardCarouselProps
                         {currentItem.stat && (
                             <div className="mt-4 inline-block">
                                 <div
-                                    className="text-4xl font-black tracking-tight"
+                                    className="text-3xl font-black tracking-tight"
                                     style={{
                                         background: 'linear-gradient(135deg, #3B82F6, #8B5CF6)',
                                         WebkitBackgroundClip: 'text',
