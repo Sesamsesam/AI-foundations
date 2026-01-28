@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface TimelineNode {
     id: string;
@@ -12,42 +12,58 @@ interface TimelineProps {
 
 export default function Timeline({ nodes }: TimelineProps) {
     const [activeId, setActiveId] = useState<string | null>(nodes[0]?.id || null);
+    const observerRef = useRef<IntersectionObserver | null>(null);
 
     useEffect(() => {
-        let hasScrolled = false;
+        // Reset to first node when nodes change (tab switch)
+        setActiveId(nodes[0]?.id || null);
+    }, [nodes]);
 
-        const observer = new IntersectionObserver(
+    useEffect(() => {
+        // Disconnect previous observer
+        if (observerRef.current) {
+            observerRef.current.disconnect();
+        }
+
+        // Track which sections are currently visible
+        const visibleSections = new Map<string, number>();
+
+        observerRef.current = new IntersectionObserver(
             (entries) => {
-                const visibleEntry = entries.find(entry => entry.isIntersecting);
-                if (visibleEntry) {
-                    setActiveId(visibleEntry.target.id);
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Store the ratio for visible sections
+                        visibleSections.set(entry.target.id, entry.intersectionRatio);
+                    } else {
+                        visibleSections.delete(entry.target.id);
+                    }
+                });
+
+                // Find the first visible section in DOM order
+                if (visibleSections.size > 0) {
+                    for (const node of nodes) {
+                        if (visibleSections.has(node.id)) {
+                            setActiveId(node.id);
+                            break;
+                        }
+                    }
                 }
             },
             {
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
+                // Observe when element enters top half of the viewport
+                rootMargin: '-10% 0px -50% 0px',
+                threshold: [0, 0.1, 0.2]
             }
         );
 
+        // Observe all sections
         nodes.forEach((node) => {
             const el = document.getElementById(node.id);
-            if (el) observer.observe(el);
+            if (el) observerRef.current?.observe(el);
         });
 
-        // Handle scrolled-to-bottom case: activate last node (only after user has scrolled)
-        const handleScroll = () => {
-            hasScrolled = true;
-            const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
-            if (scrolledToBottom && nodes.length > 0) {
-                setActiveId(nodes[nodes.length - 1].id);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
         return () => {
-            observer.disconnect();
-            window.removeEventListener('scroll', handleScroll);
+            observerRef.current?.disconnect();
         };
     }, [nodes]);
 
