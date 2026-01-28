@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
 	title: string;
@@ -14,32 +14,76 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/Logos/Logo_Icon.svg" />
-		<link rel="icon" type="image/x-icon" href="/Logos/favicons_png/favicon.ico" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/Logos/favicons_png/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/Logos/favicons_png/favicon-16x16.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/Logos/favicons_png/apple-touch-icon.png" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="/Logos/favicons_png/favicon.ico"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/Logos/favicons_png/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/Logos/favicons_png/favicon-16x16.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/Logos/favicons_png/apple-touch-icon.png"
+		/>
 		<link rel="manifest" href="/Logos/favicons_png/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Cut through the noise. Master AI fundamentals in hours, not years. The essential guide for ambitious professionals and businesses ready to lead in the AI era." />
+		<meta
+			name="description"
+			content="Cut through the noise. Master AI fundamentals in hours, not years. The essential guide for ambitious professionals and businesses ready to lead in the AI era."
+		/>
 		<title>{title}</title>
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://ai.samihermes.com/" />
-		<meta property="og:title" content="Master AI Foundations - Fast Track Your Career" />
-		<meta property="og:description" content="Cut through the noise. Master AI fundamentals in hours, not years. The essential guide for ambitious professionals and businesses ready to lead in the AI era." />
-		<meta property="og:image" content="https://ai.samihermes.com/Logos/preview.png" />
+		<meta
+			property="og:title"
+			content="Master AI Foundations - Fast Track Your Career"
+		/>
+		<meta
+			property="og:description"
+			content="Cut through the noise. Master AI fundamentals in hours, not years. The essential guide for ambitious professionals and businesses ready to lead in the AI era."
+		/>
+		<meta
+			property="og:image"
+			content="https://ai.samihermes.com/Logos/preview.png"
+		/>
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://ai.samihermes.com/" />
-		<meta property="twitter:title" content="Master AI Foundations - Fast Track Your Career" />
-		<meta property="twitter:description" content="Cut through the noise. Master AI fundamentals in hours, not years. The essential guide for ambitious professionals and businesses ready to lead in the AI era." />
-		<meta property="twitter:image" content="https://ai.samihermes.com/Logos/preview.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.youtube-nocookie.com">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<meta
+			property="twitter:title"
+			content="Master AI Foundations - Fast Track Your Career"
+		/>
+		<meta
+			property="twitter:description"
+			content="Cut through the noise. Master AI fundamentals in hours, not years. The essential guide for ambitious professionals and businesses ready to lead in the AI era."
+		/>
+		<meta
+			property="twitter:image"
+			content="https://ai.samihermes.com/Logos/preview.png"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://www.youtube.com" />
+		<link rel="preconnect" href="https://www.youtube-nocookie.com" />
+		<link rel="preconnect" href="https://i.ytimg.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body class="bg-[#F8F9FA] text-[#202124] antialiased selection:bg-blue-100">
 		<slot />
@@ -47,15 +91,15 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-  :root {
-    --google-blue: #1A73E8;
-    --google-gray: #5F6368;
-  }
+	:root {
+		--google-blue: #1a73e8;
+		--google-gray: #5f6368;
+	}
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
-    font-family: 'Outfit', sans-serif;
+		font-family: "Outfit", sans-serif;
 	}
 </style>
