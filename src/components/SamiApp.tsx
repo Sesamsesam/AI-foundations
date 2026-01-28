@@ -88,10 +88,41 @@ export default function SamiApp() {
 
     const hasSections = activeTab.sections.length > 0;
 
+    // Collect all hero video URLs for preloading
+    const allHeroVideoUrls = content
+        .map(tab => tab.hero.videoUrl)
+        .filter((url): url is string => !!url);
+
     return (
         <div className="min-h-screen flex flex-col relative pb-24 md:pb-32">
             {/* Animated Grid Background */}
             <AnimatedGrid darkMode={darkMode} />
+
+            {/* Hidden Video Preloader - loads all hero videos in background */}
+            <div
+                style={{
+                    position: 'absolute',
+                    width: '1px',
+                    height: '1px',
+                    overflow: 'hidden',
+                    opacity: 0,
+                    pointerEvents: 'none',
+                    left: '-9999px'
+                }}
+                aria-hidden="true"
+            >
+                {allHeroVideoUrls.map((url, index) => (
+                    <iframe
+                        key={index}
+                        src={url}
+                        title={`Preload video ${index}`}
+                        width="1"
+                        height="1"
+                        loading="eager"
+                    />
+                ))}
+            </div>
+
 
             {/* Sticky Header - Glassmorphic */}
             <header
