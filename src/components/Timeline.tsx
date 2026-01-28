@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 
 interface TimelineNode {
     id: string;
@@ -13,11 +13,22 @@ interface TimelineProps {
 export default function Timeline({ nodes }: TimelineProps) {
     const [activeId, setActiveId] = useState<string | null>(nodes[0]?.id || null);
     const observerRef = useRef<IntersectionObserver | null>(null);
+    const isAtBottomRef = useRef(false);
 
+    // Reset to first node when nodes change (tab switch)
     useEffect(() => {
-        // Reset to first node when nodes change (tab switch)
         setActiveId(nodes[0]?.id || null);
+        isAtBottomRef.current = false;
     }, [nodes]);
+
+    // Memoized function to check if at bottom of page
+    const checkIfAtBottom = useCallback(() => {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        // Consider "at bottom" if within 150px of the bottom
+        return scrollTop + windowHeight >= documentHeight - 150;
+    }, []);
 
     useEffect(() => {
         // Disconnect previous observer
@@ -26,20 +37,33 @@ export default function Timeline({ nodes }: TimelineProps) {
         }
 
         // Track which sections are currently visible
-        const visibleSections = new Map<string, number>();
+        const visibleSections = new Set<string>();
 
         observerRef.current = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Store the ratio for visible sections
-                        visibleSections.set(entry.target.id, entry.intersectionRatio);
+                        visibleSections.add(entry.target.id);
                     } else {
                         visibleSections.delete(entry.target.id);
                     }
                 });
 
-                // Find the first visible section in DOM order
+                // If at bottom of page and last section exists, always activate it
+                if (isAtBottomRef.current && nodes.length > 0) {
+                    const lastNodeId = nodes[nodes.length - 1].id;
+                    const lastEl = document.getElementById(lastNodeId);
+                    if (lastEl) {
+                        const rect = lastEl.getBoundingClientRect();
+                        // If last section is visible at all (even partially)
+                        if (rect.top < window.innerHeight && rect.bottom > 0) {
+                            setActiveId(lastNodeId);
+                            return;
+                        }
+                    }
+                }
+
+                // Otherwise, find the first visible section in DOM order
                 if (visibleSections.size > 0) {
                     for (const node of nodes) {
                         if (visibleSections.has(node.id)) {
@@ -50,9 +74,9 @@ export default function Timeline({ nodes }: TimelineProps) {
                 }
             },
             {
-                // Observe when element enters top half of the viewport
+                // Observe when element enters top 40% of viewport
                 rootMargin: '-10% 0px -50% 0px',
-                threshold: [0, 0.1, 0.2]
+                threshold: [0, 0.1]
             }
         );
 
@@ -62,10 +86,26 @@ export default function Timeline({ nodes }: TimelineProps) {
             if (el) observerRef.current?.observe(el);
         });
 
+        // Scroll handler for bottom-of-page detection
+        const handleScroll = () => {
+            const wasAtBottom = isAtBottomRef.current;
+            isAtBottomRef.current = checkIfAtBottom();
+
+            // If we just reached the bottom, activate last node
+            if (isAtBottomRef.current && nodes.length > 0) {
+                setActiveId(nodes[nodes.length - 1].id);
+            }
+            // If we scrolled away from bottom, let observer take over
+            // by triggering a re-check (the observer callback will run on next intersection change)
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
         return () => {
             observerRef.current?.disconnect();
+            window.removeEventListener('scroll', handleScroll);
         };
-    }, [nodes]);
+    }, [nodes, checkIfAtBottom]);
 
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
