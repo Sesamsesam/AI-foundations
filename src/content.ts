@@ -1584,7 +1584,9 @@ I use Antigravity for planning and light execution, then I've coded a watcher br
 I also code with Claude Opus 4.5 through OpenCode. If you want to avoid IDE lock-in or use custom models, this is the way.
 
 **Insanity level**
-Try and connect Clawdbot to your coding stack`,
+Try and connect (moltbot) a.k.a. Clawdbot to your coding stack
+DISCLAIMER: ONLY DO THIS IF YOU KNOW WHAT YOU ARE DOING!!
+- It can be VERY insecure if you are not technical from a secruity standpoint!`,
                     },
                     {
                         id: 'jules',
@@ -1609,7 +1611,8 @@ Gemini plans, Jules executes.
 This is the kind of tool that makes you rethink what "productivity" means in software development. ⚡
 
 **INSTANITY LEVEL** 
-Try and connect Clawdbot to your coding stack and combine Jules into it 🤯
+Try and connect Moltbot (Clawdbot) to your coding stack and combine Jules into it 🤯 
+(fyi. don't do this if you are not technical from a security standpoint)
 I am still testing it out and man oh man is it wild!`,
                     },
                     {
