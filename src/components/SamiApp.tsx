@@ -11,7 +11,7 @@ import ThemeToggle from './ThemeToggle';
 
 export default function SamiApp() {
     const [activeTabId, setActiveTabId] = useState(content[0].id);
-    const [darkMode, setDarkMode] = useState(true);  // Default to dark mode
+    const [darkMode, setDarkMode] = useState(false);  // Default to light mode
     const activeTab = content.find(t => t.id === activeTabId) || content[0];
 
     useEffect(() => {
@@ -20,10 +20,10 @@ export default function SamiApp() {
             setActiveTabId(savedTab);
         }
 
-        // Check for saved dark mode preference (default to dark)
+        // Check for saved dark mode preference (default to light)
         const savedDarkMode = localStorage.getItem('sami_dark_mode');
-        if (savedDarkMode === 'false') {
-            setDarkMode(false);
+        if (savedDarkMode === 'true') {
+            setDarkMode(true);
         }
     }, []);
 
