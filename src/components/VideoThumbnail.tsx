@@ -11,7 +11,6 @@ interface VideoThumbnailProps {
 
 export default function VideoThumbnail({ videoUrl, thumbnailUrl, className = '' }: VideoThumbnailProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
     const [thumbnailAttempt, setThumbnailAttempt] = useState(0);
 
@@ -47,28 +46,20 @@ export default function VideoThumbnail({ videoUrl, thumbnailUrl, className = '' 
 
     const [thumbnailSrc, setThumbnailSrc] = useState(thumbnailUrl || getVideoThumbnail(videoUrl));
 
-    const handleImageLoad = () => {
-        setIsLoading(false);
-        setHasError(false);
-    };
-
     const handleImageError = () => {
         const youtubeId = getYouTubeVideoId(videoUrl);
         if (youtubeId && thumbnailAttempt === 0) {
             // Try hqdefault as fallback
             setThumbnailSrc(`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`);
             setThumbnailAttempt(1);
-            setIsLoading(true);
             return;
         } else if (youtubeId && thumbnailAttempt === 1) {
             // Try mqdefault as final fallback
             setThumbnailSrc(`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`);
             setThumbnailAttempt(2);
-            setIsLoading(true);
             return;
         }
 
-        setIsLoading(false);
         setHasError(true);
     };
 
@@ -86,23 +77,13 @@ export default function VideoThumbnail({ videoUrl, thumbnailUrl, className = '' 
                         border: '1px solid var(--color-border)'
                     }}
                 >
-                    {/* Loading skeleton */}
-                    {isLoading && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-                            <div className="w-12 h-12 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
-                        </div>
-                    )}
-
                     {/* Thumbnail image */}
                     {!hasError && (
                         <img
                             src={thumbnailSrc}
                             alt="Video thumbnail"
-                            className={`w-full h-full object-cover transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'
-                                }`}
-                            onLoad={handleImageLoad}
+                            className="w-full h-full object-cover"
                             onError={handleImageError}
-                            loading="lazy"
                         />
                     )}
 
@@ -120,29 +101,25 @@ export default function VideoThumbnail({ videoUrl, thumbnailUrl, className = '' 
                     )}
 
                     {/* Play button overlay */}
-                    {!isLoading && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div
-                                className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110"
-                                style={{
-                                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                                    backdropFilter: 'blur(8px)',
-                                    border: '1px solid rgba(255, 255, 255, 0.25)',
-                                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
-                                }}
-                            >
-                                <Play
-                                    className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1"
-                                    style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}
-                                />
-                            </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div
+                            className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110"
+                            style={{
+                                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                                backdropFilter: 'blur(8px)',
+                                border: '1px solid rgba(255, 255, 255, 0.25)',
+                                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                            }}
+                        >
+                            <Play
+                                className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1"
+                                style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}
+                            />
                         </div>
-                    )}
+                    </div>
 
                     {/* Gradient overlay for better visibility */}
-                    {!isLoading && (
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
-                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
                 </div>
             </div>
 

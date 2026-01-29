@@ -129,6 +129,15 @@ body {
   opacity: 0.7;
 }
 
+/* Mobile: Disable expensive aurora animation and blur */
+@media (max-width: 767px) {
+  .dark .rainbow-glow-btn::before {
+    animation: none;
+    filter: blur(8px);
+    opacity: 0.5;
+  }
+}
+
 /* Base styles */
 html {
   scroll-behavior: smooth;
@@ -293,6 +302,11 @@ body,
 .theme-toggle,
 .theme-toggle * {
   transition-property: transform, opacity !important;
+}
+
+/* Social icon glow in dark mode */
+.dark .social-icon-glow {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), 0 0 4px rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Hide scrollbar on slide viewer */

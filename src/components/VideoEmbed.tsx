@@ -11,7 +11,6 @@ interface VideoEmbedProps {
 
 export default function VideoEmbed({ videoId, title, isVertical = false }: VideoEmbedProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
     const [thumbnailAttempt, setThumbnailAttempt] = useState(0);
 
@@ -37,27 +36,21 @@ export default function VideoEmbed({ videoId, title, isVertical = false }: Video
     const videoUrl = `https://www.youtube.com/embed/${id}`;
 
     // Get thumbnail URL with fallback chain
-    const getThumbnailUrl = (): string => {
+    const getThumbnailUrl = (attempt: number): string => {
         const qualities = ['maxresdefault', 'hqdefault', 'mqdefault'];
-        const quality = qualities[thumbnailAttempt] || 'mqdefault';
+        const quality = qualities[attempt] || 'mqdefault';
         return `https://img.youtube.com/vi/${id}/${quality}.jpg`;
     };
 
-    const [thumbnailSrc, setThumbnailSrc] = useState(getThumbnailUrl());
-
-    const handleImageLoad = () => {
-        setIsLoading(false);
-        setHasError(false);
-    };
+    const [thumbnailSrc, setThumbnailSrc] = useState(getThumbnailUrl(0));
 
     const handleImageError = () => {
         if (thumbnailAttempt < 2) {
-            setThumbnailAttempt(prev => prev + 1);
-            setThumbnailSrc(`https://img.youtube.com/vi/${id}/${['maxresdefault', 'hqdefault', 'mqdefault'][thumbnailAttempt + 1]}.jpg`);
-            setIsLoading(true);
+            const nextAttempt = thumbnailAttempt + 1;
+            setThumbnailAttempt(nextAttempt);
+            setThumbnailSrc(getThumbnailUrl(nextAttempt));
             return;
         }
-        setIsLoading(false);
         setHasError(true);
     };
 
@@ -97,23 +90,13 @@ export default function VideoEmbed({ videoId, title, isVertical = false }: Video
                     className="relative aspect-video group cursor-pointer transition-all duration-300 hover:opacity-95"
                     onClick={() => setIsModalOpen(true)}
                 >
-                    {/* Loading skeleton */}
-                    {isLoading && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
-                            <div className="w-10 h-10 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
-                        </div>
-                    )}
-
                     {/* Thumbnail image */}
                     {!hasError && (
                         <img
                             src={thumbnailSrc}
                             alt={title || 'Video thumbnail'}
-                            className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${isLoading ? 'opacity-0' : 'opacity-100'
-                                }`}
-                            onLoad={handleImageLoad}
+                            className="w-full h-full object-cover transition-all duration-300 group-hover:scale-[1.02]"
                             onError={handleImageError}
-                            loading="lazy"
                         />
                     )}
 
@@ -128,29 +111,25 @@ export default function VideoEmbed({ videoId, title, isVertical = false }: Video
                     )}
 
                     {/* Play button overlay */}
-                    {!isLoading && (
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div
-                                className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300"
-                                style={{
-                                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                                    backdropFilter: 'blur(8px)',
-                                    border: '1px solid rgba(255, 255, 255, 0.25)',
-                                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
-                                }}
-                            >
-                                <Play
-                                    className="w-5 h-5 md:w-6 md:h-6 text-white fill-white ml-1"
-                                    style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}
-                                />
-                            </div>
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div
+                            className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300"
+                            style={{
+                                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                                backdropFilter: 'blur(8px)',
+                                border: '1px solid rgba(255, 255, 255, 0.25)',
+                                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                            }}
+                        >
+                            <Play
+                                className="w-5 h-5 md:w-6 md:h-6 text-white fill-white ml-1"
+                                style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}
+                            />
                         </div>
-                    )}
+                    </div>
 
                     {/* Gradient overlay */}
-                    {!isLoading && (
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 pointer-events-none" />
-                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 pointer-events-none" />
                 </div>
             </div>
 

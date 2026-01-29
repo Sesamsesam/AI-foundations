@@ -76,14 +76,14 @@ export default function Hero({ title, subtitle, videoUrl, showSocials = false }:
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
-                        className="flex items-center justify-center gap-5 mt-5"
+                        className="flex items-center justify-center gap-5 mt-2 md:mt-5"
                     >
                         {/* Instagram - Accurate gradient with shine */}
                         <a
                             href="https://www.instagram.com/cultivated_savage"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
+                            className="social-icon-glow group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
                             style={{
                                 background: 'radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%)',
                                 boxShadow: '0 3px 10px rgba(188, 49, 143, 0.5)',
@@ -114,7 +114,7 @@ export default function Hero({ title, subtitle, videoUrl, showSocials = false }:
                             href="https://x.com/samihermes"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
+                            className="social-icon-glow group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
                             style={{
                                 background: 'linear-gradient(145deg, #2a2a2a 0%, #000000 100%)',
                                 boxShadow: '0 3px 10px rgba(0, 0, 0, 0.5)',
@@ -145,7 +145,7 @@ export default function Hero({ title, subtitle, videoUrl, showSocials = false }:
                             href="https://www.linkedin.com/in/sami-hermes/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
+                            className="social-icon-glow group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
                             style={{
                                 background: 'linear-gradient(145deg, #0088cc 0%, #0A66C2 50%, #004d7a 100%)',
                                 boxShadow: '0 3px 10px rgba(10, 102, 194, 0.5)',
@@ -176,7 +176,7 @@ export default function Hero({ title, subtitle, videoUrl, showSocials = false }:
                             href="https://www.youtube.com/@Sami-Hermes"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
+                            className="social-icon-glow group w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-[1.35] relative overflow-hidden"
                             style={{
                                 background: 'linear-gradient(145deg, #ff3333 0%, #FF0000 50%, #cc0000 100%)',
                                 boxShadow: '0 3px 10px rgba(255, 0, 0, 0.45)',

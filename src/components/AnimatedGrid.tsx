@@ -187,11 +187,19 @@ const AnimatedGrid: React.FC<AnimatedGridProps> = ({ darkMode }) => {
         window.addEventListener('mousemove', handleMouseMove);
 
         let time = 0;
+        let frameCount = 0;
 
         const animate = () => {
             const width = window.innerWidth;
             const height = window.innerHeight;
             const isMobile = width < 768;
+
+            // Throttle to ~30fps on mobile (skip every other frame)
+            frameCount++;
+            if (isMobile && frameCount % 2 !== 0) {
+                animationRef.current = requestAnimationFrame(animate);
+                return;
+            }
 
             ctx.clearRect(0, 0, width, height);
 
