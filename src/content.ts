@@ -803,7 +803,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                 id: 'recommended-courses',
                 title: 'Recommended Learning Path',
                 sidebarTitle: 'Learning Path',
-                intro: 'All courses below are included with Coursera Plus (50% off until February 2nd - just $100/year). If you are dedicated, you could complete all 6 courses in 1-2 months and have certificates to add to your resume.',
+                intro: 'All courses below are included with Coursera Plus (50% off until February 2nd). \nIf you are dedicated, you could complete 6 courses in 1-2 months and earn a lot of AI certificates to add to your resume. It\'s a great deal!',
                 cards: [
                     {
                         id: 'coursera-annual',
@@ -811,7 +811,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         title: '🔥 50% Off - Annual',
                         fullWidth: false,
                         links: [
-                            { label: 'Coursera Plus (Yearly)', url: 'https://www.coursera.org/courseraplus', description: 'Unlimited access to all courses. $100/year (normally $200). Best value!', premium: true },
+                            { label: 'Coursera Plus', url: 'https://www.coursera.org/courseraplus', description: '$100/year (normally $200)', premium: true },
                         ],
                     },
                     {
@@ -820,7 +820,7 @@ Finally, the AI creates a bias-check report – flagging any patterns in who was
                         title: '40% Off - Monthly',
                         fullWidth: false,
                         links: [
-                            { label: 'Coursera Plus (Monthly)', url: 'https://www.coursera.org/courseraplus/special/40-percent-offer-a', description: 'Unlimited access to all courses. $35/month (normally $59). Cancel anytime.', premium: true },
+                            { label: 'Coursera Plus', url: 'https://www.coursera.org/courseraplus/special/40-percent-offer-a', description: '$35/month (normally $59)', premium: true },
                         ],
                     },
                     {
