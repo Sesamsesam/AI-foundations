@@ -81,15 +81,16 @@ export default function VideoGrid({ videos }: VideoGridProps) {
                                 <div
                                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                                     style={{
-                                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                                        boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                                        backdropFilter: 'blur(8px)',
+                                        border: '1px solid rgba(255, 255, 255, 0.25)',
+                                        boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
                                     }}
                                 >
                                     <Play
                                         size={16}
-                                        className="ml-0.5"
-                                        style={{ color: '#000' }}
-                                        fill="#000"
+                                        className="ml-0.5 text-white fill-white"
+                                        style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))' }}
                                     />
                                 </div>
                             </div>

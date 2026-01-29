@@ -71,9 +71,62 @@ body {
   --color-warning: #fbbf24;
   --color-error: #f87171;
 
-  /* Shadows - subtle white glow in dark mode */
-  --shadow-card: 0 0 14px rgba(255, 255, 255, 0.06), 0 0 5px rgba(255, 255, 255, 0.03);
-  --shadow-card-hover: 0 0 24px rgba(255, 255, 255, 0.10), 0 0 10px rgba(255, 255, 255, 0.05);
+  /* Shadows - stronger white glow in dark mode */
+  --shadow-card: 0 0 20px rgba(255, 255, 255, 0.12), 0 0 8px rgba(255, 255, 255, 0.08);
+  --shadow-card-hover: 0 0 30px rgba(255, 255, 255, 0.18), 0 0 12px rgba(255, 255, 255, 0.10);
+
+  /* Aurora glow colors - smooth color wheel flow */
+  --aurora-1: 0 75% 55%;
+  /* Red */
+  --aurora-2: 25 85% 55%;
+  /* Orange */
+  --aurora-3: 50 80% 50%;
+  /* Gold */
+  --aurora-4: 140 70% 45%;
+  /* Green */
+  --aurora-5: 185 85% 50%;
+  /* Cyan */
+  --aurora-6: 210 80% 55%;
+  /* Blue */
+}
+
+/* Aurora glow animation */
+@keyframes aurora-shift {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* Aurora glow button - only visible in dark mode */
+.rainbow-glow-btn {
+  position: relative;
+}
+
+.dark .rainbow-glow-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  height: 40%;
+  width: 80%;
+  background: linear-gradient(90deg,
+      hsl(var(--aurora-1)),
+      hsl(var(--aurora-2)),
+      hsl(var(--aurora-3)),
+      hsl(var(--aurora-4)),
+      hsl(var(--aurora-5)),
+      hsl(var(--aurora-6)),
+      hsl(var(--aurora-1)));
+  background-size: 200%;
+  filter: blur(12px);
+  animation: aurora-shift 6s infinite linear;
+  opacity: 0.7;
 }
 
 /* Base styles */
@@ -116,7 +169,7 @@ body {
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-card);
-  transition: box-shadow 0.05s ease-out !important, transform 0.05s ease-out !important;
+  transition: box-shadow 0.05s ease-out !important;
 }
 
 .surface-card:hover {
@@ -141,7 +194,7 @@ body {
 }
 
 .dark .surface-elevated {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-card);
 }
 
 /* Overlay surface - modals, fullscreen viewers (no position:relative to avoid conflicting with fixed) */
@@ -206,30 +259,37 @@ body {
   color: var(--color-text-muted);
 }
 
-/* Gold gradient text for premium elements */
+/* Blue gradient text for premium elements (light mode) */
 .gradient-text-gold {
-  background: linear-gradient(135deg, #D4AF37, #F5D67B, #C9A227);
+  background: linear-gradient(135deg, #2563EB, #3B82F6, #1D4ED8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Smooth transitions for dark mode */
-* {
-  transition-property: background-color, border-color, color;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
+/* Teal gradient text for premium elements (dark mode - brighter) */
+.dark .gradient-text-gold {
+  background: linear-gradient(135deg, #22D3EE, #2DD4BF, #5EEAD4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Reset transition for interactive elements (buttons, links) to avoid sluggishness */
-button,
-a,
-input,
-textarea {
-  transition-duration: 0.1s;
+/* Theme transitions - applied to specific elements for smooth dark/light mode switching */
+/* This replaces the previous * selector which blocked component-level transform animations */
+body,
+.surface-card,
+.surface-elevated,
+.surface-secondary,
+.surface-accent,
+.card-accent {
+  transition: background-color 0.15s ease-out,
+    border-color 0.15s ease-out,
+    color 0.15s ease-out,
+    box-shadow 0.15s ease-out;
 }
 
-/* Theme toggle should not inherit global color transitions */
+/* Theme toggle should not inherit color transitions */
 .theme-toggle,
 .theme-toggle * {
   transition-property: transform, opacity !important;

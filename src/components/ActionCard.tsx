@@ -90,7 +90,7 @@ export default function ActionCard({ number, title, description, details, url, b
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors mt-auto gradient-bg"
+                                className="rainbow-glow-btn inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors mt-auto gradient-bg"
                                 style={{ color: 'white' }}
                             >
                                 {buttonText}

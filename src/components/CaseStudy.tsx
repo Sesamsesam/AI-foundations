@@ -40,8 +40,7 @@ interface CaseStudyProps {
 export default function CaseStudy({ title, context, steps, outcome, darkMode = false }: CaseStudyProps) {
     return (
         <div
-            className="surface-elevated rounded-2xl overflow-hidden"
-            style={{ boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08)' }}
+            className="surface-card surface-elevated rounded-2xl overflow-hidden"
         >
             {/* Header - Light gray in light mode, matches card bg in dark mode */}
             <div
