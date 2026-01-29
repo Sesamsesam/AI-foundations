@@ -46,11 +46,14 @@ export default function ContentSection({ section, darkMode = false }: SectionPro
         // Separate course cards from other card types
         const courseCards = section.cards.filter(card => card.type === 'courseCard');
         const otherCards = section.cards.filter(card => card.type !== 'courseCard');
+        // Split otherCards into fullWidth and half-width
+        const fullWidthOtherCards = otherCards.filter(card => card.fullWidth !== false);
+        const halfWidthOtherCards = otherCards.filter(card => card.fullWidth === false);
 
         return (
             <div className="md:hidden">
-                {/* Render non-course cards first (full width) */}
-                {otherCards.map((card, idx) => (
+                {/* Render full-width non-course cards first */}
+                {fullWidthOtherCards.map((card, idx) => (
                     <motion.div
                         key={card.id}
                         initial={{ opacity: 0, y: 20 }}
@@ -62,6 +65,23 @@ export default function ContentSection({ section, darkMode = false }: SectionPro
                         <Card card={card} darkMode={darkMode} />
                     </motion.div>
                 ))}
+
+                {/* Render half-width cards in 2-column grid */}
+                {halfWidthOtherCards.length > 0 && (
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                        {halfWidthOtherCards.map((card, idx) => (
+                            <motion.div
+                                key={card.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            >
+                                <Card card={card} darkMode={darkMode} />
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
 
                 {/* Render course cards in dual grid */}
                 <LayoutGroup>
@@ -111,11 +131,14 @@ export default function ContentSection({ section, darkMode = false }: SectionPro
         // Separate course cards from other card types
         const courseCards = section.cards.filter(card => card.type === 'courseCard');
         const otherCards = section.cards.filter(card => card.type !== 'courseCard');
+        // Split otherCards into fullWidth and half-width
+        const fullWidthOtherCards = otherCards.filter(card => card.fullWidth !== false);
+        const halfWidthOtherCards = otherCards.filter(card => card.fullWidth === false);
 
         return (
             <div className="hidden md:block">
-                {/* Render non-course cards first (full width) */}
-                {otherCards.map((card, idx) => (
+                {/* Render full-width non-course cards first */}
+                {fullWidthOtherCards.map((card, idx) => (
                     <motion.div
                         key={card.id}
                         initial={{ opacity: 0, y: 20 }}
@@ -127,6 +150,23 @@ export default function ContentSection({ section, darkMode = false }: SectionPro
                         <Card card={card} darkMode={darkMode} />
                     </motion.div>
                 ))}
+
+                {/* Render half-width cards in 2-column grid */}
+                {halfWidthOtherCards.length > 0 && (
+                    <div className="grid md:grid-cols-2 gap-5 mb-6">
+                        {halfWidthOtherCards.map((card, idx) => (
+                            <motion.div
+                                key={card.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            >
+                                <Card card={card} darkMode={darkMode} />
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
 
                 {/* Render course cards in dual grid */}
                 <div className="grid md:grid-cols-2 gap-5" style={{ alignItems: 'stretch' }}>
