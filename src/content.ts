@@ -7,7 +7,7 @@ export const content: Tab[] = [
         label: 'Overview',
         hero: {
             title: 'Welcome to AI Foundations',
-            subtitle: 'Your guided path to mastering AI.\nFor anyone to become aconfident practitioner',
+            subtitle: 'Your guided path to mastering AI.\nFor anyone to become a confident practitioner',
             videoUrl: 'https://www.youtube.com/embed/kbOrgrPQHG4',
         },
         sections: [
