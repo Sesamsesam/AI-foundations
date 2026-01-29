@@ -1363,6 +1363,48 @@ You can use Open WebUI as a starting template for your own application instead o
 
 There's also LM Studio, another popular option for running local models with a nice UI. 👍`,
                     },
+                    {
+                        id: 'moltbot',
+                        type: 'toolCard',
+                        title: 'Moltbot',
+                        content: 'Formerly called Clawdbot. Runs locally and connects via WhatsApp, Telegram, or any chat app you already use.',
+                        url: 'https://www.molt.bot/',
+                        faviconPath: '/favicons/moltbot.svg',
+                        iconPath: '/icons/ai.svg',
+                        fullWidth: true,
+                        detailedContent: `This is the closest thing we come to 'Jarvis' from Iron Man right now. 🦞 \n\n It's truly spectacular!
+
+**What makes it special:**
+- Unlike the assistants you use on cloud, this one can control your computer
+and unlike all other assistants where they wait for you instrcutctions moltbot can ACTUALLY DO THINGS FOR YOU, without you asking! Literally!
+
+I am still learning to use it but this is a next step in AI assistants! 🚀
+
+- Runs on your machine (Mac, Windows, or Linux)
+- Works with Anthropic, OpenAI, or local models
+- Private by default - your data stays yours (unless you want it on the cloud)
+- Talk to it on WhatsApp, Telegram, Discord, Slack, Signal, or iMessage
+
+**What it can do:**
+- Clear your inbox, send emails, manage your calendar
+- Check you in for flights
+- Browse the web, fill forms, and extract data from any site
+- Read and write files, run shell commands, execute scripts
+- Persistent memory - it remembers you and becomes uniquely yours
+
+
+It's the closest thing we have to a personal assistant on call 24/7. 🔥
+
+**Note:** 
+
+There are two ways to use it:
+
+1. Self-hosted: You run it on your machine (Mac, Windows, or Linux)
+- But you need an extra device to run it on 24/7 and also for secruity you DO NOT want to connect your personal device to it. You essentially need a dedicated computer for it. Why? becuause you are letting it loose on your computer, it can do anything on your computer. So you need to be careful about what you give it access to.
+
+2. Cloud-hosted: Runs on their servers (you don't need to do anything) 
+- Hostinger has a plan for it, you pay 10$ a month and you get a dedicated computer for it in the cloud - HOWEVER it doesn't give the same level of autonomous access to your computer as the self-hosted version.  `,
+                    },
                 ],
             },
             {
